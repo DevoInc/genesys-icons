@@ -1,0 +1,85 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Doc/Development" />
+
+# Development
+
+Clone the repository from [Github Dali Icons](https://github.com/DevoInc/dali-icons).
+
+```js
+git clone git@github.com:DevoInc/dali-icons.git
+```
+
+## Requirements
+
+You will need to have installed:
+
+- node >= 14
+- npm >= 7
+
+## Installation
+
+First install the depencies
+
+```js
+cd /path/to/dali-icons
+npm ci
+```
+
+## Generate the icons
+
+Once installed the library, you will need to generate the icons.
+Run the follo command to generate icons for react and icons as a font.
+
+```js
+npm run generate
+```
+
+Or if you only want to generate icons for a particular case, run one of the
+following commands:
+
+```js
+// for react
+npm run generate:react
+// for font
+npm run generate:font
+```
+
+Sometimes you will need to removed these files to work with a clean directory.
+
+```js
+// for react
+npm run clean:react
+// for font
+npm run clean:font
+```
+
+Or if you need to remove all directories generated for development run:
+
+```js
+npm run clean
+```
+
+> _Note_: After run this command you will need to install the package.
+
+## Development enviroment
+
+Once you have installed and generated the icons, you can run a storybook to preview the output.
+
+```js
+npm run start
+```
+
+## Tests
+
+To check any change ensure to run the tests.
+
+```js
+npm run test
+```
+
+Optionally, you can run stryker to ensure the coverage of the tests.
+
+```js
+npm run stryker
+```

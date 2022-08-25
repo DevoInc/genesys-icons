@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Doc/Add new icons" />
+
+# Adding new icons
+
+To add new icons you should design a new icon following the conventions of
+Devo and follow the next steps.
+
+## Adding to the icons folder
+
+At the root of the project you will find an `icons` folder.
+
+In this directory you can find all the files with the _svg_ extension from which
+the icons are generated.
+
+To add a new icon just add the new _svg_ file.
+It is important that this file contains the `<title>` and `<tags>` tags.
+This is mandatory.
+
+In the `<title>` tag, indicate the name of the icon, and in the `<tags>` tag,
+indicate the labels, separated by commas, related to the icon.
+
+Let's see an example:
+
+```
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <title>bubble_chart</title>
+  <desc>chart,bubble</desc>
+  <path d="M14.085 9.048c0 2.211-1.793 4.004-4.004 4.004s-4.004-1.793-4.004-4.004c0-2.211 1.793-4.004 4.004-4.004s4.004 1.793 4.004 4.004z"></path>
+</svg>
+```
+
+The name for the new icon will be the `Di` prefix and the `<title>` tag
+content, converted to the camelCase format.
+
+Following the previous example, the name for the icon will be _DiBubbleChart_.
+
+## Generate all the packages icons
+
+After adding the icon to the icons folder, you will need to generate the
+new output with the changes. Follow the steps [here](TODO).
