@@ -1,7 +1,7 @@
 import * as cheerio from 'cheerio';
 import { ParsedElement } from './declarations';
 
-const invalidTags = ['style'];
+const invalidTags = ['STYLE'];
 
 const filterTags = ($element: cheerio.Cheerio) =>
   !invalidTags.includes($element.prop('tagName'));
