@@ -7,21 +7,21 @@ describe('parse', () => {
       'nested',
       '<svg><title>hello</title></svg>',
       {
-        tag: 'SVG',
+        tag: 'svg',
         attrs: {},
         text: '',
-        children: [{ tag: 'TITLE', attrs: {}, text: 'hello', children: [] }],
+        children: [{ tag: 'title', attrs: {}, text: 'hello', children: [] }],
       },
     ],
     [
       'attributes',
       '<svg version="1.1"></svg>',
-      { tag: 'SVG', attrs: { version: '1.1' }, text: '', children: [] },
+      { tag: 'svg', attrs: { version: '1.1' }, text: '', children: [] },
     ],
     [
       'filtered tag',
       '<svg><style /></svg>',
-      { tag: 'SVG', attrs: {}, text: '', children: [] },
+      { tag: 'svg', attrs: {}, text: '', children: [] },
     ],
   ];
 
