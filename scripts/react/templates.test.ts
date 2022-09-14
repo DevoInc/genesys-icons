@@ -13,7 +13,7 @@ const casesModuleTmpl: [string, string, string, string][] = [
     'Basic case',
     'myName',
     'myContent',
-    `export const myName = (props) => GenIcon(myContent, "")(props);`,
+    `export const myName = (props) => genIcon(myContent,"")(props);`,
   ],
 ];
 
@@ -22,7 +22,7 @@ const casesCommonTmpl: [string, string, string, string][] = [
     'Basic case',
     'myName',
     'myContent',
-    `module.exports.myName = (props) => GenIcon(myContent, "")(props);`,
+    `module.exports.myName = (props) => genIcon(myContent,"")(props);`,
   ],
 ];
 
@@ -30,7 +30,7 @@ const casesCommonFileTmpl: [string, Icon[], string][] = [
   [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
-    `// THIS FILE IS AUTO GENERATED\nvar GenIcon = require('../dist/cjs').GenIcon;\nC`,
+    `// THIS FILE IS AUTO GENERATED\nvar genIcon = require('./IconBase.js').genIcon;\nC`,
   ],
 ];
 
@@ -38,7 +38,7 @@ const casesModuleFileTmpl: [string, Icon[], string][] = [
   [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
-    `// THIS FILE IS AUTO GENERATED\nimport { GenIcon } from '../dist/esm';\nM`,
+    `// THIS FILE IS AUTO GENERATED\nimport { genIcon } from './IconBase.esm.js';\nM`,
   ],
 ];
 
@@ -46,7 +46,7 @@ const casesDefinitionsTmpl: [string, Icon[], string][] = [
   [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
-    `// THIS FILE IS AUTO GENERATED\nimport { IconType } from '../dist/esm';\nexport declare const T: IconType;`,
+    `// THIS FILE IS AUTO GENERATED\nimport { IconType } from './IconBase.esm.js';\nexport declare const T: IconType;`,
   ],
 ];
 
