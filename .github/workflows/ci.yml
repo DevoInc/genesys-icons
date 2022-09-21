@@ -64,6 +64,7 @@ jobs:
             **/node_modules
             ~/.npm
             dist
+            storybook-static
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
         
       - name: Run Eslint  
@@ -87,6 +88,7 @@ jobs:
             **/node_modules
             ~/.npm
             dist
+            storybook-static
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           
       - name: Run Jest
@@ -110,6 +112,7 @@ jobs:
             **/node_modules
             ~/.npm
             dist
+            storybook-static
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           
       - name: Execute Stryker
