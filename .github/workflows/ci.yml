@@ -1,4 +1,4 @@
-name: CI
+name: Generic pipeline
 
 on:
   push:
@@ -27,6 +27,7 @@ jobs:
             **/node_modules
             ~/.npm
             dist
+            storybook-static
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
       
       - name: Set Node v16
@@ -114,8 +115,9 @@ jobs:
       - name: Execute Stryker
         run: npm run stryker
 
-  storybook:
+  deploy:
     needs: [lint, test]
+    
     runs-on: ubuntu-latest
     
     steps:
@@ -132,10 +134,14 @@ jobs:
             **/node_modules
             ~/.npm
             dist
+            storybook-static
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           
       - name: Build Storybook
         run: npm run build-storybook
+          
+      - name: Deploy in Pages
+        run: npm run deploy
       
         
       

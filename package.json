@@ -1,4 +1,5 @@
 {
+  "homepage": "https://devoinc.github.io/dali-icons",
   "name": "@devoinc/dali-icons",
   "version": "0.1.0",
   "files": [
@@ -16,7 +17,8 @@
     "clean": "rm -rf dist",
     "test": "jest --coverage",
     "stryker": "npx stryker run",
-    "dist": "npm run clean && npm run generate && npm run build"
+    "dist": "npm run clean && npm run generate && npm run build",
+    "deploy": "gh-pages -d storybook-static"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.3.0",
@@ -48,6 +50,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.0",
     "eslint-plugin-storybook": "^0.6.4",
+    "gh-pages": "^4.0.0",
     "glob-promise": "^5.0.0",
     "jest": "^28.1.3",
     "prettier": "^2.7.1",
