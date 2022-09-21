@@ -18,9 +18,12 @@
     "test": "jest --coverage",
     "stryker": "npx stryker run",
     "dist": "npm run clean && npm run generate && npm run build",
-    "deploy": "gh-pages -d storybook-static"
+    "deploy": "gh-pages -d storybook-static",
+    "release": "release-it --ci"
   },
   "devDependencies": {
+    "@release-it-plugins/workspaces": "^3.2.0",
+    "@release-it/conventional-changelog": "^5.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.4.0",
     "@storybook/addon-a11y": "^6.1.15",
