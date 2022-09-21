@@ -142,6 +142,11 @@ jobs:
           
       - name: Build Storybook
         run: npm run build-storybook
+        
+      - name: Setup Git config
+        run: |
+          git config --global user.name 'Devo GitHub Action'
+          git config --global user.email 'desa@devo.com'
           
       - name: Deploy in Pages
         run: npm run deploy
