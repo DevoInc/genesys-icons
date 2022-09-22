@@ -77,7 +77,7 @@ jobs:
       - name: Run Eslint  
         run: npm run lint
         
-  test:
+  unit-test:
     needs: [build]
     runs-on: ubuntu-latest
     
@@ -101,13 +101,23 @@ jobs:
         run: npm run test
 
   release:
-    needs: [lint, test]
+    needs: [lint, unit-test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+      - name: Set node v14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "npm"
+          registry-url: https://registry.npmjs.org/
+
+      - name: Set npm version
+        run: npm i -g npm@7
 
       - name: Use node modules cache
         id: cache-npm
