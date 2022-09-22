@@ -7,9 +7,9 @@ permissions:
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ['master']
   pull_request:
-    branches: [ "master" ]
+    branches: ['master']
 
   # Allows to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -19,7 +19,7 @@ env:
 
 # Allow one concurrent deployment
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: true
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-        
+
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
@@ -41,31 +41,32 @@ jobs:
             ~/.npm
             dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-      
+
       - name: Set Node v16
         uses: actions/setup-node@v2
         with:
           node-version: 16
           cache: npm
           registry-url: https://registry.npmjs.org/
-          
+
       - name: Set NPM version
         run: npm i -g npm@7
-        
+
       - name: Install dependencies
         run: npm ci
-        
+
       - name: Generate dist
         run: npm run dist
-        
+
   lint:
     needs: [build]
-    runs-on: ubuntu-latest
     
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-        
+
       - name: Use node modules cache
         id: cache-npm
         uses: actions/cache@v3
@@ -77,18 +78,18 @@ jobs:
             ~/.npm
             dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-        
-      - name: Run Eslint  
+
+      - name: Run Eslint
         run: npm run lint
-        
-  test:
+
+  unit-test:
     needs: [build]
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-        
+
       - name: Use node modules cache
         id: cache-npm
         uses: actions/cache@v3
@@ -100,18 +101,18 @@ jobs:
             ~/.npm
             dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          
+
       - name: Run Jest
         run: npm run test
-        
-  stryker:
-    needs: [test]
+
+  mutation-test:
+    needs: [unit-test]
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-        
+
       - name: Use node modules cache
         id: cache-npm
         uses: actions/cache@v3
@@ -123,23 +124,23 @@ jobs:
             ~/.npm
             dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          
+
       - name: Execute Stryker
         run: npm run stryker
 
   deploy:
-    needs: [lint, test]
+    needs: [lint, unit-test]
 
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    
+
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-        
+
       - name: Use node modules cache
         id: cache-npm
         uses: actions/cache@v3
@@ -151,7 +152,7 @@ jobs:
             ~/.npm
             dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          
+
       - name: Build Storybook
         run: npm run build-storybook
 
@@ -166,7 +167,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-      
-        
-      
-
