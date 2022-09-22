@@ -19,7 +19,8 @@
     "stryker": "npx stryker run",
     "dist": "npm run clean && npm run generate && npm run build",
     "deploy": "gh-pages -d storybook-static",
-    "release": "release-it --ci"
+    "release": "release-it --dry-run",
+    "release:ci": "release-it --ci"
   },
   "devDependencies": {
     "@release-it-plugins/workspaces": "^3.2.0",
