@@ -28,6 +28,6 @@ yarn-error.log*
 
 .vscode
 .storybook
-/storybook-static
+storybook-static
 
 .npmrc
