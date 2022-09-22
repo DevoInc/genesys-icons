@@ -1,6 +1,7 @@
 name: ci
 
 permissions:
+  contents: read
   id-token: write
   pages: write
 
@@ -15,6 +16,11 @@ on:
 
 env:
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -123,6 +129,10 @@ jobs:
 
   deploy:
     needs: [lint, test]
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     runs-on: ubuntu-latest
     
