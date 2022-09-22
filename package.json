@@ -8,7 +8,7 @@
   "scripts": {
     "start": "npm run storybook",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs",
     "generate": "npm run generate:font && npm run generate:react",
     "generate:font": "ts-node ./scripts/font/generate.ts",
     "generate:react": "ts-node ./scripts/react/generate.ts",
