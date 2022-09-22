@@ -1,5 +1,4 @@
 {
-  "homepage": "http://devoinc.github.io/dali-icons",
   "name": "@devoinc/dali-icons",
   "version": "0.1.0",
   "files": [
@@ -18,7 +17,6 @@
     "test": "jest --coverage",
     "stryker": "npx stryker run",
     "dist": "npm run clean && npm run generate && npm run build",
-    "deploy": "gh-pages -d storybook-static",
     "release": "release-it --dry-run",
     "release:ci": "release-it --ci"
   },
