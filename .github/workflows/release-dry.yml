@@ -118,18 +118,6 @@ jobs:
 
       - name: Set npm version
         run: npm i -g npm@7
-
-      - name: Use node modules cache
-        id: cache-npm
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: |
-            **/node_modules
-            ~/.npm
-            dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
         
       - name: Setup Git config
         run: |
