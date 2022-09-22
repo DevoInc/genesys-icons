@@ -1,4 +1,4 @@
-name: Release (Dry run)
+name: release-dry-run
 
 on:
   workflow_dispatch:
@@ -15,6 +15,7 @@ on:
         required: true
 
 env:
+  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 jobs:
