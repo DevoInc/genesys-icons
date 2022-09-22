@@ -12,7 +12,7 @@
     "generate": "npm run generate:font && npm run generate:react",
     "generate:font": "ts-node ./scripts/font/generate.ts",
     "generate:react": "ts-node ./scripts/react/generate.ts",
-    "lint": "eslint scripts/**/*",
+    "lint": "eslint scripts/**/*.ts",
     "build": "rollup -c rollup.config.ts --configPlugin typescript",
     "clean": "rm -rf dist",
     "test": "jest --coverage",
