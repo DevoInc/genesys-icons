@@ -15,7 +15,7 @@ export interface IconTree {
   text: string;
 }
 
-const hiddenTags = ['tags', 'title'];
+const hiddenTags = ['desc', 'title'];
 const Tree2Element = (tree: IconTree[]): React.ReactElement[] =>
   tree &&
   tree

@@ -35,7 +35,7 @@ glob(`${srcPath}/*`).then(async (filenames) => {
         const svg = fs.readFileSync(filename, 'utf8');
         const parsedSVG = await parse(svg);
         const titleText = getTextByTag(parsedSVG, 'title');
-        const tags = getTextByTag(parsedSVG, 'tags');
+        const tags = getTextByTag(parsedSVG, 'desc');
 
         const title = `${config.prefix}${camelCase(titleText, {
           pascalCase: true,
