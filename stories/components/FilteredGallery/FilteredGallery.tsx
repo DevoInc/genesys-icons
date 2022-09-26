@@ -50,7 +50,7 @@ export const FilteredGallery: React.FC<FilteredGallery> = ({ icons }) => {
         search={searchText}
         icons={filteredIcons.map((key) => ({
           key,
-          tags: tags[key].split(','),
+          tags: tags[key] === '' ? [] : tags[key].split(','),
           Component: icons[key],
         }))}
       />
