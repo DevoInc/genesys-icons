@@ -40,7 +40,7 @@ jobs:
             **/node_modules
             ~/.npm
             dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-prepare-${{ env.cache-name }}-${{ github.sha }}
 
       - name: Set Node v16
         uses: actions/setup-node@v2
@@ -77,7 +77,7 @@ jobs:
             **/node_modules
             ~/.npm
             dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-prepare-${{ env.cache-name }}-${{ github.sha }}
 
       - name: Run Eslint
         run: npm run lint
@@ -100,7 +100,7 @@ jobs:
             **/node_modules
             ~/.npm
             dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-prepare-${{ env.cache-name }}-${{ github.sha }}
 
       - name: Run Jest
         run: npm run test
@@ -123,7 +123,7 @@ jobs:
             **/node_modules
             ~/.npm
             dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-prepare-${{ env.cache-name }}-${{ github.sha }}
 
       - name: Setup results folder
         run: mkdir mutation-test-results
@@ -166,7 +166,7 @@ jobs:
             **/node_modules
             ~/.npm
             dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-prepare-${{ env.cache-name }}-${{ github.sha }}
 
       - name: Build Storybook
         run: npm run build-storybook
