@@ -25,7 +25,7 @@ svgtofont({
     normalize: true,
   },
 }).then(() => {
-  console.log('Font: Generated dali-icons font!');
+  console.log('Font: Generated icons fonts!');
 
   const stylesFile = path.resolve(pkgPath, `${config.fontName}-styles.scss`);
   const allStyles = fs.readFileSync(stylesFile).toString();

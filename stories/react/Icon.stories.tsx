@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { DiSave } from '../../dist/';
+import { IconBubbleChart } from '../../dist/';
 
 export default {
   title: 'React/Icon',
-  component: DiSave,
+  component: IconBubbleChart,
   argTypes: {
     color: {
       control: 'color',
@@ -22,7 +22,7 @@ export default {
   },
 } as Meta;
 
-export const SingleIcon: Story = (args) => <DiSave {...args} />;
+export const SingleIcon: Story = (args) => <IconBubbleChart {...args} />;
 SingleIcon.args = {
   title: 'Some title',
   color: 'rgba(0, 0, 190, 1)',

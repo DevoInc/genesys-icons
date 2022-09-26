@@ -1,6 +1,6 @@
 # dali-icons
 
-Dali icons is an icon library used by Devo products; developed and maintend by
+Dali Icons is an icon library used by Devo products; developed and maintend by
 the QuVis team.
 
 You could use this package for components or for icon font.
