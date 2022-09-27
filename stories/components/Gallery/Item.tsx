@@ -77,7 +77,7 @@ const highlight = (str: string, match: string, prefix = '#') => {
 
 interface ItemProps {
   children: React.ReactElement;
-  name: string;
+  name: [string, string]; // [Font name prefix, icon name]
   match: string;
   tags: string[];
 }
@@ -86,9 +86,13 @@ export const Item: React.FC<ItemProps> = ({ children, name, match, tags }) => {
   return (
     <StyledContainer>
       <StyledItem>{children}</StyledItem>
-      <StyledLabel>{highlight(name, match)}</StyledLabel>
+      <StyledLabel>{highlight(`${name[0]}${name[1]}`, match)}</StyledLabel>
       <StyledClass>
-        {highlight(decamelize(name, { separator: '-' }), match, '.')}
+        {highlight(
+          `${name[0].toLowerCase()}-${decamelize(name[1], { separator: '_' })}`,
+          match,
+          '.'
+        )}
       </StyledClass>
       <StyledTags>{tags.map((tag) => highlight(tag, match))}</StyledTags>
     </StyledContainer>

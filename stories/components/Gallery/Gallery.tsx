@@ -14,7 +14,11 @@ const StyledGallery = styled.div`
 `;
 
 interface GalleryProps {
-  icons: { key: string; tags: string[]; Component: React.FC<IconBaseProps> }[];
+  icons: {
+    key: [string, string];
+    tags: string[];
+    Component: React.FC<IconBaseProps>;
+  }[];
   search: string;
 }
 
