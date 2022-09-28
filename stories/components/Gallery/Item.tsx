@@ -3,55 +3,87 @@ import styled from 'styled-components';
 import decamelize from 'decamelize';
 
 const StyledContainer = styled.div`
-  display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const StyledItem = styled.div`
-  padding: 1.2rem;
-  border: 1px solid lightgrey;
-  border-radius: 4px;
   display: flex;
+  position: relative;
+`;
+
+const StyledInfoContainer = styled.div`
+  flex-direction: column;
+  display: flex;
+  gap: 12px;
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  z-index: 1;
+  margin-top: 4px;
+  box-shadow: 0 4px 8px -2px rgba(12, 41, 56, 0.25),
+    0 0 1px 0 rgba(12, 41, 56, 0.31);
+  min-width: 240px;
+  width: auto;
+  padding: 24px;
+  border-radius: 6px;
+  background-color: #fff;
+`;
+
+const StyledHeading = styled.div`
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #1f282e;
+`;
+
+const StyledItem = styled.button`
+  position: relative;
   justify-content: center;
+  display: flex;
+  transition: background-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  border: 1px solid lightgrey;
+  outline: none;
+  border-radius: 4px;
   width: 80px;
-`;
+  padding: 1.2rem;
+  background: none;
+  cursor: pointer;
+  color: #1f282e;
 
-const StyledLabel = styled.p`
-  font-size: 0.8rem;
-  font-family: sans-serif;
-  margin: 10px 0 5px 0;
-  b {
-    color: black;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #f6f6f6;
+  }
+
+  &:focus-visible {
+    box-shadow: rgb(83 186 237) 0 0 0 2px;
   }
 `;
 
-const StyledClass = styled.p`
-  font-size: 0.8rem;
-  font-family: sans-serif;
-  margin: 0px 0 5px 0;
-  b {
-    color: black;
-  }
+const StyledText = styled.p`
+  margin: 0;
+  font-size: 12px;
+  white-space: nowrap;
+`;
+
+const StyledMark = styled.mark`
+  background-color: #c6dbf5;
+  font-weight: bold;
+  color: #5b6870;
 `;
 
 const StyledTags = styled.div`
-  font-size: 0.6rem;
-  font-family: sans-serif;
-  color: grey;
-  display: flex;
-  gap: 5px;
   flex-wrap: wrap;
-  justify-content: center;
+  column-gap: 8px;
+  row-gap: 2px;
+  display: flex;
+  font-size: 12px;
+
   span {
     white-space: nowrap;
   }
-  b {
-    color: black;
-  }
 `;
 
-const highlight = (str: string, match: string, prefix = '#') => {
+const highlight = (str: string, match: string, prefix = '') => {
   if (match === '')
     return (
       <span>
@@ -69,7 +101,7 @@ const highlight = (str: string, match: string, prefix = '#') => {
     <span>
       {prefix}
       {pre}
-      <b>{highlight}</b>
+      <StyledMark>{highlight}</StyledMark>
       {suf}
     </span>
   );
@@ -83,14 +115,36 @@ interface ItemProps {
 }
 
 export const Item: React.FC<ItemProps> = ({ children, name, match, tags }) => {
+  const [showInfo, setShowInfo] = React.useState(false);
   return (
     <StyledContainer>
-      <StyledItem>{children}</StyledItem>
-      <StyledLabel>{highlight(name, match)}</StyledLabel>
-      <StyledClass>
-        {highlight(decamelize(name, { separator: '-' }), match, '.')}
-      </StyledClass>
-      <StyledTags>{tags.map((tag) => highlight(tag, match))}</StyledTags>
+      <StyledContainer>
+        <StyledItem onClick={() => setShowInfo(!showInfo)}>
+          {children}
+        </StyledItem>
+        {showInfo && (
+          <StyledInfoContainer>
+            <div>
+              <StyledHeading>React component name</StyledHeading>
+              <StyledText>{highlight(name, match)}</StyledText>
+            </div>
+            <div>
+              <StyledHeading>Class name</StyledHeading>
+              <StyledText>
+                {highlight(decamelize(name, { separator: '-' }), match, '')}
+              </StyledText>
+            </div>
+            {tags?.length > 1 && (
+              <div>
+                <StyledHeading>Tags</StyledHeading>
+                <StyledTags>
+                  {tags.map((tag) => highlight(tag, match))}
+                </StyledTags>
+              </div>
+            )}
+          </StyledInfoContainer>
+        )}
+      </StyledContainer>
     </StyledContainer>
   );
 };

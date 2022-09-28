@@ -1,30 +1,54 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const StyledSearch = styled.div`
-  position: relative;
-  width: 100%;
-  input {
-    width: 100%;
-    font-size: 1.5rem;
-    border: none;
-    border-bottom: 1px solid lightgrey;
+  ${() => {
+    const barSpace = '16px';
+    const inputHorSpace = '12px';
+    return css`
+      position: sticky;
+      top: 0;
+      align-items: center;
+      display: flex;
+      z-index: 1;
+      transition: background-color ease-in-out 0.15s;
+      margin: -${barSpace};
+      box-shadow: rgb(12 41 56 / 8%) 0 4px 6px 0,
+        rgb(12 41 56 / 4%) 0 2px 2px 1px;
+      padding: ${barSpace};
+      background: #fff;
 
-    &:active,
-    &:focus,
-    &:hover {
-      outline: none;
-    }
-  }
+      input {
+        border: none;
+        width: 100%;
+        padding: 8px ${inputHorSpace};
+        border-radius: 6px;
+        font-size: 20px;
 
-  .counter {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: 1.5rem;
-    color: lightgrey;
-    font-family: sans-serif;
-  }
+        &::placeholder {
+          font-family: 'Poppins', sans-serif;
+          color: #aaa;
+        }
+
+        &:active,
+        &:focus,
+        &:hover {
+          outline: none;
+        }
+
+        &:focus {
+          background: #f6f6f6;
+        }
+      }
+
+      .counter {
+        position: absolute;
+        right: calc(${barSpace} + ${inputHorSpace});
+        font-size: 1rem;
+        color: #ccc;
+      }
+    `;
+  }}
 `;
 
 interface SearchProps {

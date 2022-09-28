@@ -6,11 +6,13 @@ import styled from 'styled-components';
 import { Item } from './Item';
 
 const StyledGallery = styled.div`
-  width: 100%;
   display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   gap: 16px;
-  margin: 16px 0;
-  grid-template-columns: repeat(6, 1fr);
+  margin-top: 16px;
+  padding: 24px;
+  box-sizing: border-box;
 `;
 
 interface GalleryProps {
