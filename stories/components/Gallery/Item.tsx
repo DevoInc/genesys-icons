@@ -1,6 +1,8 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import { usePopper } from 'react-popper';
 import styled from 'styled-components';
 import decamelize from 'decamelize';
+import { useOnEventOutside } from '../../hooks/useOnEventOutside';
 
 const StyledContainer = styled.div`
   flex-direction: column;
@@ -13,11 +15,11 @@ const StyledInfoContainer = styled.div`
   flex-direction: column;
   display: flex;
   gap: 12px;
-  position: absolute;
-  top: 100%;
-  left: -1px;
+  //position: absolute;
+  //top: 100%;
+  //left: -1px;
   z-index: 1;
-  margin-top: 4px;
+  //margin-top: 4px;
   box-shadow: 0 4px 8px -2px rgba(12, 41, 56, 0.25),
     0 0 1px 0 rgba(12, 41, 56, 0.31);
   min-width: 240px;
@@ -34,7 +36,19 @@ const StyledHeading = styled.div`
   color: #1f282e;
 `;
 
-const StyledItem = styled.button`
+const StyledSvgWrapper = styled.div`
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  svg {
+    width: 128px;
+    height: 128px;
+  }
+`;
+
+const StyledSvgWrapperButton = styled.button`
   position: relative;
   justify-content: center;
   display: flex;
@@ -109,29 +123,57 @@ const highlight = (str: string, match: string, prefix = '') => {
 
 interface ItemProps {
   children: React.ReactElement;
-  name: string;
+  name: [string, string]; // [Font name prefix, icon name]
   match: string;
   tags: string[];
 }
 
 export const Item: React.FC<ItemProps> = ({ children, name, match, tags }) => {
-  const [showInfo, setShowInfo] = React.useState(false);
+  const [hideInfo, setHideInfo] = React.useState(true);
+  const [referenceElement, setReferenceElement] = useState(null);
+  const [popperElement, setPopperElement] = useState(null);
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    placement: 'bottom-start',
+  });
+  // Click Outside - Hook
+  useOnEventOutside({
+    references: [referenceElement, popperElement],
+    handler: setHideInfo,
+  });
   return (
     <StyledContainer>
       <StyledContainer>
-        <StyledItem onClick={() => setShowInfo(!showInfo)}>
+        <StyledSvgWrapperButton
+          ref={setReferenceElement}
+          onClick={() => setHideInfo(!hideInfo)}
+        >
           {children}
-        </StyledItem>
-        {showInfo && (
-          <StyledInfoContainer>
+        </StyledSvgWrapperButton>
+        {!hideInfo && (
+          <StyledInfoContainer
+            ref={setPopperElement}
+            style={styles.popper}
+            {...attributes.popper}
+          >
+            <div>
+              <StyledSvgWrapper>{children}</StyledSvgWrapper>
+            </div>
             <div>
               <StyledHeading>React component name</StyledHeading>
-              <StyledText>{highlight(name, match)}</StyledText>
+              <StyledText>
+                {highlight(`${name[0]}${name[1]}`, match)}
+              </StyledText>
             </div>
             <div>
               <StyledHeading>Class name</StyledHeading>
               <StyledText>
-                {highlight(decamelize(name, { separator: '-' }), match, '')}
+                {highlight(
+                  `${name[0].toLowerCase()}-${decamelize(name[1], {
+                    separator: '_',
+                  })}`,
+                  match,
+                  ''
+                )}
               </StyledText>
             </div>
             {tags?.length > 1 && (

@@ -1,5 +1,6 @@
 import { IconType } from '@devoinc/dali-icons';
 import * as React from 'react';
+import { config } from '../../../config';
 
 import { Gallery } from '../Gallery';
 import { Search } from '../Search';
@@ -49,8 +50,8 @@ export const FilteredGallery: React.FC<FilteredGallery> = ({ icons }) => {
       <Gallery
         search={searchText}
         icons={filteredIcons.map((key) => ({
-          key,
-          tags: tags[key].split(','),
+          key: [config.prefix, key.replace(config.prefix, '')],
+          tags: tags[key] === '' ? [] : tags[key].split(','),
           Component: icons[key],
         }))}
       />

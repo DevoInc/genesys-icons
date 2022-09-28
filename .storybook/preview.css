@@ -34,3 +34,7 @@ body {
   font-family: 'Poppins', sans-serif;
   color: #5b6870;
 }
+
+svg {
+  color: #1f282e;
+}

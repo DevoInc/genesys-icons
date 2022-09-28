@@ -5,6 +5,7 @@ const StyledSearch = styled.div`
   ${() => {
     const barSpace = '16px';
     const inputHorSpace = '12px';
+    const cancelButtonSize = '16px';
     return css`
       position: sticky;
       top: 0;
@@ -30,6 +31,18 @@ const StyledSearch = styled.div`
           color: #aaa;
         }
 
+        &::-webkit-search-cancel-button {
+          appearance: none;
+          opacity: 0.3;
+          margin: 0;
+          width: 16px;
+          height: 16px;
+          background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQFJREFUeNrMV4ENwyAMo7uAE3oCH2wn9CQ+4JV9sO0C9gEncAKLJlohRIFA2xDJqirR2gkhJBPD2QIQgLt/f/jn2z8/gC/gyQ60GaAAFuAqYf03cy+5RBKnhMgWYg7QHcQxtP9nlYlOr3PREDWen0EeishGQp9IHm7HbsK5iyBTR80WVBsEgSlE08ZHVFWErPZkhBmfW69CAbbgDa8UoaO1phCFrbxivNoToRFCVyyY5MsRtJBvyfhqrGgrUSu589woASkRvKN8/wUcUdub744bG8DIt4A8CcmPIXkhIi/FQ1xG5NcxeUMyREs2RFNK3pYPMZgMMZpdNpxO1OP5T4ABAGPkp7uNtT7bAAAAAElFTkSuQmCC');
+          background-size: 16px;
+          background-position: center;
+          cursor: pointer;
+        }
+
         &:active,
         &:focus,
         &:hover {
@@ -44,8 +57,13 @@ const StyledSearch = styled.div`
       .counter {
         position: absolute;
         right: calc(${barSpace} + ${inputHorSpace});
+        transition: right ease-in-out 0.15s;
         font-size: 1rem;
         color: #ccc;
+      }
+
+      input:not([value='']) + .counter {
+        right: calc(${barSpace} + ${inputHorSpace} + ${cancelButtonSize} + 8px);
       }
     `;
   }}
@@ -76,6 +94,7 @@ export const Search: React.FC<SearchProps> = ({
     <StyledSearch>
       <input
         ref={ref}
+        type={'search'}
         value={value}
         onChange={(event) => {
           onChange?.(event.target.value);
