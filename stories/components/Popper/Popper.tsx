@@ -3,32 +3,17 @@ import { forwardRef } from 'react';
 import decamelize from 'decamelize';
 import styled from 'styled-components';
 import { SingleItem } from '../Gallery/types';
+import { IconArrowDown1, IconCopy } from '../../../dist/';
 import { highlight } from './highlight';
-
-const StyledHeading = styled.div`
-  margin-bottom: 4px;
-  font-size: 13px;
-  font-weight: bold;
-  color: #1f282e;
-`;
-
-const StyledText = styled.p`
-  margin: 0;
-  font-size: 12px;
-  white-space: nowrap;
-`;
-
-const StyledTags = styled.div`
-  flex-wrap: wrap;
-  column-gap: 8px;
-  row-gap: 2px;
-  display: flex;
-  font-size: 12px;
-
-  span {
-    white-space: nowrap;
-  }
-`;
+import {
+  StyledTextCode,
+  StyledIconButton,
+  StyledSvgWrapper,
+  StyledButton,
+  StyledHeading,
+  StyledText,
+  StyledTags,
+} from '../Gallery/styles';
 
 export type PopperStyles = {
   position: string;
@@ -78,37 +63,75 @@ export const Popper = forwardRef(function Popper(props: PopperProps, ref) {
       {...props.attributes.popper}
     >
       <div>
-        <StyledHeading>React component name</StyledHeading>
-        <StyledText>
-          {highlight(
-            `${props.item.name[0]}${props.item.name[1]}`,
-            props.item.match
-          )}
-        </StyledText>
+        <StyledSvgWrapper>
+          <div className={'d-flex flex-js-center'}>
+            <StyledButton
+              onClick={() => true}
+              title={'Download icon in SVG format'}
+            >
+              <IconArrowDown1 size={'14'} />
+              <span>SVG</span>
+            </StyledButton>
+          </div>
+        </StyledSvgWrapper>
       </div>
-      <div>
-        <StyledHeading>Class name</StyledHeading>
-        <StyledText>
-          {highlight(
-            `${props.item.name[0].toLowerCase()}-${decamelize(
-              props.item.name[1],
-              {
-                separator: '_',
-              }
-            )}`,
-            props.item.match,
-            ''
-          )}
-        </StyledText>
-      </div>
-      {props.item.tags?.length > 1 && (
+      <div className={'d-flex flex-dir-col gap-20'}>
         <div>
-          <StyledHeading>Tags</StyledHeading>
-          <StyledTags>
-            {props.item.tags.map((tag) => highlight(tag, props.item?.match))}
-          </StyledTags>
+          <StyledHeading>Class name</StyledHeading>
+          <StyledText>
+            {highlight(
+              `${props.item.name[0].toLowerCase()}-${decamelize(
+                props.item.name[1],
+                {
+                  separator: '_',
+                }
+              )}`,
+              props.item.match,
+              ''
+            )}
+            <StyledIconButton onClick={() => true} title={'Copy class name'}>
+              <IconCopy size={'14'} />
+            </StyledIconButton>
+          </StyledText>
         </div>
-      )}
+        <div className={'d-flex flex-dir-col gap-4'}>
+          <StyledHeading>React component</StyledHeading>
+          <div className={'d-flex flex-ai-center gap-8'}>
+            <StyledTextCode>
+              <span className={'code--common'}>&lt;</span>
+              <span className={'code--tag'}>
+                {highlight(
+                  `${props.item.name[0]}${props.item.name[1]}`,
+                  props.item.match
+                )}
+              </span>
+              &nbsp;
+              <span className={'code--attr'}>size</span>
+              <span className={'code--common'}>=</span>
+              <span className={'code--attr-value'}>"32"</span>
+              &nbsp;
+              <span className={'code--attr'}>color</span>
+              <span className={'code--common'}>=</span>
+              <span className={'code--attr-value'}>"#1f282e"</span>
+              <span className={'code--common'}>/&gt;</span>
+            </StyledTextCode>
+            <StyledIconButton
+              onClick={() => true}
+              title={'Copy react component code'}
+            >
+              <IconCopy size={'14'} />
+            </StyledIconButton>
+          </div>
+        </div>
+        {props.item.tags?.length > 1 && (
+          <div>
+            <StyledHeading>Tags</StyledHeading>
+            <StyledTags>
+              {props.item.tags.map((tag) => highlight(tag, props.item?.match))}
+            </StyledTags>
+          </div>
+        )}
+      </div>
     </StyledInfoContainer>
   ) : (
     <></>

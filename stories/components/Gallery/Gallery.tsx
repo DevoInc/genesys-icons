@@ -88,6 +88,7 @@ export const Gallery: React.FC<GalleryProps> = ({ icons, search }) => {
           key={key[1]}
           item={new SingleItem(key, search, tags)}
           handleClick={handleItemClick}
+          isSelected={selectedItem?.name[1] === key[1]}
         >
           <Component key={key} title={key} size={32} />
         </Item>
