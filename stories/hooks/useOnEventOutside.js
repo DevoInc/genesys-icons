@@ -19,10 +19,7 @@ export const useOnEventOutside = ({
 }) => {
   useEffect(() => {
     const listener = (event) => {
-      const isInside = references.some(
-        (ref) =>
-          ref?.current?.contains(event.target) || ref?.contains(event.target)
-      );
+      const isInside = references.some((ref) => ref?.contains(event.target));
       if (!isInside) {
         handler(event);
       }
