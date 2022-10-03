@@ -19,7 +19,7 @@ export const Item: FC<ItemProps> = ({
     <StyledContainer>
       <StyledSvgWrapperButton
         onClick={() => handleClick(item.name, item.tags)}
-        aria-expanded={isSelected ? null : true}
+        aria-expanded={!isSelected ? null : true}
       >
         {children}
       </StyledSvgWrapperButton>
