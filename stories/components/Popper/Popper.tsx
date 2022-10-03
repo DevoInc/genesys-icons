@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { forwardRef } from 'react';
 import decamelize from 'decamelize';
-import styled from 'styled-components';
 import { SingleItem } from '../Gallery/types';
 import { IconArrowDown1, IconCopy } from '../../../dist/';
 import { highlight } from './highlight';
@@ -13,6 +12,7 @@ import {
   StyledHeading,
   StyledText,
   StyledTags,
+  getStyledInfoContainer,
 } from '../Gallery/styles';
 
 export type PopperStyles = {
@@ -36,28 +36,11 @@ interface PopperProps {
   };
 }
 
-const DEFAULT_POPPER_WIDTH = 240;
 export const Popper = forwardRef(function Popper(props: PopperProps, ref) {
-  const StyledInfoContainer = styled.div`
-    position: ${props.popperStyles.position};
-    top: ${props.popperStyles.top}px;
-    left: ${props.popperStyles.left - DEFAULT_POPPER_WIDTH / 2}px;
-    flex-direction: column;
-    display: flex;
-    gap: 12px;
-    z-index: 1;
-    //margin-top: 4px;
-    box-shadow: 0 4px 8px -2px rgba(12, 41, 56, 0.25),
-      0 0 1px 0 rgba(12, 41, 56, 0.31);
-    min-width: ${DEFAULT_POPPER_WIDTH}px;
-    width: auto;
-    padding: 24px;
-    border-radius: 6px;
-    background-color: #fff;
-  `;
+  const InfoContainer = getStyledInfoContainer(props.popperStyles);
 
   return props.item ? (
-    <StyledInfoContainer
+    <InfoContainer
       ref={ref}
       styles={props.styles.popper}
       {...props.attributes.popper}
@@ -132,7 +115,7 @@ export const Popper = forwardRef(function Popper(props: PopperProps, ref) {
           </div>
         )}
       </div>
-    </StyledInfoContainer>
+    </InfoContainer>
   ) : (
     <></>
   );

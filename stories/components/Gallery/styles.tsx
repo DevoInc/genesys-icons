@@ -1,5 +1,17 @@
 import styled, { css } from 'styled-components';
 
+const DEFAULT_POPPER_WIDTH = 240;
+
+export const StyledGallery = styled.div`
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(10, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+  padding: 24px;
+  box-sizing: border-box;
+`;
+
 export const StyledContainer = styled.div`
   flex-direction: column;
   align-items: center;
@@ -7,14 +19,18 @@ export const StyledContainer = styled.div`
   position: relative;
 `;
 
-export const StyledInfoContainer = styled.div`
+export const getStyledInfoContainer = (styles) => styled.div`
+  position: ${styles.position};
+  top: ${styles.top}px;
+  left: ${styles.left - DEFAULT_POPPER_WIDTH / 2}px;
+  flex-direction: column;
   display: flex;
-  align-items: center;
-  gap: 32px;
+  gap: 12px;
   z-index: 1;
+  //margin-top: 4px;
   box-shadow: 0 4px 8px -2px rgba(12, 41, 56, 0.25),
     0 0 1px 0 rgba(12, 41, 56, 0.31);
-  min-width: 240px;
+  min-width: ${DEFAULT_POPPER_WIDTH}px;
   width: auto;
   padding: 24px;
   border-radius: 6px;

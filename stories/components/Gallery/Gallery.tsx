@@ -1,24 +1,14 @@
 import { IconBaseProps } from '@devoinc/dali-icons';
-import { useState, useRef } from 'react';
+import { useState, useRef, FC } from 'react';
 import { usePopper } from 'react-popper';
 import { useOnEventOutside } from '../../hooks/useOnEventOutside';
 
 import * as React from 'react';
-import styled from 'styled-components';
 
 import { Item } from './Item';
 import { Popper, PopperStyles } from '../Popper';
 import { SingleItem } from './types';
-
-const StyledGallery = styled.div`
-  display: grid;
-  grid-template-rows: repeat(1, 1fr);
-  grid-template-columns: repeat(10, 1fr);
-  gap: 16px;
-  margin-top: 16px;
-  padding: 24px;
-  box-sizing: border-box;
-`;
+import { StyledGallery } from './styles';
 
 interface GalleryProps {
   icons: {
@@ -36,7 +26,7 @@ const getItemDOMCoords = (clickedItem: SingleItem | undefined) => {
   return coords;
 };
 
-export const Gallery: React.FC<GalleryProps> = ({ icons, search }) => {
+export const Gallery: FC<GalleryProps> = ({ icons, search }) => {
   const popperElement = useRef(null);
   const [selectedItem, setSelectedItem] = useState<SingleItem | undefined>(
     undefined
