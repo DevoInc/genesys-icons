@@ -57,11 +57,11 @@ export const Gallery: FC<GalleryProps> = ({ icons, search }) => {
     handler: deselect,
   });
 
-  const handleItemClick = (name, tags) => {
+  const handleItemClick = (name, tags, Component) => {
     const clickedItem =
       selectedItem && selectedItem.name[1] === name[1]
         ? undefined
-        : new SingleItem(name, search, tags);
+        : new SingleItem(name, search, tags, Component);
     setSelectedItem(clickedItem);
     const coords = getItemDOMCoords(clickedItem);
     setPopperStyles({
@@ -76,8 +76,14 @@ export const Gallery: FC<GalleryProps> = ({ icons, search }) => {
       {icons.map(({ key, tags, Component }) => (
         <Item
           key={key[1]}
-          item={new SingleItem(key, search, tags)}
-          handleClick={handleItemClick}
+          item={new SingleItem(key, search, tags, Component)}
+          handleClick={() =>
+            handleItemClick(
+              key,
+              tags,
+              <Component key={key} title={key} size={32} />
+            )
+          }
           isSelected={selectedItem?.name[1] === key[1]}
         >
           <Component key={key} title={key} size={32} />

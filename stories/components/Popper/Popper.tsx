@@ -47,6 +47,7 @@ export const Popper = forwardRef(function Popper(props: PopperProps, ref) {
     >
       <div>
         <StyledSvgWrapper>
+          {props.item.component}
           <div className={'d-flex flex-js-center'}>
             <StyledButton
               onClick={() => true}
