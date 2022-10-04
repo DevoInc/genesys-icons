@@ -1,4 +1,4 @@
-import { IconBaseProps } from '@devoinc/dali-icons';
+import { IconBaseProps } from '@devoinc/genesys-icons';
 export class SingleItem {
   name: [string, string];
   match?: string;

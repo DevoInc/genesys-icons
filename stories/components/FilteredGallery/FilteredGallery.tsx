@@ -1,4 +1,4 @@
-import { IconType } from '@devoinc/dali-icons';
+import { IconType } from '@devoinc/genesys-icons';
 import * as React from 'react';
 import { config } from '../../../config';
 

@@ -1,4 +1,4 @@
-import { IconBaseProps } from '@devoinc/dali-icons';
+import { IconBaseProps } from '@devoinc/genesys-icons';
 import { useState, FC } from 'react';
 import { usePopper } from 'react-popper';
 import { useOnEventOutside } from '../../hooks/useOnEventOutside';
