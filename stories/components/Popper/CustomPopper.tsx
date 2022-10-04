@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FC, Dispatch, SetStateAction } from 'react';
 import decamelize from 'decamelize';
 import { SingleItem } from '../Gallery/types';
-import { IconArrowDown1, IconCopy } from '../../../dist';
+import { GIArrowDown1, GICopy } from '../../../dist';
 import { highlight } from './highlight';
 import {
   StyledTextCode,
@@ -49,7 +49,7 @@ export const CustomPopper: FC<PopperProps> = ({
               onClick={() => true}
               title={'Download icon in SVG format'}
             >
-              <IconArrowDown1 size={'14'} />
+              <GIArrowDown1 size={'14'} />
               <span>SVG</span>
             </StyledButton>
           </div>
@@ -67,7 +67,7 @@ export const CustomPopper: FC<PopperProps> = ({
               ''
             )}
             <StyledIconButton onClick={() => true} title={'Copy class name'}>
-              <IconCopy size={'14'} />
+              <GICopy size={'14'} />
             </StyledIconButton>
           </StyledText>
         </div>
@@ -93,7 +93,7 @@ export const CustomPopper: FC<PopperProps> = ({
               onClick={() => true}
               title={'Copy react component code'}
             >
-              <IconCopy size={'14'} />
+              <GICopy size={'14'} />
             </StyledIconButton>
           </div>
         </div>

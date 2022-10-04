@@ -1,4 +1,4 @@
 export const config = {
-  prefix: 'Icon',
-  fontName: 'icon',
+  prefix: 'GI',
+  fontName: 'gi',
 };
