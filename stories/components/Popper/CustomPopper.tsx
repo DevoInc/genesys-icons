@@ -43,7 +43,7 @@ export const CustomPopper: FC<PopperProps> = ({
     >
       <div>
         <StyledSvgWrapper>
-          {item.component}
+          <item.component key={item.name} title={item.name} size={32} />
           <div className={'d-flex flex-js-center'}>
             <StyledButton
               onClick={() => true}

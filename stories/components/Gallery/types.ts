@@ -1,8 +1,9 @@
+import { IconBaseProps } from '@devoinc/dali-icons';
 export class SingleItem {
   name: [string, string];
   match?: string;
   tags: string[];
-  component: React.ReactNode;
+  component: React.FC<IconBaseProps>;
 
   constructor(name, match, tags, component) {
     this.name = name;

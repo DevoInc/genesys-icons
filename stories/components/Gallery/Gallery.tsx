@@ -66,7 +66,7 @@ export const Gallery: FC<GalleryProps> = ({ icons, search }) => {
         >
           <StyledContainer>
             <StyledContainer>
-              <Component key={key} title={key} size={32} />
+              {Component({ key, title: key, size: 32 })}
             </StyledContainer>
           </StyledContainer>
         </StyledSvgWrapperButton>
