@@ -43,7 +43,7 @@ export const Gallery: FC<GalleryProps> = ({ icons, search }) => {
 
   useOnEventOutside({
     references: [
-      referenceElement ? Object.values(referenceElement) : null,
+      ...document.querySelectorAll('.icon-container'),
       popperElement,
     ],
     handler: deselect,
@@ -64,7 +64,7 @@ export const Gallery: FC<GalleryProps> = ({ icons, search }) => {
           aria-expanded={selectedItem?.name[1] !== key[1] ? null : true}
           ref={(el) => (referenceElement[key[1]] = el)}
         >
-          <StyledContainer>
+          <StyledContainer className={`icon-container icon-${key[1]}`}>
             <StyledContainer>
               {Component({ key, title: key, size: 32 })}
             </StyledContainer>
