@@ -1,6 +1,6 @@
-# dali-icons
+# genesys-icons
 
-Dali Icons is an icon library used by Devo products; developed and maintend by
+Genesys Icons is an icon library used by Devo products; developed and maintend by
 the QuVis team.
 
 You could use this package for components or for icon font.
