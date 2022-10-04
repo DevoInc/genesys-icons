@@ -50,6 +50,7 @@ export const Gallery: FC<GalleryProps> = ({ icons }) => {
     <StyledGallery>
       {icons.map((icon) => (
         <StyledSvgWrapperButton
+          className={`icon-container icon-${icon.name[1]}`}
           key={icon.name[1]}
           onClick={() =>
             setSelectedItem(
@@ -61,7 +62,7 @@ export const Gallery: FC<GalleryProps> = ({ icons }) => {
           }
           ref={(el) => (referenceElement[icon.name[1]] = el)}
         >
-          <StyledContainer className={`icon-container icon-${icon.name[1]}`}>
+          <StyledContainer>
             <StyledContainer>
               {icon.component({ key: icon.name, title: icon.name, size: 32 })}
             </StyledContainer>
