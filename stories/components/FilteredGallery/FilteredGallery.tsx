@@ -1,6 +1,7 @@
 import { IconType } from '@devoinc/genesys-icons';
 import * as React from 'react';
 import { config } from '../../../config';
+import { SingleItem } from '../../utils';
 
 import { Gallery } from '../Gallery';
 import { Search } from '../Search';
@@ -48,12 +49,15 @@ export const FilteredGallery: React.FC<FilteredGallery> = ({ icons }) => {
         total={iconNames.length}
       />
       <Gallery
-        search={searchText}
-        icons={filteredIcons.map((key) => ({
-          key: [config.prefix, key.replace(config.prefix, '')],
-          tags: tags[key] === '' ? [] : tags[key].split(','),
-          Component: icons[key],
-        }))}
+        icons={filteredIcons.map(
+          (key) =>
+            new SingleItem(
+              [config.prefix, key.replace(config.prefix, '')],
+              searchText,
+              tags[key] === '' ? [] : tags[key].split(','),
+              icons[key]
+            )
+        )}
       />
     </>
   );

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FC, Dispatch, SetStateAction } from 'react';
 import decamelize from 'decamelize';
-import { SingleItem } from '../Gallery/types';
+import { SingleItem } from '../../utils';
 import { GIArrowDown1, GICopy } from '../../../dist';
 import { highlight } from './highlight';
 import {
@@ -13,7 +13,7 @@ import {
   StyledText,
   StyledTags,
   StyledInfoContainer,
-} from '../Gallery/styles';
+} from '../../utils';
 interface PopperProps {
   item: SingleItem | undefined;
   styles: {

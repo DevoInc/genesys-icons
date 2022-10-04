@@ -11,4 +11,8 @@ export class SingleItem {
     this.tags = tags;
     this.component = component;
   }
+
+  equals(icon: SingleItem) {
+    return this.name[1] === icon.name[1];
+  }
 }

@@ -1,4 +1,3 @@
-import { IconBaseProps } from '@devoinc/genesys-icons';
 import { useState, FC } from 'react';
 import { usePopper } from 'react-popper';
 import { useOnEventOutside } from '../../hooks/useOnEventOutside';
@@ -6,23 +5,21 @@ import { useOnEventOutside } from '../../hooks/useOnEventOutside';
 import * as React from 'react';
 
 import { CustomPopper } from '../Popper';
-import { SingleItem } from './types';
+import { SingleItem } from '../../utils';
 import {
   StyledGallery,
   StyledSvgWrapperButton,
   StyledContainer,
-} from './styles';
+} from '../../utils';
 
 interface GalleryProps {
-  icons: {
-    key: [string, string];
-    tags: string[];
-    Component: React.FC<IconBaseProps>;
-  }[];
-  search: string;
+  icons: SingleItem[];
 }
 
-export const Gallery: FC<GalleryProps> = ({ icons, search }) => {
+export const Gallery: FC<GalleryProps> = ({ icons }) => {
+  // Disabled rule on this line as the popper behavior needs setter
+  //    method to run correctly
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [referenceElement, setReferenceElement] = useState({});
   const [popperElement, setPopperElement] = useState(null);
   const [selectedItem, setSelectedItem] = useState<SingleItem | undefined>(
@@ -51,22 +48,22 @@ export const Gallery: FC<GalleryProps> = ({ icons, search }) => {
 
   return (
     <StyledGallery>
-      {icons.map(({ key, tags, Component }) => (
+      {icons.map((icon) => (
         <StyledSvgWrapperButton
-          key={key[1]}
+          key={icon.name[1]}
           onClick={() =>
             setSelectedItem(
-              selectedItem && selectedItem.name[1] === key[1]
-                ? undefined
-                : new SingleItem(key, search, tags, Component)
+              selectedItem && selectedItem.equals(icon) ? undefined : icon
             )
           }
-          aria-expanded={selectedItem?.name[1] !== key[1] ? null : true}
-          ref={(el) => (referenceElement[key[1]] = el)}
+          aria-expanded={
+            !selectedItem || !selectedItem.equals(icon) ? null : true
+          }
+          ref={(el) => (referenceElement[icon.name[1]] = el)}
         >
-          <StyledContainer className={`icon-container icon-${key[1]}`}>
+          <StyledContainer className={`icon-container icon-${icon.name[1]}`}>
             <StyledContainer>
-              {Component({ key, title: key, size: 32 })}
+              {icon.component({ key: icon.name, title: icon.name, size: 32 })}
             </StyledContainer>
           </StyledContainer>
         </StyledSvgWrapperButton>
