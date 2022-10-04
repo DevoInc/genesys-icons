@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { forwardRef } from 'react';
+import { FC, Dispatch, SetStateAction } from 'react';
 import decamelize from 'decamelize';
 import { SingleItem } from '../Gallery/types';
-import { IconArrowDown1, IconCopy } from '../../../dist/';
+import { IconArrowDown1, IconCopy } from '../../../dist';
 import { highlight } from './highlight';
 import {
   StyledTextCode,
@@ -12,21 +12,13 @@ import {
   StyledHeading,
   StyledText,
   StyledTags,
-  getStyledInfoContainer,
+  StyledInfoContainer,
 } from '../Gallery/styles';
-
-export type PopperStyles = {
-  position: string;
-  left: number;
-  top: number;
-};
-
 interface PopperProps {
   item: SingleItem | undefined;
   styles: {
     [key: string]: React.CSSProperties;
   };
-  popperStyles: PopperStyles;
   attributes: {
     [key: string]:
       | {
@@ -34,20 +26,24 @@ interface PopperProps {
         }
       | undefined;
   };
+  popperRef: Dispatch<SetStateAction<null>>;
 }
 
-export const Popper = forwardRef(function Popper(props: PopperProps, ref) {
-  const InfoContainer = getStyledInfoContainer(props.popperStyles);
-
-  return props.item ? (
-    <InfoContainer
-      ref={ref}
-      styles={props.styles.popper}
-      {...props.attributes.popper}
+export const CustomPopper: FC<PopperProps> = ({
+  item,
+  styles,
+  attributes,
+  popperRef,
+}) =>
+  item ? (
+    <StyledInfoContainer
+      ref={popperRef}
+      style={styles.popper}
+      {...attributes.popper}
     >
       <div>
         <StyledSvgWrapper>
-          {props.item.component}
+          {item.component}
           <div className={'d-flex flex-js-center'}>
             <StyledButton
               onClick={() => true}
@@ -64,13 +60,10 @@ export const Popper = forwardRef(function Popper(props: PopperProps, ref) {
           <StyledHeading>Class name</StyledHeading>
           <StyledText>
             {highlight(
-              `${props.item.name[0].toLowerCase()}-${decamelize(
-                props.item.name[1],
-                {
-                  separator: '_',
-                }
-              )}`,
-              props.item.match,
+              `${item.name[0].toLowerCase()}-${decamelize(item.name[1], {
+                separator: '_',
+              })}`,
+              item.match,
               ''
             )}
             <StyledIconButton onClick={() => true} title={'Copy class name'}>
@@ -84,10 +77,7 @@ export const Popper = forwardRef(function Popper(props: PopperProps, ref) {
             <StyledTextCode>
               <span className={'code--common'}>&lt;</span>
               <span className={'code--tag'}>
-                {highlight(
-                  `${props.item.name[0]}${props.item.name[1]}`,
-                  props.item.match
-                )}
+                {highlight(`${item.name[0]}${item.name[1]}`, item.match)}
               </span>
               &nbsp;
               <span className={'code--attr'}>size</span>
@@ -107,17 +97,16 @@ export const Popper = forwardRef(function Popper(props: PopperProps, ref) {
             </StyledIconButton>
           </div>
         </div>
-        {props.item.tags?.length > 1 && (
+        {item.tags?.length > 1 && (
           <div>
             <StyledHeading>Tags</StyledHeading>
             <StyledTags>
-              {props.item.tags.map((tag) => highlight(tag, props.item?.match))}
+              {item.tags.map((tag) => highlight(tag, item?.match))}
             </StyledTags>
           </div>
         )}
       </div>
-    </InfoContainer>
+    </StyledInfoContainer>
   ) : (
     <></>
   );
-});

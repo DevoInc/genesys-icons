@@ -19,10 +19,7 @@ export const StyledContainer = styled.div`
   position: relative;
 `;
 
-export const getStyledInfoContainer = (styles) => styled.div`
-  position: ${styles.position};
-  top: ${styles.top}px;
-  left: ${styles.left - DEFAULT_POPPER_WIDTH / 2}px;
+export const StyledInfoContainer = styled.div`
   flex-direction: row;
   display: flex;
   gap: 12px;

@@ -1,14 +1,17 @@
 import { IconBaseProps } from '@devoinc/dali-icons';
-import { useState, useRef, FC } from 'react';
+import { useState, FC } from 'react';
 import { usePopper } from 'react-popper';
 import { useOnEventOutside } from '../../hooks/useOnEventOutside';
 
 import * as React from 'react';
 
-import { Item } from './Item';
-import { Popper, PopperStyles } from '../Popper';
+import { CustomPopper } from '../Popper';
 import { SingleItem } from './types';
-import { StyledGallery } from './styles';
+import {
+  StyledGallery,
+  StyledSvgWrapperButton,
+  StyledContainer,
+} from './styles';
 
 interface GalleryProps {
   icons: {
@@ -18,30 +21,19 @@ interface GalleryProps {
   }[];
   search: string;
 }
-const getItemDOMCoords = (clickedItem: SingleItem | undefined) => {
-  const selectedIconElement: HTMLDivElement | null = document.querySelector(
-    `.icon-${clickedItem?.name[1]}`
-  );
-  const coords = selectedIconElement?.getBoundingClientRect();
-  return coords;
-};
 
 export const Gallery: FC<GalleryProps> = ({ icons, search }) => {
-  const popperElement = useRef(null);
+  const [referenceElement, setReferenceElement] = useState({});
+  const [popperElement, setPopperElement] = useState(null);
   const [selectedItem, setSelectedItem] = useState<SingleItem | undefined>(
     undefined
   );
-  const [popperStyles, setPopperStyles] = useState<PopperStyles>({
-    position: 'absolute',
-    top: 0,
-    left: 0,
-  });
 
   const { styles, attributes } = usePopper(
-    selectedItem
-      ? document.querySelector(`icon-${selectedItem.name[1]}`)
+    selectedItem && referenceElement
+      ? referenceElement[selectedItem.name[1]]
       : null,
-    popperElement.current,
+    popperElement,
     {
       placement: 'bottom-start',
     }
@@ -51,51 +43,40 @@ export const Gallery: FC<GalleryProps> = ({ icons, search }) => {
 
   useOnEventOutside({
     references: [
-      ...document.querySelectorAll('.icon-container'),
-      popperElement.current,
+      referenceElement ? Object.values(referenceElement) : null,
+      popperElement,
     ],
     handler: deselect,
   });
 
-  const handleItemClick = (name, tags, Component) => {
-    const clickedItem =
-      selectedItem && selectedItem.name[1] === name[1]
-        ? undefined
-        : new SingleItem(name, search, tags, Component);
-    setSelectedItem(clickedItem);
-    const coords = getItemDOMCoords(clickedItem);
-    setPopperStyles({
-      ...popperStyles,
-      left: clickedItem && coords ? coords.left : 0,
-      top: clickedItem && coords ? coords.top : 0,
-    });
-  };
-
   return (
     <StyledGallery>
       {icons.map(({ key, tags, Component }) => (
-        <Item
+        <StyledSvgWrapperButton
           key={key[1]}
-          item={new SingleItem(key, search, tags, Component)}
-          handleClick={() =>
-            handleItemClick(
-              key,
-              tags,
-              <Component key={key} title={key} size={32} />
+          onClick={() =>
+            setSelectedItem(
+              selectedItem && selectedItem.name[1] === key[1]
+                ? undefined
+                : new SingleItem(key, search, tags, Component)
             )
           }
-          isSelected={selectedItem?.name[1] === key[1]}
+          aria-expanded={selectedItem?.name[1] !== key[1] ? null : true}
+          ref={(el) => (referenceElement[key[1]] = el)}
         >
-          <Component key={key} title={key} size={32} />
-        </Item>
+          <StyledContainer>
+            <StyledContainer>
+              <Component key={key} title={key} size={32} />
+            </StyledContainer>
+          </StyledContainer>
+        </StyledSvgWrapperButton>
       ))}
       {selectedItem && (
-        <Popper
+        <CustomPopper
           item={selectedItem}
-          ref={popperElement}
           styles={styles}
           attributes={attributes}
-          popperStyles={popperStyles}
+          popperRef={setPopperElement}
         />
       )}
     </StyledGallery>
