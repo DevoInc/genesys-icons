@@ -63,9 +63,7 @@ export const Gallery: FC<GalleryProps> = ({ icons }) => {
           ref={(el) => (referenceElement[icon.name[1]] = el)}
         >
           <StyledContainer>
-            <StyledContainer>
-              {icon.component({ key: icon.name, title: icon.name, size: 32 })}
-            </StyledContainer>
+            {icon.component({ key: icon.name, title: icon.name, size: 32 })}
           </StyledContainer>
         </StyledSvgWrapperButton>
       ))}
