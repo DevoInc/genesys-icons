@@ -120,11 +120,11 @@ export const CustomPopper: FC<PopperProps> = ({
               &nbsp;
               <span className={'code--attr'}>size</span>
               <span className={'code--common'}>=</span>
-              <span className={'code--attr-value'}>{'32'}</span>
+              <span className={'code--attr-value'}>{'{32}'}</span>
               &nbsp;
               <span className={'code--attr'}>color</span>
               <span className={'code--common'}>=</span>
-              <span className={'code--attr-value'}>{'#1f282e'}</span>
+              <span className={'code--attr-value'}>{"{'#1f282e'}"}</span>
               <span className={'code--common'}>/&gt;</span>
             </StyledTextCode>
             {!copiedReactComponent && (
