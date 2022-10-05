@@ -53,13 +53,9 @@ export const Gallery: FC<GalleryProps> = ({ icons }) => {
           className={`icon-container icon-${icon.name[1]}`}
           key={icon.name[1]}
           onClick={() =>
-            setSelectedItem(
-              selectedItem && selectedItem.equals(icon) ? undefined : icon
-            )
+            setSelectedItem(selectedItem?.equals(icon) ? undefined : icon)
           }
-          aria-expanded={
-            !selectedItem || !selectedItem.equals(icon) ? null : true
-          }
+          aria-expanded={!selectedItem?.equals(icon) ? null : true}
           ref={(el) => (referenceElement[icon.name[1]] = el)}
         >
           <StyledContainer>
