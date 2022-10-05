@@ -7,3 +7,8 @@ export const copyClassName = (icon: SingleItem) =>
       separator: '_',
     })}`
   );
+
+export const copyReactComponent = (icon: SingleItem) =>
+  navigator.clipboard.writeText(
+    `<${icon.name[0]}${icon.name[1]} size={32} color={'#1f282e'} />`
+  );

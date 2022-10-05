@@ -3,6 +3,7 @@ import { FC, Dispatch, SetStateAction } from 'react';
 import decamelize from 'decamelize';
 import {
   copyClassName,
+  copyReactComponent,
   SingleItem,
 } from '../../utils';
 import { GIArrowDown1, GICopy } from '../../../dist';
@@ -96,7 +97,7 @@ export const CustomPopper: FC<PopperProps> = ({
               <span className={'code--common'}>/&gt;</span>
             </StyledTextCode>
             <StyledIconButton
-              onClick={() => true}
+              onClick={() => copyReactComponent(item)}
               title={'Copy react component code'}
             >
               <GICopy size={'14'} />
