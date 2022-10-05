@@ -4,6 +4,7 @@ import decamelize from 'decamelize';
 import {
   copyClassName,
   copyReactComponent,
+  downloadIcon,
   SingleItem,
 } from '../../utils';
 import { GIArrowDown1, GICopy } from '../../../dist';
@@ -46,11 +47,11 @@ export const CustomPopper: FC<PopperProps> = ({
       {...attributes.popper}
     >
       <div>
-        <StyledSvgWrapper>
+        <StyledSvgWrapper className={`svg-wrapper svg-${item.name[1]}`}>
           <item.component key={item.name} title={item.name} size={32} />
           <div className={'d-flex flex-js-center'}>
             <StyledButton
-              onClick={() => true}
+              onClick={() => downloadIcon(item)}
               title={'Download icon in SVG format'}
             >
               <GIArrowDown1 size={'14'} />
