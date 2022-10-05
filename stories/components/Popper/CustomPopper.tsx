@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FC, Dispatch, SetStateAction } from 'react';
+import { FC, Dispatch, SetStateAction, useState } from 'react';
 import decamelize from 'decamelize';
 import {
   copyClassName,
@@ -7,13 +7,15 @@ import {
   downloadIcon,
   SingleItem,
 } from '../../utils';
-import { GIArrowDown1, GICopy } from '../../../dist';
+import { GIArrowDown1, GICopy, GICheckThick } from '../../../dist';
 import { highlight } from './highlight';
 import {
   StyledTextCode,
   StyledIconButton,
+  StyledIconButtonSuccess,
   StyledSvgWrapper,
   StyledButton,
+  StyledButtonSuccess,
   StyledHeading,
   StyledText,
   StyledTags,
@@ -39,8 +41,12 @@ export const CustomPopper: FC<PopperProps> = ({
   styles,
   attributes,
   popperRef,
-}) =>
-  item ? (
+}) => {
+  const [copiedClassName, setCopiedClassName] = useState(false);
+  const [copiedReactComponent, setCopiedReactComponent] = useState(false);
+  const [downloadedSVG, setDownloadedSVG] = useState(false);
+
+  return item ? (
     <StyledInfoContainer
       ref={popperRef}
       style={styles.popper}
@@ -50,13 +56,24 @@ export const CustomPopper: FC<PopperProps> = ({
         <StyledSvgWrapper className={`svg-wrapper svg-${item.name[1]}`}>
           <item.component key={item.name} title={item.name} size={32} />
           <div className={'d-flex flex-js-center'}>
-            <StyledButton
-              onClick={() => downloadIcon(item)}
-              title={'Download icon in SVG format'}
-            >
-              <GIArrowDown1 size={'14'} />
-              <span>SVG</span>
-            </StyledButton>
+            {!downloadedSVG && (
+              <StyledButton
+                onClick={() => setDownloadedSVG(downloadIcon(item))}
+                title={'Download icon in SVG format'}
+              >
+                <GIArrowDown1 size={'14'} />
+                <span>SVG</span>
+              </StyledButton>
+            )}
+            {downloadedSVG && (
+              <StyledButtonSuccess
+                onClick={() => setDownloadedSVG(false)}
+                title={'Downloaded icon'}
+              >
+                <GICheckThick size={'14'} />
+                <span>SVG</span>
+              </StyledButtonSuccess>
+            )}
           </div>
         </StyledSvgWrapper>
       </div>
@@ -71,12 +88,25 @@ export const CustomPopper: FC<PopperProps> = ({
               item.match,
               ''
             )}
-            <StyledIconButton
-              onClick={() => copyClassName(item)}
-              title={'Copy class name'}
-            >
-              <GICopy size={'14'} />
-            </StyledIconButton>
+            {!copiedClassName && (
+              <StyledIconButton
+                onClick={async () => {
+                  setCopiedClassName(await copyClassName(item));
+                  setCopiedReactComponent(false);
+                }}
+                title={'Copy class name'}
+              >
+                <GICopy size={'14'} />
+              </StyledIconButton>
+            )}
+            {copiedClassName && (
+              <StyledIconButtonSuccess
+                title={'Copied class name'}
+                onClick={() => setCopiedClassName(false)}
+              >
+                <GICheckThick size={'14'} />
+              </StyledIconButtonSuccess>
+            )}
           </StyledText>
         </div>
         <div className={'d-flex flex-dir-col gap-4'}>
@@ -97,12 +127,25 @@ export const CustomPopper: FC<PopperProps> = ({
               <span className={'code--attr-value'}>{'#1f282e'}</span>
               <span className={'code--common'}>/&gt;</span>
             </StyledTextCode>
-            <StyledIconButton
-              onClick={() => copyReactComponent(item)}
-              title={'Copy react component code'}
-            >
-              <GICopy size={'14'} />
-            </StyledIconButton>
+            {!copiedReactComponent && (
+              <StyledIconButton
+                onClick={async () => {
+                  setCopiedReactComponent(await copyReactComponent(item));
+                  setCopiedClassName(false);
+                }}
+                title={'Copy react component code'}
+              >
+                <GICopy size={'14'} />
+              </StyledIconButton>
+            )}
+            {copiedReactComponent && (
+              <StyledIconButtonSuccess
+                title={'Copied code'}
+                onClick={() => setCopiedReactComponent(false)}
+              >
+                <GICheckThick size={'14'} />
+              </StyledIconButtonSuccess>
+            )}
           </div>
         </div>
         {item.tags?.length > 1 && (
@@ -118,3 +161,4 @@ export const CustomPopper: FC<PopperProps> = ({
   ) : (
     <></>
   );
+};
