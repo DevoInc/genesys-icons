@@ -2,44 +2,7 @@ import styled, { css } from 'styled-components';
 
 const DEFAULT_POPPER_WIDTH = 240;
 
-export const StyledGallery = styled.div`
-  display: grid;
-  grid-template-rows: repeat(1, 1fr);
-  grid-template-columns: repeat(10, 1fr);
-  gap: 16px;
-  margin-top: 16px;
-  padding: 24px;
-  box-sizing: border-box;
-`;
-
-export const StyledContainer = styled.div`
-  flex-direction: column;
-  align-items: center;
-  display: flex;
-  position: relative;
-`;
-
-export const StyledInfoContainer = styled.div`
-  flex-direction: row;
-  display: flex;
-  gap: 12px;
-  z-index: 1;
-  //margin-top: 4px;
-  box-shadow: 0 4px 8px -2px rgba(12, 41, 56, 0.25),
-    0 0 1px 0 rgba(12, 41, 56, 0.31);
-  min-width: ${DEFAULT_POPPER_WIDTH}px;
-  width: auto;
-  padding: 24px;
-  border-radius: 6px;
-  background-color: #fff;
-`;
-
-export const StyledHeading = styled.div`
-  margin-bottom: 4px;
-  font-size: 13px;
-`;
-
-export const StyledButton = styled.button`
+export const commonButtonStyles = css`
   position: relative;
   appearance: none;
   display: inline-flex;
@@ -58,7 +21,7 @@ export const StyledButton = styled.button`
   overflow: hidden;
   text-overflow: ellipsis;
   font-family: inherit;
-  transition: background-color ease-in-out 0.15s;
+  transition: background-color ease-in-out 0.15s, color ease-in-out 0.15s;
 
   &:before {
     content: '';
@@ -100,6 +63,61 @@ export const StyledButton = styled.button`
   }
 `;
 
+export const successButtonStyles = css`
+  background-color: #46e3af;
+  color: #0a2e22;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: #0a2e22;
+  }
+`;
+
+export const StyledGallery = styled.div`
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(10, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+  padding: 24px;
+  box-sizing: border-box;
+`;
+
+export const StyledContainer = styled.div`
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  position: relative;
+`;
+
+export const StyledInfoContainer = styled.div`
+  flex-direction: row;
+  display: flex;
+  gap: 12px;
+  z-index: 1;
+  box-shadow: 0 4px 8px -2px rgba(12, 41, 56, 0.25),
+    0 0 1px 0 rgba(12, 41, 56, 0.31);
+  min-width: ${DEFAULT_POPPER_WIDTH}px;
+  width: auto;
+  padding: 24px;
+  border-radius: 6px;
+  background-color: #fff;
+`;
+
+export const StyledHeading = styled.div`
+  margin-bottom: 4px;
+  font-size: 13px;
+`;
+
+export const StyledButton = styled.button`
+  ${commonButtonStyles};
+`;
+
+export const StyledButtonSuccess = styled(StyledButton)`
+  ${successButtonStyles};
+`;
+
 export const StyledIconButton = styled(StyledButton)`
   width: 24px;
   height: 24px;
@@ -108,6 +126,10 @@ export const StyledIconButton = styled(StyledButton)`
   > svg {
     margin-right: 0;
   }
+`;
+
+export const StyledIconButtonSuccess = styled(StyledIconButton)`
+  ${successButtonStyles};
 `;
 
 export const StyledSvgWrapper = styled.div`

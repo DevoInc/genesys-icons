@@ -2,13 +2,15 @@ import * as React from 'react';
 import { FC, Dispatch, SetStateAction } from 'react';
 import decamelize from 'decamelize';
 import { SingleItem } from '../../utils';
-import { GIArrowDown1, GICopy } from '../../../dist';
+import { GIArrowDown1, GICopy, GICheckThick } from '../../../dist';
 import { highlight } from './highlight';
 import {
   StyledTextCode,
   StyledIconButton,
+  StyledIconButtonSuccess,
   StyledSvgWrapper,
   StyledButton,
+  StyledButtonSuccess,
   StyledHeading,
   StyledText,
   StyledTags,
@@ -52,6 +54,13 @@ export const CustomPopper: FC<PopperProps> = ({
               <GIArrowDown1 size={'14'} />
               <span>SVG</span>
             </StyledButton>
+            <StyledButtonSuccess
+                onClick={() => true}
+                title={'Downloaded icon'}
+            >
+              <GICheckThick size={'14'} />
+              <span>SVG</span>
+            </StyledButtonSuccess>
           </div>
         </StyledSvgWrapper>
       </div>
@@ -69,6 +78,12 @@ export const CustomPopper: FC<PopperProps> = ({
             <StyledIconButton onClick={() => true} title={'Copy class name'}>
               <GICopy size={'14'} />
             </StyledIconButton>
+            <StyledIconButtonSuccess
+                onClick={() => true}
+                title={'Copied class name'}
+            >
+              <GICheckThick size={'14'} />
+            </StyledIconButtonSuccess>
           </StyledText>
         </div>
         <div className={'d-flex flex-dir-col gap-4'}>
@@ -95,6 +110,12 @@ export const CustomPopper: FC<PopperProps> = ({
             >
               <GICopy size={'14'} />
             </StyledIconButton>
+            <StyledIconButtonSuccess
+              onClick={() => true}
+              title={'Copied code'}
+            >
+              <GICheckThick size={'14'} />
+            </StyledIconButtonSuccess>
           </div>
         </div>
         {item.tags?.length > 1 && (
