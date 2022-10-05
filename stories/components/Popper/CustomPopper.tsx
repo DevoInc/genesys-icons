@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { FC, Dispatch, SetStateAction } from 'react';
 import decamelize from 'decamelize';
-import { SingleItem } from '../../utils';
+import {
+  copyClassName,
+  SingleItem,
+} from '../../utils';
 import { GIArrowDown1, GICopy } from '../../../dist';
 import { highlight } from './highlight';
 import {
@@ -66,7 +69,10 @@ export const CustomPopper: FC<PopperProps> = ({
               item.match,
               ''
             )}
-            <StyledIconButton onClick={() => true} title={'Copy class name'}>
+            <StyledIconButton
+              onClick={() => copyClassName(item)}
+              title={'Copy class name'}
+            >
               <GICopy size={'14'} />
             </StyledIconButton>
           </StyledText>
