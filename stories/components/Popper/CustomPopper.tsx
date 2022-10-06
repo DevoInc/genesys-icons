@@ -36,7 +36,7 @@ interface PopperProps {
   popperRef: Dispatch<SetStateAction<null>>;
 }
 
-const DEFAULT_RESTORE_TIME = 2500;
+const DEFAULT_RESTORE_TIME = 1500;
 
 export const CustomPopper: FC<PopperProps> = ({
   item,
