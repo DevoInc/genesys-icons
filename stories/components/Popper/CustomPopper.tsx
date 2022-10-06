@@ -36,6 +36,8 @@ interface PopperProps {
   popperRef: Dispatch<SetStateAction<null>>;
 }
 
+const DEFAULT_RESTORE_TIME = 2500;
+
 export const CustomPopper: FC<PopperProps> = ({
   item,
   styles,
@@ -51,7 +53,7 @@ export const CustomPopper: FC<PopperProps> = ({
     if (result) {
       setCopiedClassName(true);
       setCopiedReactComponent(false);
-      setTimeout(() => setCopiedClassName(false), 4000);
+      setTimeout(() => setCopiedClassName(false), DEFAULT_RESTORE_TIME);
     }
   };
 
@@ -60,14 +62,14 @@ export const CustomPopper: FC<PopperProps> = ({
     if (result) {
       setCopiedReactComponent(true);
       setCopiedClassName(false);
-      setTimeout(() => setCopiedReactComponent(false), 4000);
+      setTimeout(() => setCopiedReactComponent(false), DEFAULT_RESTORE_TIME);
     }
   };
 
   const handleDownloadSVG = async (item: SingleItem) => {
     if (downloadIcon(item)) {
       setDownloadedSVG(true);
-      setTimeout(() => setDownloadedSVG(false), 4000);
+      setTimeout(() => setDownloadedSVG(false), DEFAULT_RESTORE_TIME);
     }
   };
 
