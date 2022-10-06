@@ -51,6 +51,8 @@ svgtofont({
 @import '${config.fontName}-variables';
 
 // ${config.fontName} FONT STYLES
-@import '${config.fontName}-styles';`;
+@import '${config.fontName}-styles';
+
+// This is a test text for cache check.`;
   fs.writeFileSync(baseFile, baseContent, { encoding: 'utf8' });
 });

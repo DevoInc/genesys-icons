@@ -19,7 +19,7 @@
     "stryker": "npx stryker run",
     "dist": "npm run clean && npm run generate && npm run build",
     "release": "release-it --dry-run",
-    "release:ci": "release-it --ci"
+    "release:ci": "cat ./dist/gi.scss && release-it --ci"
   },
   "devDependencies": {
     "@release-it/conventional-changelog": "^5.1.0",
