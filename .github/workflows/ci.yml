@@ -167,3 +167,6 @@ jobs:
             ~/.npm
             dist
           key: ${{ runner.os }}-prepare-${{ env.cache-name }}-${{ github.sha }}
+
+      - name: testtin
+        run: ls node_modules
