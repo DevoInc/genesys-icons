@@ -154,7 +154,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repos
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Use node modules cache
