@@ -153,7 +153,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repos
         uses: actions/checkout@v3
 
       - name: Use node modules cache
@@ -168,5 +168,17 @@ jobs:
             dist
           key: ${{ runner.os }}-prepare-${{ env.cache-name }}-${{ github.sha }}
 
-      - name: testtin
-        run: ls node_modules
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './storybook-static'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
