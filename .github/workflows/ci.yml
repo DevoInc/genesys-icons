@@ -167,6 +167,3 @@ jobs:
             ~/.npm
             dist
           key: ${{ runner.os }}-prepare-${{ env.cache-name }}-${{ github.sha }}
-
-      - name: Build Storybook
-        run: npm run build-storybook
