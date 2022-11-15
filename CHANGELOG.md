@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/DevoInc/genesys-icons/compare/v1.0.0...v2.0.0) (2022-11-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* removed bad icons
+
+### Bug Fixes
+
+* removed bad icons ([e24ee86](https://github.com/DevoInc/genesys-icons/commit/e24ee86daa307bd4cd968910dcc004ec68c3075b))
+
 ## 1.0.0 (2022-10-06)
 
 
