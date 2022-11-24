@@ -19,6 +19,7 @@ svgtofont({
   fontName: config.fontName,
   css: {
     fileName: `${config.fontName}-styles`,
+    fontSize: 'inherit',
   },
   svgicons2svgfont: {
     fontHeight: 1000,
