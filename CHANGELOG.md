@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/DevoInc/genesys-icons/compare/v2.0.0...v2.1.0) (2022-11-25)
+
+
+### Features
+
+* **fonts:** not to use an specific value for the default font-size of the icons ([ece609a](https://github.com/DevoInc/genesys-icons/commit/ece609a49b38e333baf13948dec53c2adcf6a0b6))
+
 ## [2.0.0](https://github.com/DevoInc/genesys-icons/compare/v1.0.0...v2.0.0) (2022-11-15)
 
 
