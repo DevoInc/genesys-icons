@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.1](https://github.com/DevoInc/genesys-icons/compare/v2.1.0...v2.1.1) (2022-12-14)
+
+
+### Bug Fixes
+
+* **svgToFont:** pass `line-height` to generic class ([174fb31](https://github.com/DevoInc/genesys-icons/commit/174fb31762deadf6ec4c006d3c09418bc112526d))
+
 ## [2.1.0](https://github.com/DevoInc/genesys-icons/compare/v2.0.0...v2.1.0) (2022-11-25)
 
 
