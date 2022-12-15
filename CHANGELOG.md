@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.2](https://github.com/DevoInc/genesys-icons/compare/v2.1.1...v2.1.2) (2022-12-15)
+
+
+### Bug Fixes
+
+* added missing props to icons ([8542f22](https://github.com/DevoInc/genesys-icons/commit/8542f228cb648643136e7ec4507feb421f844336))
+
 ### [2.1.1](https://github.com/DevoInc/genesys-icons/compare/v2.1.0...v2.1.1) (2022-12-14)
 
 
