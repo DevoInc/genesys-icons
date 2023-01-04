@@ -4,6 +4,7 @@
   "files": [
     "dist"
   ],
+  "main": "dist/index.js",
   "scripts": {
     "start": "npm run storybook",
     "storybook": "start-storybook -p 6006",
