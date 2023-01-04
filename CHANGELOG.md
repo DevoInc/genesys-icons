@@ -1,5 +1,7 @@
 # Changelog
 
+### [2.1.3](https://github.com/DevoInc/genesys-icons/compare/v2.1.2...v2.1.3) (2023-01-04)
+
 ### [2.1.2](https://github.com/DevoInc/genesys-icons/compare/v2.1.1...v2.1.2) (2022-12-15)
 
 
