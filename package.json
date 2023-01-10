@@ -1,9 +1,10 @@
 {
   "name": "@devoinc/genesys-icons",
-  "version": "1.0.0",
+  "version": "2.1.4",
   "files": [
     "dist"
   ],
+  "main": "dist/index.js",
   "scripts": {
     "start": "npm run storybook",
     "storybook": "start-storybook -p 6006",

@@ -1,5 +1,41 @@
 # Changelog
 
+### [2.1.4](https://github.com/DevoInc/genesys-icons/compare/v2.1.3...v2.1.4) (2023-01-10)
+
+### [2.1.3](https://github.com/DevoInc/genesys-icons/compare/v2.1.2...v2.1.3) (2023-01-04)
+
+### [2.1.2](https://github.com/DevoInc/genesys-icons/compare/v2.1.1...v2.1.2) (2022-12-15)
+
+
+### Bug Fixes
+
+* added missing props to icons ([8542f22](https://github.com/DevoInc/genesys-icons/commit/8542f228cb648643136e7ec4507feb421f844336))
+
+### [2.1.1](https://github.com/DevoInc/genesys-icons/compare/v2.1.0...v2.1.1) (2022-12-14)
+
+
+### Bug Fixes
+
+* **svgToFont:** pass `line-height` to generic class ([174fb31](https://github.com/DevoInc/genesys-icons/commit/174fb31762deadf6ec4c006d3c09418bc112526d))
+
+## [2.1.0](https://github.com/DevoInc/genesys-icons/compare/v2.0.0...v2.1.0) (2022-11-25)
+
+
+### Features
+
+* **fonts:** not to use an specific value for the default font-size of the icons ([ece609a](https://github.com/DevoInc/genesys-icons/commit/ece609a49b38e333baf13948dec53c2adcf6a0b6))
+
+## [2.0.0](https://github.com/DevoInc/genesys-icons/compare/v1.0.0...v2.0.0) (2022-11-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* removed bad icons
+
+### Bug Fixes
+
+* removed bad icons ([e24ee86](https://github.com/DevoInc/genesys-icons/commit/e24ee86daa307bd4cd968910dcc004ec68c3075b))
+
 ## 1.0.0 (2022-10-06)
 
 

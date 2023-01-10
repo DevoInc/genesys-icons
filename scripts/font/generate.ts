@@ -12,6 +12,17 @@ const srcPath = path.resolve(basePath, 'icons');
 // create the pkgPath if not exists
 fs.mkdirSync(pkgPath, { recursive: true });
 
+const customCSSProps = {
+  'font-weight': 'normal',
+  'font-variant': 'normal',
+  'text-transform': 'none',
+  'line-height': '1',
+};
+
+const strProps = Object.entries(customCSSProps).reduce((prev, curr) => {
+  return `${prev}\n  ${curr[0]}: ${curr[1]};`;
+}, '');
+
 // create the group font
 svgtofont({
   src: srcPath,
@@ -19,6 +30,9 @@ svgtofont({
   fontName: config.fontName,
   css: {
     fileName: `${config.fontName}-styles`,
+    // BEWARE: Bad practice ahead.
+    // We needed to pass extra css props somehow.
+    fontSize: `inherit;  ${strProps}`,
   },
   svgicons2svgfont: {
     fontHeight: 1000,
