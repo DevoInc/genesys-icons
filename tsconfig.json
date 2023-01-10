@@ -1,5 +1,5 @@
 {
-  "extends": "ts-node/node14/tsconfig.json",
+  "extends": "@tsconfig/node18/tsconfig.json",
   "include": ["scripts/**/*.ts", "config.ts", "src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["scripts/**/*.test.ts"],
   "compilerOptions": {
