@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.5](https://github.com/DevoInc/genesys-icons/compare/v2.1.4...v2.1.5) (2023-03-24)
+
+
+### Bug Fixes
+
+* **vulns:** json5 ≥ 1.0.2 & loader-utils ≥ 1.4.2 QUV-455 ([#6](https://github.com/DevoInc/genesys-icons/issues/6)) ([2c169f5](https://github.com/DevoInc/genesys-icons/commit/2c169f5eed9892c53615d5388e04058a62f5e5fc))
+
 ### [2.1.4](https://github.com/DevoInc/genesys-icons/compare/v2.1.3...v2.1.4) (2023-01-10)
 
 ### [2.1.3](https://github.com/DevoInc/genesys-icons/compare/v2.1.2...v2.1.3) (2023-01-04)
