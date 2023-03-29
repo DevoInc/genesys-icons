@@ -3,9 +3,14 @@ name: release
 on:
   workflow_dispatch:
     inputs:
+      dry:
+        type: boolean
+        description: Dry-mode (simulate publish)?
+        default: true
+        required: true
       version:
         type: choice
-        description: Select version to release (dry-mode)
+        description: Select version to release
         options:
           - major
           - minor
@@ -13,6 +18,8 @@ on:
           - auto
         default: auto
         required: true
+
+run-name: release ${{ github.event.inputs.version }}${{ github.event.inputs.dry == 'true' && ' (--dry-run)' || '' }}
 
 env:
   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
@@ -25,7 +32,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-        
+
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
@@ -37,31 +44,31 @@ jobs:
             ~/.npm
             dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-      
+
       - name: Set Node v18
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: npm
           registry-url: https://registry.npmjs.org/
-          
+
       - name: Set NPM version
         run: npm i -g npm@8
-        
+
       - name: Install dependencies
         run: npm ci
-        
+
       - name: Generate dist
         run: npm run dist
 
   lint:
     needs: [build]
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-        
+
       - name: Use node modules cache
         id: cache-npm
         uses: actions/cache@v3
@@ -73,18 +80,18 @@ jobs:
             ~/.npm
             dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-        
-      - name: Run Eslint  
+
+      - name: Run Eslint
         run: npm run lint
-        
+
   unit-test:
     needs: [build]
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-        
+
       - name: Use node modules cache
         id: cache-npm
         uses: actions/cache@v3
@@ -96,7 +103,7 @@ jobs:
             ~/.npm
             dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          
+
       - name: Run Jest
         run: npm run test
 
@@ -105,7 +112,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
@@ -113,7 +120,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: "npm"
+          cache: 'npm'
           registry-url: https://registry.npmjs.org/
 
       - name: Set npm version
@@ -130,24 +137,11 @@ jobs:
             ~/.npm
             dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-        
+
       - name: Setup Git config
         run: |
           git config --global user.name 'Devo GitHub Action'
           git config --global user.email 'desa@devo.com'
 
-      - name: Publish major (if applicable)
-        if: ${{ github.event.inputs.version == 'major' }}
-        run: npm run release:ci -- major
-
-      - name: Publish minor (if applicable)
-        if: ${{ github.event.inputs.version == 'minor' }}
-        run: npm run release:ci -- minor
-
-      - name: Publish patch (if applicable)
-        if: ${{ github.event.inputs.version == 'patch' }}
-        run: npm run release:ci -- patch
-
-      - name: Publish auto (if applicable)
-        if: ${{ github.event.inputs.version == 'auto' }}
-        run: npm run release:ci
+      - name: Publish ${{ github.event.inputs.version }}${{ github.event.inputs.dry == 'true' && ' (--dry-run)' || '' }}
+        run: npm run release:ci -- ${{ github.event.inputs.version != 'auto' && github.event.inputs.version || '' }}${{ github.event.inputs.dry == 'true' && ' --dry-run' || '' }}
