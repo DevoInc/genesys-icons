@@ -18,6 +18,7 @@ ${icons.map((icon) => icon.module).join('\n')}`;
 
 export const definitionsTmpl = (icons: Icon[]) => `${autoGen}
 import { IconType } from './IconBase.esm.js';
+export declare type IconType = IconType;
 ${icons
   .map((icon) => `export declare const ${icon.title}: IconType;`)
   .join('\n')}`;
