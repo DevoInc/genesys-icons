@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/DevoInc/genesys-icons/compare/v2.1.5...v2.2.0) (2023-04-13)
+
+
+### Features
+
+* export IconType declaration ([70274ad](https://github.com/DevoInc/genesys-icons/commit/70274ade57e96276f8010424bfd830e8800d6b20))
+
 ### [2.1.5](https://github.com/DevoInc/genesys-icons/compare/v2.1.4...v2.1.5) (2023-03-24)
 
 
