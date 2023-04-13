@@ -46,7 +46,7 @@ const casesDefinitionsTmpl: [string, Icon[], string][] = [
   [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
-    `// THIS FILE IS AUTO GENERATED\nimport { IconType } from './IconBase.esm.js';\nexport declare const T: IconType;`,
+    `// THIS FILE IS AUTO GENERATED\nimport { IconType } from './IconBase.esm.js';\nexport declare type IconType = IconType;\nexport declare const T: IconType;`,
   ],
 ];
 
