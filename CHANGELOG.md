@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.0.1](https://github.com/DevoInc/genesys-icons/compare/v3.0.0...v3.0.1) (2023-05-12)
+
+
+### Bug Fixes
+
+* **icons:** QUV-712 Renamed '360_degrees' icon to 'turn_360_degrees' to avoid problems with JS ([b481e56](https://github.com/DevoInc/genesys-icons/commit/b481e567b7a4833a67dc9be8a023271df2fd1450))
+
 ## [3.0.0](https://github.com/DevoInc/genesys-icons/compare/v2.2.0...v3.0.0) (2023-05-12)
 
 
