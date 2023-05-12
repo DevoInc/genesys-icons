@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.0.0](https://github.com/DevoInc/genesys-icons/compare/v2.2.0...v3.0.0) (2023-05-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* **icons:** QUV-712 Rename '360' icon to '360_degrees'
+
+### Features
+
+* **icons:** QUV-712 Rename '360' icon to '360_degrees' ([42199a5](https://github.com/DevoInc/genesys-icons/commit/42199a50444c0ea7b27b88ecacc7827f0e6a9176))
+
+
+### Vulnerabilities
+
+* **deps:** bump vm2 from 3.9.16 to 3.9.17 ([#13](https://github.com/DevoInc/genesys-icons/issues/13)) ([e4290ca](https://github.com/DevoInc/genesys-icons/commit/e4290caa59a3aa4bcfaa8b74103b6075c7ada282))
+
 ## [2.2.0](https://github.com/DevoInc/genesys-icons/compare/v2.1.5...v2.2.0) (2023-04-13)
 
 
