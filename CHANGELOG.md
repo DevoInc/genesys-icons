@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.1.0](https://github.com/DevoInc/genesys-icons/compare/v3.0.1...v3.1.0) (2023-07-19)
+
+
+### Features
+
+* **icons:** QUV-1265 New timeline icon and deleted deprecated ones from library ([f5312aa](https://github.com/DevoInc/genesys-icons/commit/f5312aa189147920d45f0d71fa11c84befc311cb))
+
+
+### Vulnerabilities
+
+* **deps:** bump vm2 from 3.9.17 to 3.9.18 ([d828ec7](https://github.com/DevoInc/genesys-icons/commit/d828ec799ef5a9808e63d628845f64614d92c210))
+
 ### [3.0.1](https://github.com/DevoInc/genesys-icons/compare/v3.0.0...v3.0.1) (2023-05-12)
 
 
