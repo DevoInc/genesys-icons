@@ -1,13 +1,12 @@
 import * as React from 'react';
-import { Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import * as icons from '../dist/';
 
 import { FilteredGallery } from './components/FilteredGallery';
 
-export default {
+const meta: Meta = {
   title: 'Gallery',
-  component: null,
   parameters: {
     options: {
       showPanel: false,
@@ -18,4 +17,9 @@ export default {
   },
 };
 
-export const Icons: Story = () => <FilteredGallery icons={icons} />;
+export default meta;
+type Story = StoryObj;
+
+export const Icons: Story = {
+  render: () => <FilteredGallery icons={icons} />,
+};

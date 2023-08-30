@@ -110,7 +110,7 @@ export const CustomPopper: FC<PopperProps> = ({
                 separator: '_',
               })}`,
               item.match,
-              ''
+              '',
             )}
             {!copiedClassName && (
               <StyledIconButton

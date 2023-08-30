@@ -23,7 +23,7 @@ export const Gallery: FC<GalleryProps> = ({ icons }) => {
   const [referenceElement, setReferenceElement] = useState({});
   const [popperElement, setPopperElement] = useState(null);
   const [selectedItem, setSelectedItem] = useState<SingleItem | undefined>(
-    undefined
+    undefined,
   );
 
   const { styles, attributes } = usePopper(
@@ -33,7 +33,7 @@ export const Gallery: FC<GalleryProps> = ({ icons }) => {
     popperElement,
     {
       placement: 'bottom-start',
-    }
+    },
   );
 
   const deselect = () => setSelectedItem(undefined);

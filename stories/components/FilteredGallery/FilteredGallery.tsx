@@ -31,11 +31,11 @@ export const FilteredGallery: React.FC<FilteredGallery> = ({ icons }) => {
         const tags = genIcon().props['data-tags'];
         return { ...acc, [iconName]: tags };
       }, {}),
-    [icons]
+    [icons],
   );
 
   const filteredIcons = iconNames.filter((icon) =>
-    filterSearch(icon, tags[icon] || '')
+    filterSearch(icon, tags[icon] || ''),
   );
 
   return (
@@ -55,8 +55,8 @@ export const FilteredGallery: React.FC<FilteredGallery> = ({ icons }) => {
               [config.prefix, key.replace(config.prefix, '')],
               searchText,
               tags[key] === '' ? [] : tags[key].split(','),
-              icons[key]
-            )
+              icons[key],
+            ),
         )}
       />
     </>

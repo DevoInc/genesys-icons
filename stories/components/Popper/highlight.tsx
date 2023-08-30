@@ -10,7 +10,7 @@ const StyledMark = styled.mark`
 export const highlight = (
   str: string,
   match: string | undefined,
-  prefix = ''
+  prefix = '',
 ) => {
   if (!match || match === '')
     return (

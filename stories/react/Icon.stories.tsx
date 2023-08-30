@@ -1,9 +1,8 @@
-import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { GIBubbleChart } from '../../dist/';
 
-export default {
+const meta: Meta<typeof GIBubbleChart> = {
   title: 'React/Icon',
   component: GIBubbleChart,
   argTypes: {
@@ -20,14 +19,18 @@ export default {
       showPanel: true,
     },
   },
-} as Meta;
-
-export const SingleIcon: Story = (args) => <GIBubbleChart {...args} />;
-SingleIcon.args = {
-  title: 'Some title',
-  color: 'rgba(0, 0, 190, 1)',
-  size: 64,
-  className: 'some-class-name',
-  style: {},
 };
-SingleIcon.storyName = 'Icon';
+
+export default meta;
+type Story = StoryObj<typeof GIBubbleChart>;
+
+export const SingleIcon: Story = {
+  storyName: 'Icon',
+  args: {
+    title: 'Some title',
+    color: 'rgba(0, 0, 190, 1)',
+    size: 64,
+    className: 'some-class-name',
+    style: {},
+  },
+};

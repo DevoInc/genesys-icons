@@ -14,7 +14,8 @@ const StyledSearch = styled.div`
       z-index: 1;
       transition: background-color ease-in-out 0.15s;
       margin: -${barSpace};
-      box-shadow: rgb(12 41 56 / 8%) 0 4px 6px 0,
+      box-shadow:
+        rgb(12 41 56 / 8%) 0 4px 6px 0,
         rgb(12 41 56 / 4%) 0 2px 2px 1px;
       padding: ${barSpace};
       background: #fff;
