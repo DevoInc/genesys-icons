@@ -24,7 +24,7 @@ fs.writeFileSync(
   `'use strict';
 
 module.exports = {
-  ${icons.map((icon) => `${icon.key}: '\\${icon.code}'`).join(',\n  ')}
+  ${icons.map((icon) => `${icon.key}: '\\${icon.code}'`).join(',\n  ')},
 };
 `,
   { encoding: 'utf8' }
