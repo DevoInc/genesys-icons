@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.1.1](https://github.com/DevoInc/genesys-icons/compare/v3.1.0...v3.1.1) (2023-08-30)
+
+
+### Bug Fixes
+
+* some icons with bad name ([1c53aa5](https://github.com/DevoInc/genesys-icons/commit/1c53aa5e3ab32cba21c7d50be5a4f88b20257fef))
+
+
+### Vulnerabilities
+
+* **deps-dev:** bump word-wrap from 1.2.3 to 1.2.4 ([#17](https://github.com/DevoInc/genesys-icons/issues/17)) ([71d8eb2](https://github.com/DevoInc/genesys-icons/commit/71d8eb2ffa9b7e44e050473f07a4243a46af1855))
+
 ## [3.1.0](https://github.com/DevoInc/genesys-icons/compare/v3.0.1...v3.1.0) (2023-07-19)
 
 
