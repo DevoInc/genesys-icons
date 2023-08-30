@@ -30,7 +30,7 @@ const casesCommonFileTmpl: [string, Icon[], string][] = [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
     `// THIS FILE IS AUTO GENERATED
-var genIcon = require('./IconBase.js').genIcon;
+var genIcon = require('./IconBase.umd.js').genIcon;
 C`,
   ],
 ];
@@ -40,7 +40,7 @@ const casesModuleFileTmpl: [string, Icon[], string][] = [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
     `// THIS FILE IS AUTO GENERATED
-import { genIcon } from './IconBase.esm.js';
+import { genIcon } from './IconBase.mjs';
 M`,
   ],
 ];
