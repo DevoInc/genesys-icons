@@ -3,12 +3,12 @@ import { ParsedElement } from './declarations';
 
 const invalidTags = ['STYLE'];
 
-const filterTags = ($element: cheerio.Cheerio) =>
+const filterTags = ($element: cheerio.Cheerio<cheerio.Element>) =>
   !invalidTags.includes($element.prop('tagName'));
 
 const parseElement =
-  ($: cheerio.Root) =>
-  ($element: cheerio.Cheerio): ParsedElement => {
+  ($: cheerio.CheerioAPI) =>
+  ($element: cheerio.Cheerio<cheerio.Element>): ParsedElement => {
     return {
       tag: $element.prop('tagName').toLowerCase(),
       attrs: $element.attr(),

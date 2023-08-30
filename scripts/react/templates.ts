@@ -9,11 +9,11 @@ export const commonTmpl = (name: string, content: string, tags = '') =>
   `module.exports.${name} = (props) => genIcon(${content},"${tags}")(props);`;
 
 export const commonFileTmpl = (icons: Icon[]) => `${autoGen}
-var genIcon = require('./IconBase.js').genIcon;
+var genIcon = require('./IconBase.umd.js').genIcon;
 ${icons.map((icon) => icon.common).join('\n')}`;
 
 export const moduleFileTmpl = (icons: Icon[]) => `${autoGen}
-import { genIcon } from './IconBase.esm.js';
+import { genIcon } from './IconBase.mjs';
 ${icons.map((icon) => icon.module).join('\n')}`;
 
 export const definitionsTmpl = (icons: Icon[]) => `${autoGen}

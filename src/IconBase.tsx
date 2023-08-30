@@ -24,8 +24,8 @@ const Tree2Element = (tree: IconTree[]): React.ReactElement[] =>
       React.createElement(
         node.tag,
         { key: i, ...node.attrs },
-        Tree2Element(node.children)
-      )
+        Tree2Element(node.children),
+      ),
     );
 
 export const genIcon = (data: IconTree, tags: string) => {

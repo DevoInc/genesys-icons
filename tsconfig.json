@@ -1,10 +1,23 @@
 {
-  "extends": "@tsconfig/node18/tsconfig.json",
-  "include": ["scripts/**/*.ts", "config.ts", "src/**/*.ts", "src/**/*.tsx"],
+  "include": ["scripts", "config.ts", "src"],
   "exclude": ["scripts/**/*.test.ts"],
   "compilerOptions": {
+    "lib": ["dom", "esnext"],
     "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "target": "ES6",
+    "types": ["jest", "node"],
+    "resolveJsonModule": true,
     "jsx": "react",
-    "moduleResolution": "Node"
+    "strictBindCallApply": true,
+    "noUncheckedIndexedAccess": true,
+    "outDir": "./dist"
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "ES2022"
+    }
   }
 }

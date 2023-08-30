@@ -6,7 +6,7 @@ export const getEditedIconClasses = (originalRawClasses: string) => {
     'g',
   );
 
-  let res;
+  let res: RegExpExecArray;
   while ((res = regExp.exec(originalRawClasses)) !== null) {
     const key = res[1];
     const code = res[2];

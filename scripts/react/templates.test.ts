@@ -1,4 +1,3 @@
-/* eslint-disable quotes */
 import { Icon } from './declarations';
 import {
   commonFileTmpl,
@@ -13,7 +12,7 @@ const casesModuleTmpl: [string, string, string, string][] = [
     'Basic case',
     'myName',
     'myContent',
-    `export const myName = (props) => genIcon(myContent,"")(props);`,
+    'export const myName = (props) => genIcon(myContent,"")(props);',
   ],
 ];
 
@@ -22,7 +21,7 @@ const casesCommonTmpl: [string, string, string, string][] = [
     'Basic case',
     'myName',
     'myContent',
-    `module.exports.myName = (props) => genIcon(myContent,"")(props);`,
+    'module.exports.myName = (props) => genIcon(myContent,"")(props);',
   ],
 ];
 
@@ -30,7 +29,9 @@ const casesCommonFileTmpl: [string, Icon[], string][] = [
   [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
-    `// THIS FILE IS AUTO GENERATED\nvar genIcon = require('./IconBase.js').genIcon;\nC`,
+    `// THIS FILE IS AUTO GENERATED
+var genIcon = require('./IconBase.js').genIcon;
+C`,
   ],
 ];
 
@@ -38,7 +39,9 @@ const casesModuleFileTmpl: [string, Icon[], string][] = [
   [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
-    `// THIS FILE IS AUTO GENERATED\nimport { genIcon } from './IconBase.esm.js';\nM`,
+    `// THIS FILE IS AUTO GENERATED
+import { genIcon } from './IconBase.esm.js';
+M`,
   ],
 ];
 
@@ -46,7 +49,10 @@ const casesDefinitionsTmpl: [string, Icon[], string][] = [
   [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
-    `// THIS FILE IS AUTO GENERATED\nimport { IconType } from './IconBase.esm.js';\nexport declare type IconType = IconType;\nexport declare const T: IconType;`,
+    `// THIS FILE IS AUTO GENERATED
+import { IconType } from './IconBase.esm.js';
+export declare type IconType = IconType;
+export declare const T: IconType;`,
   ],
 ];
 

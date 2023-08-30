@@ -1,7 +1,7 @@
 import fs from 'fs';
 import glob from 'glob-promise';
 import path from 'path';
-import camelCase from 'camelcase';
+import { pascalCase } from 'pascal-case';
 
 import { config } from '../../config';
 import {
@@ -37,9 +37,7 @@ glob(`${srcPath}/*`).then(async (filenames) => {
         const titleText = getTextByTag(parsedSVG, 'title');
         const tags = getTextByTag(parsedSVG, 'desc');
 
-        const title = `${config.prefix}${camelCase(titleText, {
-          pascalCase: true,
-        })}`;
+        const title = `${config.prefix}${pascalCase(titleText)}`;
 
         const content = JSON.stringify(parsedSVG);
 

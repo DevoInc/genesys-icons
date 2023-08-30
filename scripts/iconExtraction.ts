@@ -24,7 +24,7 @@ export const getIconsInfo = (rawText: string) => {
   };
   const fixturesList = Object.keys(fixtures);
 
-  let res;
+  let res: RegExpExecArray;
   while ((res = regExp.exec(rawText)) !== null) {
     const code = fixturesList.includes(res[1]) ? fixtures[res[1]] : res[2];
     icons.push({ key: res[1], code });
