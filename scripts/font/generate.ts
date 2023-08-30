@@ -48,7 +48,7 @@ svgtofont({
   // Writting the SCSS variables file
   const variablesFile = path.resolve(
     pkgPath,
-    `${config.fontName}-variables.scss`
+    `${config.fontName}-variables.scss`,
   );
   fs.writeFileSync(variablesFile, variables, { encoding: 'utf8' });
 
@@ -56,7 +56,7 @@ svgtofont({
   fs.writeFileSync(
     stylesFile,
     `${fontFace}\n\n${classGeneric}\n\n${getEditedIconClasses(classes)}`,
-    { encoding: 'utf8' }
+    { encoding: 'utf8' },
   );
 
   // Writting base SCSS file with the imports of both variables and styles

@@ -48,7 +48,7 @@ glob(`${srcPath}/*`).then(async (filenames) => {
           module: moduleTmpl(title, content, tags),
           common: commonTmpl(title, content, tags),
         };
-      })
+      }),
   );
 
   // Write index.js file

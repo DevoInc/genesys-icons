@@ -8,7 +8,7 @@ const pkgPath = path.resolve(basePath, 'dist');
 const srcPath = path.resolve(
   basePath,
   'dist',
-  `${config.fontName}-variables.scss`
+  `${config.fontName}-variables.scss`,
 );
 
 // create the pkgPath dir
@@ -27,11 +27,11 @@ module.exports = {
   ${icons.map((icon) => `${icon.key}: '\\${icon.code}'`).join(',\n  ')},
 };
 `,
-  { encoding: 'utf8' }
+  { encoding: 'utf8' },
 );
 
 console.log(
   icons.length
     ? `JS:  Generated ${icons.length} exported icon contents!`
-    : 'No icon contents were generated for JS dist.'
+    : 'No icon contents were generated for JS dist.',
 );

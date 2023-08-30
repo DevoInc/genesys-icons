@@ -57,7 +57,7 @@ describe('scripts', () => {
         '%s',
         (_title, name: string, content: string, expected: string) => {
           expect(moduleTmpl(name, content)).toEqual(expected);
-        }
+        },
       );
     });
 
@@ -66,7 +66,7 @@ describe('scripts', () => {
         '%s',
         (_title, name: string, content: string, expected: string) => {
           expect(commonTmpl(name, content, '')).toEqual(expected);
-        }
+        },
       );
     });
 
@@ -75,7 +75,7 @@ describe('scripts', () => {
         '%s',
         (_title, icons: Icon[], expected: string) => {
           expect(commonFileTmpl(icons)).toEqual(expected);
-        }
+        },
       );
     });
 
@@ -84,7 +84,7 @@ describe('scripts', () => {
         '%s',
         (_title, icons: Icon[], expected: string) => {
           expect(moduleFileTmpl(icons)).toEqual(expected);
-        }
+        },
       );
     });
 
@@ -93,7 +93,7 @@ describe('scripts', () => {
         '%s',
         (_title, icons: Icon[], expected: string) => {
           expect(definitionsTmpl(icons)).toEqual(expected);
-        }
+        },
       );
     });
   });

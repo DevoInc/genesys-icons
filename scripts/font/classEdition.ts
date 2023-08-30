@@ -3,7 +3,7 @@ import { config } from '../../config';
 export const getEditedIconClasses = (originalRawClasses: string) => {
   const regExp = new RegExp(
     `\\.${config.fontName}-(.*):before { content: (.*); }`,
-    'g'
+    'g',
   );
 
   let res;
@@ -13,7 +13,7 @@ export const getEditedIconClasses = (originalRawClasses: string) => {
 
     originalRawClasses = originalRawClasses.replace(
       code,
-      `$${config.fontName}-${key}`
+      `$${config.fontName}-${key}`,
     );
   }
 
