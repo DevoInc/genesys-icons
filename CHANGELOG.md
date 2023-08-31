@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.2](https://github.com/DevoInc/genesys-icons/compare/v3.1.1...v3.1.2) (2023-08-31)
+
+
+### Bug Fixes
+
+* mismatch reference ([2ae8e87](https://github.com/DevoInc/genesys-icons/commit/2ae8e87f3dc16f25ff16ffb2a92fccafada2bf40))
+
 ## [3.1.1](https://github.com/DevoInc/genesys-icons/compare/v3.1.0...v3.1.1) (2023-08-30)
 
 
