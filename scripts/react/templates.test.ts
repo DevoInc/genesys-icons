@@ -12,7 +12,8 @@ const casesModuleTmpl: [string, string, string, string][] = [
     'Basic case',
     'myName',
     'myContent',
-    'export const myName = (props) => genIcon(myContent,"")(props);',
+    `export const myName = (props) => genIcon(myContent,"")(props);
+myName.tags = "";`,
   ],
 ];
 
@@ -21,7 +22,8 @@ const casesCommonTmpl: [string, string, string, string][] = [
     'Basic case',
     'myName',
     'myContent',
-    'module.exports.myName = (props) => genIcon(myContent,"")(props);',
+    `module.exports.myName = (props) => genIcon(myContent,"")(props);
+myName.tags = "";`,
   ],
 ];
 
@@ -30,7 +32,9 @@ const casesCommonFileTmpl: [string, Icon[], string][] = [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
     `// THIS FILE IS AUTO GENERATED
-var genIcon = require('./IconBase.umd.js').genIcon;
+var genIcon = require('./lib.umd.js').genIcon;
+var IconContext = require('./lib.umd.js').IconContext;
+module.exports.IconContext = IconContext;
 C`,
   ],
 ];
@@ -40,7 +44,8 @@ const casesModuleFileTmpl: [string, Icon[], string][] = [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
     `// THIS FILE IS AUTO GENERATED
-import { genIcon } from './IconBase.mjs';
+import { genIcon } from './lib.mjs';
+export { IconContext } from './lib.mjs';
 M`,
   ],
 ];
@@ -50,7 +55,7 @@ const casesDefinitionsTmpl: [string, Icon[], string][] = [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
     `// THIS FILE IS AUTO GENERATED
-import { IconType } from './IconBase.mjs';
+import { IconType } from './lib.mjs';
 export declare type IconType = IconType;
 export declare const T: IconType;`,
   ],
