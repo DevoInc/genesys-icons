@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/DevoInc/genesys-icons/compare/v3.1.2...v3.2.0) (2023-09-02)
+
+
+### Features
+
+* added IconContext ([a61f355](https://github.com/DevoInc/genesys-icons/commit/a61f3559b63be9e23d402b00a748aa2e51cbf3e4))
+
 ## [3.1.2](https://github.com/DevoInc/genesys-icons/compare/v3.1.1...v3.1.2) (2023-08-31)
 
 
