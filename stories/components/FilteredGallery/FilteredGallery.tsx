@@ -1,16 +1,24 @@
-import { IconType } from '@devoinc/genesys-icons';
 import * as React from 'react';
+
+import { IconType } from '@devoinc/genesys-icons';
+
 import { config } from '../../../config';
 import { SingleItem } from '../../utils';
 
 import { Gallery } from '../Gallery';
 import { Search } from '../Search';
 
+type IconItem = {
+  name: string;
+  tags: string;
+  Cmp: React.ReactNode;
+};
+
 const buildFilterSearch =
   (search: string) =>
-  (str: string, tags: string): boolean => {
+  ({ name, tags }: IconItem): boolean => {
     return search.trim() !== ''
-      ? str.toLowerCase().includes(search.toLowerCase().trim()) ||
+      ? name.toLowerCase().includes(search.toLowerCase().trim()) ||
           tags.toLowerCase().includes(search.toLowerCase().trim())
       : true;
   };
@@ -22,21 +30,8 @@ interface FilteredGallery {
 export const FilteredGallery: React.FC<FilteredGallery> = ({ icons }) => {
   const [searchText, setSearchText] = React.useState('');
   const filterSearch = buildFilterSearch(searchText);
-  const iconNames = Object.keys(icons);
 
-  const tags = React.useMemo(
-    () =>
-      iconNames.reduce((acc, iconName) => {
-        const genIcon = icons[iconName];
-        const tags = genIcon().props['data-tags'];
-        return { ...acc, [iconName]: tags };
-      }, {}),
-    [icons],
-  );
-
-  const filteredIcons = iconNames.filter((icon) =>
-    filterSearch(icon, tags[icon] || ''),
-  );
+  const filteredIcons = icons.filter(filterSearch);
 
   return (
     <>
@@ -46,16 +41,16 @@ export const FilteredGallery: React.FC<FilteredGallery> = ({ icons }) => {
           setSearchText(value);
         }}
         count={filteredIcons.length}
-        total={iconNames.length}
+        total={icons.length}
       />
       <Gallery
         icons={filteredIcons.map(
-          (key) =>
+          (icon: IconItem) =>
             new SingleItem(
-              [config.prefix, key.replace(config.prefix, '')],
+              [config.prefix, icon.name.replace(config.prefix, '')],
               searchText,
-              tags[key] === '' ? [] : tags[key].split(','),
-              icons[key],
+              icon.tags === '' ? [] : icon.tags.split(','),
+              icon.Cmp,
             ),
         )}
       />

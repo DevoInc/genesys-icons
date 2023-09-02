@@ -7,8 +7,8 @@ export default defineConfig({
     sourcemap: true,
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'IconBase',
-      fileName: 'IconBase',
+      name: 'lib',
+      fileName: 'lib',
     },
     rollupOptions: {
       external: ['react'],

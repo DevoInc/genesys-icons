@@ -1,6 +1,7 @@
+import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { GIBubbleChart } from '../../dist/';
+import { GIBubbleChart, IconContext } from '../../dist/index.mjs';
 
 const meta: Meta<typeof GIBubbleChart> = {
   title: 'React/Icon',
@@ -24,8 +25,7 @@ const meta: Meta<typeof GIBubbleChart> = {
 export default meta;
 type Story = StoryObj<typeof GIBubbleChart>;
 
-export const SingleIcon: Story = {
-  storyName: 'Icon',
+export const Icon: Story = {
   args: {
     title: 'Some title',
     color: 'rgba(0, 0, 190, 1)',
@@ -33,4 +33,14 @@ export const SingleIcon: Story = {
     className: 'some-class-name',
     style: {},
   },
+};
+
+export const Context: Story = {
+  render: () => (
+    <IconContext.Provider
+      value={{ title: 'Some title', color: 'red', size: 64 }}
+    >
+      <GIBubbleChart />
+    </IconContext.Provider>
+  ),
 };

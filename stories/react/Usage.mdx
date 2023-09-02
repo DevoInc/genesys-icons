@@ -23,3 +23,17 @@ export const Example = () => (
 - **style:** custom styles for the svg element
 
 For see all the props in action go to the [icon story](?path=/story/react-icon--single-icon) :)
+
+## Context
+
+There is also a context that you can use for base props
+
+```jsx
+import { GICheck, IconContext } from "@devoinc/genesys-icons";
+
+export const Example = () => (
+  <IconContext.Provider value={{ size: 64, color: 'rgba(0,0,180,1)' }}>
+    <GICheck size={64} color={'rgba(0,0,180,1)'} />
+  </IconContext.Provider>
+);
+```

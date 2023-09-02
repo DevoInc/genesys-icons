@@ -1,1 +1,4 @@
-export * from './IconBase';
+export * from './genIcon';
+export * from './IconContext';
+export * from './declarations';
+

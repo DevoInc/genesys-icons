@@ -10,7 +10,6 @@ import {
   moduleFileTmpl,
   commonFileTmpl,
   definitionsTmpl,
-  packageTmpl,
 } from './templates';
 import { parse } from './parser';
 import { getTextByTag } from './traversal';
@@ -50,11 +49,11 @@ glob(`${srcPath}/*`).then(async (filenames) => {
   );
 
   // Write index.js file
-  const outCommon = path.resolve(pkgPath, 'index.js');
+  const outCommon = path.resolve(pkgPath, 'index.umd.js');
   fs.writeFileSync(outCommon, commonFileTmpl(icons), { encoding: 'utf8' });
 
   // Write index.esm.js file
-  const outModule = path.resolve(pkgPath, 'index.esm.js');
+  const outModule = path.resolve(pkgPath, 'index.mjs');
   fs.writeFileSync(outModule, moduleFileTmpl(icons), { encoding: 'utf8' });
 
   // Write index.d.ts file
@@ -62,10 +61,6 @@ glob(`${srcPath}/*`).then(async (filenames) => {
   fs.writeFileSync(outDefinitions, definitionsTmpl(icons), {
     encoding: 'utf8',
   });
-
-  // Write package file
-  const outPackage = path.resolve(pkgPath, 'package.json');
-  fs.writeFileSync(outPackage, packageTmpl(), { encoding: 'utf8' });
 
   // Increments stats
   stats.icons += filenames.length;
