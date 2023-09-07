@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.1](https://github.com/DevoInc/genesys-icons/compare/v3.2.0...v3.2.1) (2023-09-07)
+
+
+### Bug Fixes
+
+* remove the package exports limitations ([e1e23ae](https://github.com/DevoInc/genesys-icons/commit/e1e23ae2ff236c307f72d3beb7af1372351c1bf7))
+
 ## [3.2.0](https://github.com/DevoInc/genesys-icons/compare/v3.1.2...v3.2.0) (2023-09-02)
 
 
