@@ -7,8 +7,9 @@ export const moduleTmpl = (name: string, content: string, tags = '') =>
 ${name}.tags = "${tags}";`;
 
 export const commonTmpl = (name: string, content: string, tags = '') =>
-  `module.exports.${name} = (props) => genIcon(${content},"${tags}")(props);
-${name}.tags = "${tags}";`;
+  `var ${name} = (props) => genIcon(${content},"${tags}")(props);
+${name}.tags = "${tags}";
+module.exports.${name} = ${name};`;
 
 export const commonFileTmpl = (icons: Icon[]) => `${autoGen}
 var genIcon = require('./lib.umd.js').genIcon;
