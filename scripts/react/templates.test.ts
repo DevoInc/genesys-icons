@@ -22,8 +22,9 @@ const casesCommonTmpl: [string, string, string, string][] = [
     'Basic case',
     'myName',
     'myContent',
-    `module.exports.myName = (props) => genIcon(myContent,"")(props);
-myName.tags = "";`,
+    `var myName = (props) => genIcon(myContent,"")(props);
+myName.tags = "";
+module.exports.myName = myName;`,
   ],
 ];
 
