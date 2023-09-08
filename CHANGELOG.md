@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.2](https://github.com/DevoInc/genesys-icons/compare/v3.2.1...v3.2.2) (2023-09-08)
+
+
+### Bug Fixes
+
+* var reference on index for umd syntax ([6e28fed](https://github.com/DevoInc/genesys-icons/commit/6e28fed0c8f46dd68b75c351e0d2dba3fa477367))
+
 ## [3.2.1](https://github.com/DevoInc/genesys-icons/compare/v3.2.0...v3.2.1) (2023-09-07)
 
 
