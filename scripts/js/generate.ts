@@ -17,13 +17,25 @@ fs.mkdirSync(pkgPath, { recursive: true });
 const raw = String(fs.readFileSync(srcPath));
 const icons = getIconsInfo(raw);
 
-// Write JS file
-const iconsFilePath = path.resolve(pkgPath, 'icon-variables.js');
+// Write CJS file
+const iconsCJSPath = path.resolve(pkgPath, 'icon-variables.js');
 fs.writeFileSync(
-  iconsFilePath,
+  iconsCJSPath,
   `'use strict';
 
 module.exports = {
+  ${icons.map((icon) => `${icon.key}: '\\${icon.code}'`).join(',\n  ')},
+};
+`,
+  { encoding: 'utf8' },
+);
+
+// Write ESM file
+const iconsESMPath = path.resolve(pkgPath, 'icon-variables.mjs');
+fs.writeFileSync(
+  iconsESMPath,
+  `
+export default {
   ${icons.map((icon) => `${icon.key}: '\\${icon.code}'`).join(',\n  ')},
 };
 `,
