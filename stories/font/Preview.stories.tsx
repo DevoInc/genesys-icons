@@ -13,15 +13,32 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
+const bodyColor = '#48545c';
 const styles: { [key: string]: React.CSSProperties } = {
+  table: {
+    color: bodyColor,
+    tableLayout: 'fixed',
+    borderCollapse: 'collapse',
+    fontSize: '14px',
+  },
   t: {
     textAlign: 'left',
-    padding: '0 15px 0 15px',
+    padding: '4px 16px',
+    verticalAlign: 'middle',
+    borderBottom: 'solid 1px #ddd',
+  },
+  th: {
+    fontWeight: 'bold',
+    color: '#182026',
+    minWidth: '200px',
+    padding: '16px',
+  },
+  svg: {
+    color: '#48545c',
   },
   glyph: {
     fontFamily: 'genesys-icon-font',
-    fontSize: '32px',
-    color: '#000',
+    fontSize: '28px',
   },
 };
 
@@ -29,13 +46,13 @@ export const Preview: Story = {
   render: () => {
     const fontToReactRegex = new RegExp(/(?:^|_)([a-z])/g);
     return (
-      <table>
+      <table style={styles.table}>
         <thead>
-          <tr>
-            <th style={styles.t}>Variable</th>
-            <th style={styles.t}>Value</th>
-            <th style={styles.t}>Font Glyph</th>
-            <th style={styles.t}>React SVG</th>
+          <tr style={styles.tr}>
+            <th style={{...styles.t,...styles.th}}>Variable</th>
+            <th style={{...styles.t,...styles.th}}>Value</th>
+            <th style={{...styles.t,...styles.th}}>Font Glyph</th>
+            <th style={{...styles.t,...styles.th}}>React SVG</th>
           </tr>
         </thead>
         <tbody>
@@ -51,13 +68,13 @@ export const Preview: Story = {
                 throw new Error(`${SVGComponentName} icon not found.`);
               }
               return (
-                <tr key={key}>
+                <tr style={styles.tr} key={key}>
                   <td style={styles.t}>{key}</td>
                   <td style={styles.t}>{value}</td>
                   <td style={styles.t}>
                     <span style={styles.glyph} className={`gi-${key}`} />
                   </td>
-                  <td style={styles.t}>{<ReactIcon />}</td>
+                  <td style={styles.t}>{<ReactIcon color={bodyColor}/>}</td>
                 </tr>
               );
             },

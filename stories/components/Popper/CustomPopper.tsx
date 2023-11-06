@@ -7,7 +7,7 @@ import {
   downloadIcon,
   SingleItem,
 } from '../../utils';
-import { GIArrowDown1, GICopy, GICheckThick } from '../../../dist';
+import { GIArrowDown, GICopy, GICheckThick } from '../../../dist';
 import { highlight } from './highlight';
 import {
   StyledTextCode,
@@ -88,7 +88,7 @@ export const CustomPopper: FC<PopperProps> = ({
                 onClick={() => handleDownloadSVG(item)}
                 title={'Download icon in SVG format'}
               >
-                <GIArrowDown1 size={'14'} />
+                <GIArrowDown size={'14'} />
                 <span>SVG</span>
               </StyledButton>
             )}
