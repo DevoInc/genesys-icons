@@ -56,8 +56,9 @@ const casesDefinitionsTmpl: [string, Icon[], string][] = [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
     `// THIS FILE IS AUTO GENERATED
-import { IconType } from './lib.mjs';
+import { type IconType, IconContext } from './lib.mjs';
 export declare type IconType = IconType;
+export declare const IconContext: typeof IconContext;
 export declare const T: IconType;`,
   ],
 ];
