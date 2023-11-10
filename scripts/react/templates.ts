@@ -23,8 +23,9 @@ export { IconContext } from './lib.mjs';
 ${icons.map((icon) => icon.module).join('\n')}`;
 
 export const definitionsTmpl = (icons: Icon[]) => `${autoGen}
-import { IconType } from './lib.mjs';
+import { type IconType, IconContext } from './lib.mjs';
 export declare type IconType = IconType;
+export declare const IconContext: typeof IconContext;
 ${icons
   .map((icon) => `export declare const ${icon.title}: IconType;`)
   .join('\n')}`;
