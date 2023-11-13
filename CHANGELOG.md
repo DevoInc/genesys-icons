@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.4.0](https://github.com/DevoInc/genesys-icons/compare/v3.3.0...v3.4.0) (2023-11-13)
+
+
+### Features
+
+* **icons:** improvements for multiple icons, deleted unnecessary and created new ones. ([e4d0fbc](https://github.com/DevoInc/genesys-icons/commit/e4d0fbc9e97e3c50c2d8c7b925b2cbf9fffc7a4d))
+* **icons:** Removed unnecessary icons and renamed other ones. ([ba23e2c](https://github.com/DevoInc/genesys-icons/commit/ba23e2c908a65351c8c0c013d57e5d9be1a65fbb))
+
+
+### Bug Fixes
+
+* added default size for avoid big icons ([d520ee7](https://github.com/DevoInc/genesys-icons/commit/d520ee7c8667d9acece18ea702a532c9962336ec))
+* **icons:** added title attribute to new icons. ([278c962](https://github.com/DevoInc/genesys-icons/commit/278c962e92c2f17b78a6414c3fcab46c4825b82a))
+* type of IconContext ([b38c6e8](https://github.com/DevoInc/genesys-icons/commit/b38c6e863ecd965474386428a0e41d3c6c6ec9f5))
+
 ## [3.3.0](https://github.com/DevoInc/genesys-icons/compare/v3.2.2...v3.3.0) (2023-11-07)
 
 
