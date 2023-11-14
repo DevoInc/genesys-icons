@@ -11,7 +11,7 @@ export interface IconBaseProps extends React.SVGAttributes<SVGElement> {
 
 export const IconBase = ({
   attr,
-  size = '1rem',
+  size
   title,
   className,
   color,
@@ -35,8 +35,8 @@ export const IconBase = ({
       {...svgProps}
       className={className ?? baseClassName}
       style={{ color: color ?? baseColor, ...baseStyle, ...style }}
-      height={size ?? baseSize}
-      width={size ?? baseSize}
+      height={size ?? baseSize ?? '1rem'}
+      width={size ?? baseSize ?? '1rem'}
       xmlns={'http://www.w3.org/2000/svg'}
     >
       {(title || baseTitle) && <title>{title ?? baseTitle}</title>}
