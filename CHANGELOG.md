@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.4.2](https://github.com/DevoInc/genesys-icons/compare/v3.4.1...v3.4.2) (2023-11-14)
+
+
+### Bug Fixes
+
+* **Icon:** fixed the default size management in the IconBase component. ([cfc4352](https://github.com/DevoInc/genesys-icons/commit/cfc435219b4416b9c1a89dd3f6f37fda34368861))
+* **Icon:** fixed typo. ([9f901cf](https://github.com/DevoInc/genesys-icons/commit/9f901cf5ac2fc22dfa8c4a36fa5f7e8c3dbd2770))
+
 ## [3.4.1](https://github.com/DevoInc/genesys-icons/compare/v3.4.0...v3.4.1) (2023-11-13)
 
 ## [3.4.0](https://github.com/DevoInc/genesys-icons/compare/v3.3.0...v3.4.0) (2023-11-13)
