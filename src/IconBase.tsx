@@ -28,12 +28,14 @@ export const IconBase = ({
   } = React.useContext(IconContext);
   return (
     <svg
+      aria-label={title ?? baseTitle}
       stroke="currentColor"
       fill="currentColor"
       strokeWidth="0"
       {...attr}
       {...svgProps}
       className={className ?? baseClassName}
+      role="img"
       style={{ color: color ?? baseColor, ...baseStyle, ...style }}
       height={size ?? baseSize ?? '1rem'}
       width={size ?? baseSize ?? '1rem'}
