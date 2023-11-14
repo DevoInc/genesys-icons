@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0](https://github.com/DevoInc/genesys-icons/compare/v3.4.2...v3.5.0) (2023-11-14)
+
+
+### Features
+
+* **Icon:** added accessibility attributes to the IconBase component. ([c5a09bc](https://github.com/DevoInc/genesys-icons/commit/c5a09bcd736e59f18c7dddf5f99cda8fd39a438f))
+
 ## [3.4.2](https://github.com/DevoInc/genesys-icons/compare/v3.4.1...v3.4.2) (2023-11-14)
 
 
