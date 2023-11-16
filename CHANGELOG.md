@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.1](https://github.com/DevoInc/genesys-icons/compare/v3.5.0...v3.5.1) (2023-11-16)
+
+
+### Bug Fixes
+
+* **icons:** modified size and alignment with the canvas of two filled icons. ([88fad2f](https://github.com/DevoInc/genesys-icons/commit/88fad2f2cdf9fd7618a904fc5ae25a082529dedc))
+
 ## [3.5.0](https://github.com/DevoInc/genesys-icons/compare/v3.4.2...v3.5.0) (2023-11-14)
 
 
