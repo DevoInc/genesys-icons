@@ -138,7 +138,7 @@ jobs:
           cd ..
 
       - name: Upload artifact with results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: mutation-test-results
           path: mutation-test-results
