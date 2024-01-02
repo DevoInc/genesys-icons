@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.6.0](https://github.com/DevoInc/genesys-icons/compare/v3.5.1...v3.6.0) (2024-01-02)
+
+
+### Features
+
+* modified GIPlusSignAddNew icon with wider stroke and less space in canvas. ([d20ad3f](https://github.com/DevoInc/genesys-icons/commit/d20ad3fff6c8b05f73e0dd064f95d18b8060cbed))
+
+
+### Vulnerabilities
+
+* **deps-dev:** bump vite from 4.4.9 to 4.4.12 ([b951aae](https://github.com/DevoInc/genesys-icons/commit/b951aaed5d613069fd3484ae2e6592c70051cf8c))
+
 ## [3.5.1](https://github.com/DevoInc/genesys-icons/compare/v3.5.0...v3.5.1) (2023-11-16)
 
 
