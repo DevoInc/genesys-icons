@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.7.0](https://github.com/DevoInc/genesys-icons/compare/v3.6.0...v3.7.0) (2024-02-27)
+
+
+### Features
+
+* **icons:** added icon which was previously accidentally removed. ([0e28c49](https://github.com/DevoInc/genesys-icons/commit/0e28c49e366d5a6d6c355e905a53bcb6c74118a2))
+
+
+### Vulnerabilities
+
+* **deps-dev:** bump ip from 1.1.8 to 1.1.9 ([0d035af](https://github.com/DevoInc/genesys-icons/commit/0d035afaa3397c1b19e70e0d2db37771a7d6a784))
+* **deps-dev:** bump vite from 4.4.12 to 4.5.2 ([2dfa3ef](https://github.com/DevoInc/genesys-icons/commit/2dfa3ef5981213b329841500dfb6b0f7cdc72b73))
+
 ## [3.6.0](https://github.com/DevoInc/genesys-icons/compare/v3.5.1...v3.6.0) (2024-01-02)
 
 
