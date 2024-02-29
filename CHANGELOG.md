@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.0](https://github.com/DevoInc/genesys-icons/compare/v3.7.0...v3.8.0) (2024-02-29)
+
+
+### Features
+
+* added 'data-name' identifier for React Icon components and removed unnecessary fill atrribuies. ([253d50b](https://github.com/DevoInc/genesys-icons/commit/253d50b9a12c3223ffd2852888aa58d0f9f25af1))
+
 ## [3.7.0](https://github.com/DevoInc/genesys-icons/compare/v3.6.0...v3.7.0) (2024-02-27)
 
 
