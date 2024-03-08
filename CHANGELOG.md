@@ -1,5 +1,7 @@
 # Changelog
 
+## [4.0.0](https://github.com/DevoInc/genesys-icons/compare/v3.8.0...v4.0.0) (2024-03-08)
+
 ## [3.8.0](https://github.com/DevoInc/genesys-icons/compare/v3.7.0...v3.8.0) (2024-02-29)
 
 
