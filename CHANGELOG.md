@@ -2,141 +2,103 @@
 
 ## [4.0.0](https://github.com/DevoInc/genesys-icons/compare/v3.8.0...v4.0.0) (2024-03-08)
 
-## [3.8.0](https://github.com/DevoInc/genesys-icons/compare/v3.7.0...v3.8.0) (2024-02-29)
+### ⚠ BREAKING CHANGES
 
+* removed and renamed some icons
 
 ### Features
 
 * added 'data-name' identifier for React Icon components and removed unnecessary fill atrribuies. ([253d50b](https://github.com/DevoInc/genesys-icons/commit/253d50b9a12c3223ffd2852888aa58d0f9f25af1))
-
-## [3.7.0](https://github.com/DevoInc/genesys-icons/compare/v3.6.0...v3.7.0) (2024-02-27)
-
-
-### Features
-
 * **icons:** added icon which was previously accidentally removed. ([0e28c49](https://github.com/DevoInc/genesys-icons/commit/0e28c49e366d5a6d6c355e905a53bcb6c74118a2))
-
+* modified GIPlusSignAddNew icon with wider stroke and less space in canvas. ([d20ad3f](https://github.com/DevoInc/genesys-icons/commit/d20ad3fff6c8b05f73e0dd064f95d18b8060cbed))
+* **Icon:** added accessibility attributes to the IconBase component. ([c5a09bc](https://github.com/DevoInc/genesys-icons/commit/c5a09bcd736e59f18c7dddf5f99cda8fd39a438f))
+* **icons:** improvements for multiple icons, deleted unnecessary and created new ones. ([e4d0fbc](https://github.com/DevoInc/genesys-icons/commit/e4d0fbc9e97e3c50c2d8c7b925b2cbf9fffc7a4d))
+* **icons:** Removed unnecessary icons and renamed other ones. ([ba23e2c](https://github.com/DevoInc/genesys-icons/commit/ba23e2c908a65351c8c0c013d57e5d9be1a65fbb))
+* added mjs iconVariables ([5cb0e29](https://github.com/DevoInc/genesys-icons/commit/5cb0e29789414735ef8e76edb1b23088c8a3f797))
+* added IconContext ([a61f355](https://github.com/DevoInc/genesys-icons/commit/a61f3559b63be9e23d402b00a748aa2e51cbf3e4))
+* **icons:** QUV-1265 New timeline icon and deleted deprecated ones from library ([f5312aa](https://github.com/DevoInc/genesys-icons/commit/f5312aa189147920d45f0d71fa11c84befc311cb))
 
 ### Vulnerabilities
 
 * **deps-dev:** bump ip from 1.1.8 to 1.1.9 ([0d035af](https://github.com/DevoInc/genesys-icons/commit/0d035afaa3397c1b19e70e0d2db37771a7d6a784))
 * **deps-dev:** bump vite from 4.4.12 to 4.5.2 ([2dfa3ef](https://github.com/DevoInc/genesys-icons/commit/2dfa3ef5981213b329841500dfb6b0f7cdc72b73))
-
-## [3.6.0](https://github.com/DevoInc/genesys-icons/compare/v3.5.1...v3.6.0) (2024-01-02)
-
-
-### Features
-
-* modified GIPlusSignAddNew icon with wider stroke and less space in canvas. ([d20ad3f](https://github.com/DevoInc/genesys-icons/commit/d20ad3fff6c8b05f73e0dd064f95d18b8060cbed))
-
-
-### Vulnerabilities
-
 * **deps-dev:** bump vite from 4.4.9 to 4.4.12 ([b951aae](https://github.com/DevoInc/genesys-icons/commit/b951aaed5d613069fd3484ae2e6592c70051cf8c))
-
-## [3.5.1](https://github.com/DevoInc/genesys-icons/compare/v3.5.0...v3.5.1) (2023-11-16)
+* **deps-dev:** bump @babel/traverse from 7.22.11 to 7.23.2 ([47d32c0](https://github.com/DevoInc/genesys-icons/commit/47d32c04859d42a284400c9be7b424fe198a2298))
+* **deps-dev:** bump postcss from 8.4.29 to 8.4.31 ([035eee6](https://github.com/DevoInc/genesys-icons/commit/035eee6e9aaf3ec426dceab510946edc77610d99))
+* **deps-dev:** bump word-wrap from 1.2.3 to 1.2.4 ([#17](https://github.com/DevoInc/genesys-icons/issues/17)) ([71d8eb2](https://github.com/DevoInc/genesys-icons/commit/71d8eb2ffa9b7e44e050473f07a4243a46af1855))
 
 
 ### Bug Fixes
 
 * **icons:** modified size and alignment with the canvas of two filled icons. ([88fad2f](https://github.com/DevoInc/genesys-icons/commit/88fad2f2cdf9fd7618a904fc5ae25a082529dedc))
-
-## [3.5.0](https://github.com/DevoInc/genesys-icons/compare/v3.4.2...v3.5.0) (2023-11-14)
-
-
-### Features
-
-* **Icon:** added accessibility attributes to the IconBase component. ([c5a09bc](https://github.com/DevoInc/genesys-icons/commit/c5a09bcd736e59f18c7dddf5f99cda8fd39a438f))
-
-## [3.4.2](https://github.com/DevoInc/genesys-icons/compare/v3.4.1...v3.4.2) (2023-11-14)
-
-
-### Bug Fixes
-
 * **Icon:** fixed the default size management in the IconBase component. ([cfc4352](https://github.com/DevoInc/genesys-icons/commit/cfc435219b4416b9c1a89dd3f6f37fda34368861))
 * **Icon:** fixed typo. ([9f901cf](https://github.com/DevoInc/genesys-icons/commit/9f901cf5ac2fc22dfa8c4a36fa5f7e8c3dbd2770))
-
-## [3.4.1](https://github.com/DevoInc/genesys-icons/compare/v3.4.0...v3.4.1) (2023-11-13)
-
-## [3.4.0](https://github.com/DevoInc/genesys-icons/compare/v3.3.0...v3.4.0) (2023-11-13)
-
-
-### Features
-
-* **icons:** improvements for multiple icons, deleted unnecessary and created new ones. ([e4d0fbc](https://github.com/DevoInc/genesys-icons/commit/e4d0fbc9e97e3c50c2d8c7b925b2cbf9fffc7a4d))
-* **icons:** Removed unnecessary icons and renamed other ones. ([ba23e2c](https://github.com/DevoInc/genesys-icons/commit/ba23e2c908a65351c8c0c013d57e5d9be1a65fbb))
-
-
-### Bug Fixes
-
 * added default size for avoid big icons ([d520ee7](https://github.com/DevoInc/genesys-icons/commit/d520ee7c8667d9acece18ea702a532c9962336ec))
 * **icons:** added title attribute to new icons. ([278c962](https://github.com/DevoInc/genesys-icons/commit/278c962e92c2f17b78a6414c3fcab46c4825b82a))
 * type of IconContext ([b38c6e8](https://github.com/DevoInc/genesys-icons/commit/b38c6e863ecd965474386428a0e41d3c6c6ec9f5))
-
-## [3.3.0](https://github.com/DevoInc/genesys-icons/compare/v3.2.2...v3.3.0) (2023-11-07)
-
-
-### Features
-
-* added mjs iconVariables ([5cb0e29](https://github.com/DevoInc/genesys-icons/commit/5cb0e29789414735ef8e76edb1b23088c8a3f797))
-
-
-### Vulnerabilities
-
-* **deps-dev:** bump @babel/traverse from 7.22.11 to 7.23.2 ([47d32c0](https://github.com/DevoInc/genesys-icons/commit/47d32c04859d42a284400c9be7b424fe198a2298))
-* **deps-dev:** bump postcss from 8.4.29 to 8.4.31 ([035eee6](https://github.com/DevoInc/genesys-icons/commit/035eee6e9aaf3ec426dceab510946edc77610d99))
-
-## [3.2.2](https://github.com/DevoInc/genesys-icons/compare/v3.2.1...v3.2.2) (2023-09-08)
-
-
-### Bug Fixes
-
 * var reference on index for umd syntax ([6e28fed](https://github.com/DevoInc/genesys-icons/commit/6e28fed0c8f46dd68b75c351e0d2dba3fa477367))
-
-## [3.2.1](https://github.com/DevoInc/genesys-icons/compare/v3.2.0...v3.2.1) (2023-09-07)
-
-
-### Bug Fixes
-
 * remove the package exports limitations ([e1e23ae](https://github.com/DevoInc/genesys-icons/commit/e1e23ae2ff236c307f72d3beb7af1372351c1bf7))
-
-## [3.2.0](https://github.com/DevoInc/genesys-icons/compare/v3.1.2...v3.2.0) (2023-09-02)
-
-
-### Features
-
-* added IconContext ([a61f355](https://github.com/DevoInc/genesys-icons/commit/a61f3559b63be9e23d402b00a748aa2e51cbf3e4))
-
-## [3.1.2](https://github.com/DevoInc/genesys-icons/compare/v3.1.1...v3.1.2) (2023-08-31)
-
-
-### Bug Fixes
-
 * mismatch reference ([2ae8e87](https://github.com/DevoInc/genesys-icons/commit/2ae8e87f3dc16f25ff16ffb2a92fccafada2bf40))
-
-## [3.1.1](https://github.com/DevoInc/genesys-icons/compare/v3.1.0...v3.1.1) (2023-08-30)
-
-
-### Bug Fixes
-
 * some icons with bad name ([1c53aa5](https://github.com/DevoInc/genesys-icons/commit/1c53aa5e3ab32cba21c7d50be5a4f88b20257fef))
 
 
-### Vulnerabilities
+## [3.8.0](https://github.com/DevoInc/genesys-icons/compare/v3.7.0...v3.8.0) (2024-02-29)
 
-* **deps-dev:** bump word-wrap from 1.2.3 to 1.2.4 ([#17](https://github.com/DevoInc/genesys-icons/issues/17)) ([71d8eb2](https://github.com/DevoInc/genesys-icons/commit/71d8eb2ffa9b7e44e050473f07a4243a46af1855))
+### ⚠ DO NOT USE - Deprecated
+
+## [3.7.0](https://github.com/DevoInc/genesys-icons/compare/v3.6.0...v3.7.0) (2024-02-27)
+
+### ⚠ DO NOT USE - Deprecated
+
+## [3.6.0](https://github.com/DevoInc/genesys-icons/compare/v3.5.1...v3.6.0) (2024-01-02)
+
+### ⚠ DO NOT USE - Deprecated
+
+## [3.5.0](https://github.com/DevoInc/genesys-icons/compare/v3.4.2...v3.5.0) (2023-11-14)
+
+### ⚠ DO NOT USE - Deprecated
+
+## [3.4.2](https://github.com/DevoInc/genesys-icons/compare/v3.4.1...v3.4.2) (2023-11-14)
+
+### ⚠ DO NOT USE - Deprecated
+
+## [3.4.1](https://github.com/DevoInc/genesys-icons/compare/v3.4.0...v3.4.1) (2023-11-13)
+
+### ⚠ DO NOT USE - Deprecated
+
+## [3.4.0](https://github.com/DevoInc/genesys-icons/compare/v3.3.0...v3.4.0) (2023-11-13)
+
+### ⚠ DO NOT USE - Deprecated
+
+## [3.3.0](https://github.com/DevoInc/genesys-icons/compare/v3.2.2...v3.3.0) (2023-11-07)
+
+### ⚠ DO NOT USE - Deprecated
+
+## [3.2.2](https://github.com/DevoInc/genesys-icons/compare/v3.2.1...v3.2.2) (2023-09-08)
+
+### ⚠ DO NOT USE - Deprecated
+
+## [3.2.1](https://github.com/DevoInc/genesys-icons/compare/v3.2.0...v3.2.1) (2023-09-07)
+
+### ⚠ DO NOT USE - Deprecated
+
+## [3.2.0](https://github.com/DevoInc/genesys-icons/compare/v3.1.2...v3.2.0) (2023-09-02)
+
+### ⚠ DO NOT USE - Deprecated
+
+## [3.1.2](https://github.com/DevoInc/genesys-icons/compare/v3.1.1...v3.1.2) (2023-08-31)
+
+### ⚠ DO NOT USE - Deprecated
+
+## [3.1.1](https://github.com/DevoInc/genesys-icons/compare/v3.1.0...v3.1.1) (2023-08-30)
+
+### ⚠ DO NOT USE - Deprecated
 
 ## [3.1.0](https://github.com/DevoInc/genesys-icons/compare/v3.0.1...v3.1.0) (2023-07-19)
 
-
-### Features
-
-* **icons:** QUV-1265 New timeline icon and deleted deprecated ones from library ([f5312aa](https://github.com/DevoInc/genesys-icons/commit/f5312aa189147920d45f0d71fa11c84befc311cb))
+### ⚠ DO NOT USE - Deprecated
 
 
-### Vulnerabilities
-
-* **deps:** bump vm2 from 3.9.17 to 3.9.18 ([d828ec7](https://github.com/DevoInc/genesys-icons/commit/d828ec799ef5a9808e63d628845f64614d92c210))
 
 ### [3.0.1](https://github.com/DevoInc/genesys-icons/compare/v3.0.0...v3.0.1) (2023-05-12)
 
