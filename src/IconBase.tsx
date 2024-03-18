@@ -10,11 +10,13 @@ export interface IconBaseProps extends React.SVGAttributes<SVGElement> {
 }
 
 export const IconBase = ({
+  'aria-hidden': ariaHidden = true,
   attr,
   size,
   title,
   className,
   color,
+  role,
   style,
   children,
   ...svgProps
@@ -28,6 +30,7 @@ export const IconBase = ({
   } = React.useContext(IconContext);
   return (
     <svg
+      aria-hidden={ariaHidden}
       aria-label={title ?? baseTitle}
       stroke="currentColor"
       fill="currentColor"
@@ -35,7 +38,7 @@ export const IconBase = ({
       {...attr}
       {...svgProps}
       className={className ?? baseClassName}
-      role="img"
+      role={role}
       style={{ color: color ?? baseColor, ...baseStyle, ...style }}
       height={size ?? baseSize ?? '1rem'}
       width={size ?? baseSize ?? '1rem'}
