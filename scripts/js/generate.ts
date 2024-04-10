@@ -24,7 +24,7 @@ fs.writeFileSync(
   `'use strict';
 
 module.exports = {
-  ${icons.map((icon) => `${icon.key}: '\\${icon.code}'`).join(',\n  ')},
+  ${icons.map((icon) => `gi_${icon.key}: '\\${icon.code}'`).join(',\n  ')},
 };
 `,
   { encoding: 'utf8' },
@@ -36,7 +36,7 @@ fs.writeFileSync(
   iconsESMPath,
   `
 export default {
-  ${icons.map((icon) => `${icon.key}: '\\${icon.code}'`).join(',\n  ')},
+  ${icons.map((icon) => `gi_${icon.key}: '\\${icon.code}'`).join(',\n  ')},
 };
 `,
   { encoding: 'utf8' },
