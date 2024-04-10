@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.0](https://github.com/DevoInc/genesys-icons/compare/v4.0.0...v4.1.0) (2024-03-18)
+
+
+### Features
+
+* **IconBase:** better default values for attributes. ([f0f7f39](https://github.com/DevoInc/genesys-icons/commit/f0f7f39fc276e6ba8892645a6704e933cfcc7973))
+
 ## [4.0.0](https://github.com/DevoInc/genesys-icons/compare/v3.8.0...v4.0.0) (2024-03-08)
 
 ### ⚠ BREAKING CHANGES
