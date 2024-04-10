@@ -1,5 +1,21 @@
 # Changelog
 
+## [5.0.0](https://github.com/DevoInc/genesys-icons/compare/v4.1.0...v5.0.0) (2024-04-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* now the variables of the icon-variables.js and icon-variables.mjs from dist has a new prefix 'gi_'
+
+### Features
+
+* Added 'gi_' prefix to the icon variables to be used in styled components. ([6ce5f8c](https://github.com/DevoInc/genesys-icons/commit/6ce5f8c619ac656b2d927dc5ed18d03467f0f188))
+
+
+### Vulnerabilities
+
+* **deps-dev:** bump express from 4.18.2 to 4.19.2 ([9def322](https://github.com/DevoInc/genesys-icons/commit/9def322099a6edcbe9d5eb12753514191516fa15))
+
 ## [4.1.0](https://github.com/DevoInc/genesys-icons/compare/v4.0.0...v4.1.0) (2024-03-18)
 
 
