@@ -81,7 +81,7 @@ jobs:
             dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Run Eslint
+      - name: Run linter
         run: npm run lint
 
   unit-test:
@@ -104,7 +104,7 @@ jobs:
             dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Run Jest
+      - name: Run tests
         run: npm run test
 
   release:
