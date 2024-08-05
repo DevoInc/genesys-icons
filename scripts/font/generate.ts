@@ -1,13 +1,17 @@
 import fs from 'fs';
-import path from 'path';
+import { resolve, dirname } from 'path';
 import svgtofont from 'svgtofont';
+import { fileURLToPath } from 'url';
+
 import { config } from '../../config';
 import { getEditedIconClasses } from './classEdition';
 
 // paths
-const basePath = path.resolve(__dirname, '..', '..');
-const pkgPath = path.resolve(basePath, 'dist');
-const srcPath = path.resolve(basePath, 'icons');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const basePath = resolve(__dirname, '..', '..');
+const pkgPath = resolve(basePath, 'dist');
+const srcPath = resolve(basePath, 'icons');
 
 // create the pkgPath if not exists
 fs.mkdirSync(pkgPath, { recursive: true });
@@ -41,15 +45,12 @@ svgtofont({
 }).then(() => {
   console.log('Font: Generated icons fonts!');
 
-  const stylesFile = path.resolve(pkgPath, `${config.fontName}-styles.scss`);
+  const stylesFile = resolve(pkgPath, `${config.fontName}-styles.scss`);
   const allStyles = fs.readFileSync(stylesFile).toString();
   const [fontFace, classGeneric, classes, variables] = allStyles.split('\n\n');
 
   // Writting the SCSS variables file
-  const variablesFile = path.resolve(
-    pkgPath,
-    `${config.fontName}-variables.scss`,
-  );
+  const variablesFile = resolve(pkgPath, `${config.fontName}-variables.scss`);
   fs.writeFileSync(variablesFile, variables, { encoding: 'utf8' });
 
   // Rewrite styles file with classes referencing to SCSS variables
@@ -60,7 +61,7 @@ svgtofont({
   );
 
   // Writting base SCSS file with the imports of both variables and styles
-  const baseFile = path.resolve(pkgPath, `${config.fontName}.scss`);
+  const baseFile = resolve(pkgPath, `${config.fontName}.scss`);
   const baseContent = `// VARIABLES
 @import '${config.fontName}-variables';
 

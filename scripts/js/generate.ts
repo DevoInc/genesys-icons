@@ -1,15 +1,15 @@
 import fs from 'fs';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
 import { config } from '../../config';
-import path from 'path';
 import { getIconsInfo } from '../iconExtraction';
 
-const basePath = path.resolve(__dirname, '..', '..');
-const pkgPath = path.resolve(basePath, 'dist');
-const srcPath = path.resolve(
-  basePath,
-  'dist',
-  `${config.fontName}-variables.scss`,
-);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const basePath = resolve(__dirname, '..', '..');
+const pkgPath = resolve(basePath, 'dist');
+const srcPath = resolve(basePath, 'dist', `${config.fontName}-variables.scss`);
 
 // create the pkgPath dir
 fs.mkdirSync(pkgPath, { recursive: true });
@@ -18,7 +18,7 @@ const raw = String(fs.readFileSync(srcPath));
 const icons = getIconsInfo(raw);
 
 // Write CJS file
-const iconsCJSPath = path.resolve(pkgPath, 'icon-variables.js');
+const iconsCJSPath = resolve(pkgPath, 'icon-variables.js');
 fs.writeFileSync(
   iconsCJSPath,
   `'use strict';
@@ -31,7 +31,7 @@ module.exports = {
 );
 
 // Write ESM file
-const iconsESMPath = path.resolve(pkgPath, 'icon-variables.mjs');
+const iconsESMPath = resolve(pkgPath, 'icon-variables.mjs');
 fs.writeFileSync(
   iconsESMPath,
   `

@@ -1,3 +1,5 @@
+import { describe, test, expect } from 'vitest';
+
 import { Icon } from './declarations';
 import {
   commonFileTmpl,
@@ -66,7 +68,7 @@ export declare const T: IconType;`,
 describe('scripts', () => {
   describe('templates', () => {
     describe('moduleTmpl', () => {
-      it.each(casesModuleTmpl)(
+      test.each(casesModuleTmpl)(
         '%s',
         (_title, name: string, content: string, expected: string) => {
           expect(moduleTmpl(name, content)).toEqual(expected);
@@ -75,7 +77,7 @@ describe('scripts', () => {
     });
 
     describe('commonTmpl', () => {
-      it.each(casesCommonTmpl)(
+      test.each(casesCommonTmpl)(
         '%s',
         (_title, name: string, content: string, expected: string) => {
           expect(commonTmpl(name, content, '')).toEqual(expected);
@@ -84,7 +86,7 @@ describe('scripts', () => {
     });
 
     describe('commonFileTmpl', () => {
-      it.each(casesCommonFileTmpl)(
+      test.each(casesCommonFileTmpl)(
         '%s',
         (_title, icons: Icon[], expected: string) => {
           expect(commonFileTmpl(icons)).toEqual(expected);
@@ -93,7 +95,7 @@ describe('scripts', () => {
     });
 
     describe('moduleFileTmpl', () => {
-      it.each(casesModuleFileTmpl)(
+      test.each(casesModuleFileTmpl)(
         '%s',
         (_title, icons: Icon[], expected: string) => {
           expect(moduleFileTmpl(icons)).toEqual(expected);
@@ -102,7 +104,7 @@ describe('scripts', () => {
     });
 
     describe('definitionsTmpl', () => {
-      it.each(casesDefinitionsTmpl)(
+      test.each(casesDefinitionsTmpl)(
         '%s',
         (_title, icons: Icon[], expected: string) => {
           expect(definitionsTmpl(icons)).toEqual(expected);

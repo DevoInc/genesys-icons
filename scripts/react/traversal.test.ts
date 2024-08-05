@@ -1,3 +1,5 @@
+import { describe, test, expect } from 'vitest';
+
 import { getTextByTag } from './traversal';
 import { ParsedElement } from './declarations';
 
@@ -33,7 +35,7 @@ describe('getTextByTag', () => {
     ],
   ];
 
-  it.each(cases)('%s', (_title, node, tag, expected) => {
+  test.each(cases)('%s', (_title, node, tag, expected) => {
     expect(getTextByTag(node, tag)).toEqual(expected);
   });
 });

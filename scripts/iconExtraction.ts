@@ -12,7 +12,7 @@ export const iconsSort = (a: Icon, b: Icon) => {
 };
 
 export const getIconsInfo = (rawText: string) => {
-  const regExp = new RegExp(`\\$${config.fontName}-(.*): ["\'](.*)["\'];`, 'g');
+  const regExp = new RegExp(`\\$${config.fontName}-(.*): ["'](.*)["'];`, 'g');
   const icons: Icon[] = [];
 
   // TODO Review icomoon generated icons for avoid this code

@@ -1,3 +1,5 @@
+import { describe, test, expect } from 'vitest';
+
 import { parse } from './parser';
 import { ParsedElement } from './declarations';
 
@@ -25,7 +27,7 @@ describe('parse', () => {
     ],
   ];
 
-  it.each(cases)('%s', (_title, svg, expected) => {
+  test.each(cases)('%s', (_title, svg, expected) => {
     expect.assertions(1);
     return expect(parse(svg)).resolves.toEqual(expected);
   });

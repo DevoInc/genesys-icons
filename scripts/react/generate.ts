@@ -1,7 +1,8 @@
 import fs from 'fs';
 import glob from 'glob-promise';
-import path from 'path';
+import { resolve, dirname } from 'path';
 import { pascalCase } from 'pascal-case';
+import { fileURLToPath } from 'url';
 
 import { config } from '../../config';
 import {
@@ -14,9 +15,11 @@ import {
 import { parse } from './parser';
 import { getTextByTag } from './traversal';
 
-const basePath = path.resolve(__dirname, '..', '..');
-const pkgPath = path.resolve(basePath, 'dist');
-const srcPath = path.resolve(basePath, 'icons');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const basePath = resolve(__dirname, '..', '..');
+const pkgPath = resolve(basePath, 'dist');
+const srcPath = resolve(basePath, 'icons');
 
 // stats
 const stats = { icons: 0 };
@@ -49,15 +52,15 @@ glob(`${srcPath}/*`).then(async (filenames) => {
   );
 
   // Write index.js file
-  const outCommon = path.resolve(pkgPath, 'index.umd.js');
+  const outCommon = resolve(pkgPath, 'index.umd.js');
   fs.writeFileSync(outCommon, commonFileTmpl(icons), { encoding: 'utf8' });
 
   // Write index.esm.js file
-  const outModule = path.resolve(pkgPath, 'index.mjs');
+  const outModule = resolve(pkgPath, 'index.mjs');
   fs.writeFileSync(outModule, moduleFileTmpl(icons), { encoding: 'utf8' });
 
   // Write index.d.ts file
-  const outDefinitions = path.resolve(pkgPath, 'index.d.ts');
+  const outDefinitions = resolve(pkgPath, 'index.d.ts');
   fs.writeFileSync(outDefinitions, definitionsTmpl(icons), {
     encoding: 'utf8',
   });
