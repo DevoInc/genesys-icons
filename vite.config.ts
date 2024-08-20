@@ -22,7 +22,7 @@ export default defineConfig({
   },
   plugins: [react()],
   test: {
-    environment: 'jsdom',
+    environment: 'happy-dom',
     include: ['**/*.test.ts?(x)'],
   },
 });

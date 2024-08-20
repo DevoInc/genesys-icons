@@ -52,11 +52,11 @@ glob(`${srcPath}/*`).then(async (filenames) => {
   );
 
   // Write index.js file
-  const outCommon = resolve(pkgPath, 'index.umd.js');
+  const outCommon = resolve(pkgPath, 'index.umd.cjs');
   fs.writeFileSync(outCommon, commonFileTmpl(icons), { encoding: 'utf8' });
 
   // Write index.esm.js file
-  const outModule = resolve(pkgPath, 'index.mjs');
+  const outModule = resolve(pkgPath, 'index.js');
   fs.writeFileSync(outModule, moduleFileTmpl(icons), { encoding: 'utf8' });
 
   // Write index.d.ts file

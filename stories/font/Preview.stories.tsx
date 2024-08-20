@@ -49,36 +49,37 @@ export const Preview: Story = {
       <table style={styles.table}>
         <thead>
           <tr style={styles.tr}>
-            <th style={{...styles.t,...styles.th}}>Variable</th>
-            <th style={{...styles.t,...styles.th}}>Value</th>
-            <th style={{...styles.t,...styles.th}}>Font Glyph</th>
-            <th style={{...styles.t,...styles.th}}>React SVG</th>
+            <th style={{ ...styles.t, ...styles.th }}>Variable</th>
+            <th style={{ ...styles.t, ...styles.th }}>Value</th>
+            <th style={{ ...styles.t, ...styles.th }}>Font Glyph</th>
+            <th style={{ ...styles.t, ...styles.th }}>React SVG</th>
           </tr>
         </thead>
         <tbody>
-          {Object.entries<[string, string]>(iconVariables).map(
-            ([key, value]) => {
-              // Adds Gi prefix to the key and replace _ with PascalCase (a_hand_finger -> GiAHandFinger)
-              const SVGComponentName = `GI${key.replace(
-                fontToReactRegex,
-                (_, g) => g.toUpperCase(),
-              )}`;
-              const ReactIcon = ReactIcons[SVGComponentName];
-              if (ReactIcon === undefined) {
-                throw new Error(`${SVGComponentName} icon not found.`);
-              }
-              return (
-                <tr style={styles.tr} key={key}>
-                  <td style={styles.t}>{key}</td>
-                  <td style={styles.t}>{value}</td>
-                  <td style={styles.t}>
-                    <span style={styles.glyph} className={`gi-${key}`} />
-                  </td>
-                  <td style={styles.t}>{<ReactIcon color={bodyColor}/>}</td>
-                </tr>
-              );
-            },
-          )}
+          {Object.entries<string>(iconVariables).map(([key, value]) => {
+            // Adds Gi prefix to the key and replace _ with PascalCase (a_hand_finger -> GiAHandFinger)
+            const SVGComponentName = `${key
+              .replace('gi_', 'g_i_')
+              .replace(fontToReactRegex, (_, g) => g.toUpperCase())}`;
+            const ReactIcon = ReactIcons[SVGComponentName];
+            console.log(ReactIcon);
+            if (ReactIcon === undefined) {
+              throw new Error(`${SVGComponentName} icon not found.`);
+            }
+            return (
+              <tr style={styles.tr} key={key}>
+                <td style={styles.t}>{key}</td>
+                <td style={styles.t}>{value}</td>
+                <td style={styles.t}>
+                  <span
+                    style={styles.glyph}
+                    className={key.replace('gi_', 'gi-')}
+                  />
+                </td>
+                <td style={styles.t}>{<ReactIcon color={bodyColor} />}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     );

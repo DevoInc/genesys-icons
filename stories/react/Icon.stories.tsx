@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { GIBubbleChart, IconContext } from '../../dist/index.mjs';
+import { GIBubbleChart, IconContext } from '../../dist/index.js';
 
 const meta: Meta<typeof GIBubbleChart> = {
   title: 'React/Icon',

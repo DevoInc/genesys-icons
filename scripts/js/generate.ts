@@ -18,7 +18,7 @@ const raw = String(fs.readFileSync(srcPath));
 const icons = getIconsInfo(raw);
 
 // Write CJS file
-const iconsCJSPath = resolve(pkgPath, 'icon-variables.js');
+const iconsCJSPath = resolve(pkgPath, 'icon-variables.cjs');
 fs.writeFileSync(
   iconsCJSPath,
   `'use strict';
@@ -31,7 +31,7 @@ module.exports = {
 );
 
 // Write ESM file
-const iconsESMPath = resolve(pkgPath, 'icon-variables.mjs');
+const iconsESMPath = resolve(pkgPath, 'icon-variables.js');
 fs.writeFileSync(
   iconsESMPath,
   `
