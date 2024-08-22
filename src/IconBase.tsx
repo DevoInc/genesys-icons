@@ -40,8 +40,8 @@ export const IconBase = ({
       className={className ?? baseClassName}
       role={role}
       style={{ color: color ?? baseColor, ...baseStyle, ...style }}
-      height={size ?? baseSize ?? '1rem'}
-      width={size ?? baseSize ?? '1rem'}
+      height={size ?? baseSize}
+      width={size ?? baseSize}
       xmlns={'http://www.w3.org/2000/svg'}
     >
       {(title || baseTitle) && <title>{title ?? baseTitle}</title>}

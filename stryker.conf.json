@@ -1,7 +1,11 @@
 {
-  "reporters": ["html", "clear-text", "progress"],
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "checkers": ["typescript"],
   "testRunner": "vitest",
-  "mutate": ["scripts/**/*.test.ts"],
-  "tsconfigFile": "tsconfig.json",
-  "disableTypeChecks": "scripts/**/*.ts"
+  "vitest": {
+    "configFile": "./vite.config.ts"
+  },
+  "reporters": ["html", "clear-text", "progress"],
+  "mutate": ["{scripts,src}/**/!(*.+(t|T)est).+(ts|tsx)"],
+  "ignoreStatic": true
 }

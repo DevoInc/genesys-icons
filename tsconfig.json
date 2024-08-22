@@ -4,33 +4,13 @@
     "config.ts",
     "src"
   ],
-  "exclude": [
-    "scripts/**/*.test.ts"
-  ],
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "esnext"
-    ],
     "esModuleInterop": true,
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "target": "ES6",
-    "types": [
-      "jest",
-      "node"
-    ],
     "resolveJsonModule": true,
     "jsx": "react",
-    "strictBindCallApply": true,
-    "noUncheckedIndexedAccess": true,
     "outDir": "./dist"
-  },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "commonjs",
-      "target": "ES2022",
-      "esModuleInterop": true
-    }
   }
 }

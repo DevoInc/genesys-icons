@@ -10,19 +10,15 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'lib',
       fileName: 'lib',
+      formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['react'],
-      output: {
-        globals: {
-          react: 'React',
-        },
-      },
+      external: ['react', 'react/jsx-runtime'],
     },
   },
   plugins: [react()],
   test: {
     environment: 'happy-dom',
-    include: ['**/*.test.ts?(x)'],
+    include: ['{src,scripts}/**/*.test.ts?(x)'],
   },
 });

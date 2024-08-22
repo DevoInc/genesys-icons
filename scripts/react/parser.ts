@@ -1,14 +1,16 @@
 import * as cheerio from 'cheerio';
+import { type AnyNode } from 'domhandler';
+
 import { ParsedElement } from './declarations';
 
 const invalidTags = ['STYLE'];
 
-const filterTags = ($element: cheerio.Cheerio<cheerio.Element>) =>
+const filterTags = ($element: cheerio.Cheerio<AnyNode>) =>
   !invalidTags.includes($element.prop('tagName'));
 
 const parseElement =
   ($: cheerio.CheerioAPI) =>
-  ($element: cheerio.Cheerio<cheerio.Element>): ParsedElement => {
+  ($element: cheerio.Cheerio<AnyNode>): ParsedElement => {
     return {
       tag: $element.prop('tagName').toLowerCase(),
       attrs: $element.attr(),
@@ -22,7 +24,7 @@ const parseElement =
       children: $element
         .children()
         .toArray()
-        .map((child: cheerio.Element) => $(child))
+        .map((child: AnyNode) => $(child))
         .filter(filterTags)
         .map(parseElement($)),
     };

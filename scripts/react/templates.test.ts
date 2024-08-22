@@ -35,8 +35,8 @@ const casesCommonFileTmpl: [string, Icon[], string][] = [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
     `// THIS FILE IS AUTO GENERATED
-var genIcon = require('./lib.umd.js').genIcon;
-var IconContext = require('./lib.umd.js').IconContext;
+var genIcon = require('./lib.umd.cjs').genIcon;
+var IconContext = require('./lib.umd.cjs').IconContext;
 module.exports.IconContext = IconContext;
 C`,
   ],
@@ -47,8 +47,8 @@ const casesModuleFileTmpl: [string, Icon[], string][] = [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
     `// THIS FILE IS AUTO GENERATED
-import { genIcon } from './lib.mjs';
-export { IconContext } from './lib.mjs';
+import { genIcon } from './lib.js';
+export { IconContext } from './lib.js';
 M`,
   ],
 ];
@@ -58,7 +58,7 @@ const casesDefinitionsTmpl: [string, Icon[], string][] = [
     'Basic case',
     [{ title: 'T', module: 'M', common: 'C' }],
     `// THIS FILE IS AUTO GENERATED
-import { type IconType, IconContext } from './lib.mjs';
+import { type IconType, IconContext } from './lib.js';
 export declare type IconType = IconType;
 export declare const IconContext: typeof IconContext;
 export declare const T: IconType;`,
