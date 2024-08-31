@@ -4,6 +4,7 @@ reports
 storybook-static
 .eslintcache
 .stryker-tmp
+stryker.log
 dist
 .DS_Store
 .vscode
