@@ -1,9 +1,10 @@
+// Stryker disable all
 import fs from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 import { config } from '../../config';
-import { getIconsInfo } from '../iconExtraction';
+import { getIconsInfo } from './iconExtraction';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -42,6 +43,7 @@ export default {
   { encoding: 'utf8' },
 );
 
+/* eslint-disable-next-line no-console */
 console.log(
   icons.length
     ? `JS:  Generated ${icons.length} exported icon contents!`

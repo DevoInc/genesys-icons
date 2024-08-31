@@ -6,6 +6,7 @@ const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     options: {
+      showPanel: true,
       storySort: {
         order: [
           'Introduction',

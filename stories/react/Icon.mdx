@@ -1,0 +1,44 @@
+import { Meta, Canvas, Source, ArgTypes } from '@storybook/blocks';
+
+import * as Stories from './Icon.stories';
+
+<Meta of={Stories} />
+
+# Icon
+
+<Canvas of={Stories.Base} />
+
+<Source code={`
+import { GICheck } from "@devoinc/genesys-icons";
+
+export const Example = () => (
+  <GICheck size={64} color={'rgba(0,0,180,1)'} />
+);
+`} />
+
+<ArgTypes of={Stories.Base} />
+
+## Asymmetric
+
+As you can see, with several special icons that are not symmetric you could use
+an array in the `size` property, the `width` will be the first element and the
+`height` will be the second element
+
+<Canvas of={Stories.Asymmetric} />
+
+## Context
+
+<Canvas of={Stories.Context} />
+
+There is also a context that you can use for base props
+
+```jsx
+import { GICheck, IconContext } from "@devoinc/genesys-icons";
+
+export const Example = () => (
+  <IconContext.Provider value={{ size: 64, color: 'rgba(0,0,180,1)' }}>
+    <GICheck size={64} color={'rgba(0,0,180,1)'} />
+  </IconContext.Provider>
+);
+```
+

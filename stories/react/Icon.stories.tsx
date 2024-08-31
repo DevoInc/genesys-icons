@@ -1,17 +1,22 @@
 import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { GIBubbleChart, IconContext } from '../../dist/index.js';
+import {
+  GICheckOk,
+  GIDevoSymbolLogo,
+  IconContext,
+  type IIcon,
+} from '../../dist/index.js';
 
-const meta: Meta<typeof GIBubbleChart> = {
+const meta: Meta<typeof GICheckOk> = {
   title: 'React/Icon',
-  component: GIBubbleChart,
+  component: GICheckOk,
   argTypes: {
     color: {
       control: 'color',
     },
     size: {
-      control: 'number',
+      control: 'array',
     },
   },
   parameters: {
@@ -23,9 +28,9 @@ const meta: Meta<typeof GIBubbleChart> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof GIBubbleChart>;
+type Story = StoryObj<typeof GICheckOk>;
 
-export const Icon: Story = {
+export const Base: Story = {
   args: {
     title: 'Some title',
     color: 'rgba(0, 0, 190, 1)',
@@ -35,12 +40,23 @@ export const Icon: Story = {
   },
 };
 
+export const Asymmetric: Story = {
+  args: {
+    title: 'Some title',
+    color: 'rgba(0, 0, 190, 1)',
+    size: [128, 32],
+    className: 'some-class-name',
+    style: {},
+  },
+  render: (props: IIcon) => <GIDevoSymbolLogo {...props} />,
+};
+
 export const Context: Story = {
-  render: () => (
+  render: (props: IIcon) => (
     <IconContext.Provider
       value={{ title: 'Some title', color: 'red', size: 64 }}
     >
-      <GIBubbleChart />
+      <GICheckOk {...props} />
     </IconContext.Provider>
   ),
 };

@@ -1,76 +1,47 @@
-import { useState, FC } from 'react';
-import { usePopper } from 'react-popper';
-import { useOnEventOutside } from '../../hooks/useOnEventOutside';
-
 import * as React from 'react';
 
-import { CustomPopper } from '../Popper';
-import { SingleItem } from '../../utils';
-import {
-  StyledGallery,
-  StyledSvgWrapperButton,
-  StyledContainer,
-} from '../../utils';
+import { StyledGallery } from './StyledGallery';
+import type { IGalleryIconItem } from '../declarations';
+import { GalleryContext } from '../../context';
+import { GalleryItem } from '../GalleryItem';
+import { filterSearch, prepareText } from './helpers';
+import { GalleryFilter } from '../GalleryFilter';
 
 interface GalleryProps {
-  icons: SingleItem[];
+  icons: IGalleryIconItem[];
 }
 
-export const Gallery: FC<GalleryProps> = ({ icons }) => {
-  // Disabled rule on this line as the popper behavior needs setter
-  //    method to run correctly
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [referenceElement, setReferenceElement] = useState({});
-  const [popperElement, setPopperElement] = useState(null);
-  const [selectedItem, setSelectedItem] = useState<SingleItem | undefined>(
-    undefined,
-  );
+export const Gallery: React.FC<GalleryProps> = ({ icons }) => {
+  const [searchText, setSearchText] = React.useState('');
 
-  const { styles, attributes } = usePopper(
-    selectedItem && referenceElement
-      ? referenceElement[selectedItem.name[1]]
-      : null,
-    popperElement,
-    {
-      placement: 'bottom-start',
-    },
-  );
+  const filteredIcons: IGalleryIconItem[] =
+    searchText.trim() !== ''
+      ? icons.filter(filterSearch(prepareText(searchText)))
+      : icons;
 
-  const deselect = () => setSelectedItem(undefined);
-
-  useOnEventOutside({
-    references: [
-      ...document.querySelectorAll('.icon-container'),
-      popperElement,
-    ],
-    handler: deselect,
-  });
+  const [selection, setSelection] = React.useState<string | null>(null);
+  const ref = React.useRef(null);
 
   return (
-    <StyledGallery>
-      {icons.map((icon) => (
-        <StyledSvgWrapperButton
-          className={`icon-container icon-${icon.name[1]}`}
-          key={icon.name[1]}
-          onClick={() =>
-            setSelectedItem(selectedItem?.equals(icon) ? undefined : icon)
-          }
-          aria-expanded={!selectedItem?.equals(icon) ? null : true}
-          ref={(el) => (referenceElement[icon.name[1]] = el)}
-        >
-          <StyledContainer>
-            {icon.component({ key: icon.name, title: icon.name, size: 32 })}
-          </StyledContainer>
-        </StyledSvgWrapperButton>
-      ))}
-      {selectedItem && (
-        <CustomPopper
-          item={selectedItem}
-          styles={styles}
-          attributes={attributes}
-          popperRef={setPopperElement}
-        />
-      )}
-    </StyledGallery>
+    <GalleryContext.Provider value={{ selection, setSelection, searchText }}>
+      <GalleryFilter
+        value={searchText}
+        onChange={(value: string) => {
+          setSearchText(value);
+        }}
+        count={filteredIcons.length}
+        total={icons.length}
+      />
+      <StyledGallery ref={ref}>
+        {filteredIcons.map((icon) => (
+          <GalleryItem
+            key={icon.name}
+            name={icon.name}
+            Icon={icon.Cmp}
+            tags={icon.tags}
+          />
+        ))}
+      </StyledGallery>
+    </GalleryContext.Provider>
   );
 };

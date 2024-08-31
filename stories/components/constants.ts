@@ -1,0 +1,1 @@
+export const DEFAULT_RESTORE_TIME = 1500;

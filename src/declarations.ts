@@ -1,10 +1,6 @@
-import { IconBaseProps } from './IconBase';
-
-export type IconType = (props: IconBaseProps) => JSX.Element;
-
-export interface IconTree {
-  tag: string;
-  attrs: { [key: string]: string };
-  children: IconTree[];
-  text: string;
+export interface IIcon extends React.SVGAttributes<SVGElement> {
+  children?: React.ReactNode;
+  size?: string | number | number[] | string[];
+  color?: string;
+  title?: string;
 }

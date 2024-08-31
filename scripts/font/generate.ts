@@ -1,3 +1,4 @@
+// Stryker disable all
 import fs from 'fs';
 import { resolve, dirname } from 'path';
 import svgtofont from 'svgtofont';
@@ -43,6 +44,7 @@ svgtofont({
     normalize: true,
   },
 }).then(() => {
+  /* eslint-disable-next-line no-console */
   console.log('Font: Generated icons fonts!');
 
   const stylesFile = resolve(pkgPath, `${config.fontName}-styles.scss`);

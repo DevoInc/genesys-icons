@@ -4,6 +4,8 @@
   },
   "rules": {
     "no-inner-declaration": "error",
-    "no-cycle": "error"
+    "no-cycle": "error",
+    "no-console": "error",
+    "no-alert": "error"
   }
 }

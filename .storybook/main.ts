@@ -1,21 +1,24 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 import { mergeConfig } from 'vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 const config: StorybookConfig = {
   framework: {
     name: '@storybook/react-vite',
     options: {},
   },
-  stories: [
-    '../stories/**/*.@(mdx|stories.tsx)',
-  ],
+  stories: ['../stories/**/*.@(mdx|stories.tsx)'],
   async viteFinal(config) {
     // Merge custom configuration into the default config
     return mergeConfig(config, {
+      plugins: [tsconfigPaths()],
       // Add dependencies to pre-optimization
       optimizeDeps: {
         include: [
           '@storybook/blocks',
+          'styled-components',
+          'decamelize',
+          '@floating-ui/react',
         ],
       },
     });

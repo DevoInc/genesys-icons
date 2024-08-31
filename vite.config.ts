@@ -19,6 +19,6 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: 'happy-dom',
-    include: ['{src,scripts}/**/*.test.ts?(x)'],
+    include: ['{src,scripts,stories}/**/*.test.ts?(x)'],
   },
 });

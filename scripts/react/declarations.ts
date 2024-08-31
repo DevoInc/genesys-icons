@@ -4,9 +4,9 @@ export interface Icon {
   module: string;
 }
 
-export interface ParsedElement {
+export interface IParsedElement {
   tag: string;
   attrs: { [key: string]: string };
-  children: ParsedElement[];
+  children: IParsedElement[];
   text: string;
 }
