@@ -1,5 +1,24 @@
 # Changelog
 
+## [6.0.0](https://github.com/DevoInc/genesys-icons/compare/v5.0.0...v6.0.0) (2024-08-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* prefer module bundle
+
+### Features
+
+* prefer module bundle ([10715c3](https://github.com/DevoInc/genesys-icons/commit/10715c35e2d4b58d166cc8b9ed319d2f7cdf817a))
+
+
+### Vulnerabilities
+
+* **deps-dev:** bump ejs from 3.1.9 to 3.1.10 ([ce58472](https://github.com/DevoInc/genesys-icons/commit/ce58472b9391a4f45b1a47c34d87769327d91153))
+* **deps-dev:** bump vite from 4.5.2 to 4.5.3 ([f0c7f06](https://github.com/DevoInc/genesys-icons/commit/f0c7f0699065e36f6f3af183f7f12704ec9e6497))
+* **deps-dev:** bump ws from 6.2.2 to 6.2.3 ([86ab7fc](https://github.com/DevoInc/genesys-icons/commit/86ab7fc456237c3b50760f81283f5142f1df228a))
+* **deps:** bump braces and readdirp ([0218842](https://github.com/DevoInc/genesys-icons/commit/021884274ef811acee81d90f94b3500b1fca1950))
+
 ## [5.0.0](https://github.com/DevoInc/genesys-icons/compare/v4.1.0...v5.0.0) (2024-04-10)
 
 
