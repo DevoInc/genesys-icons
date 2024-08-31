@@ -8,4 +8,4 @@ export const cjsIconTmpl = (
   viewBox: string,
 ) =>
   `${autoGen}
-var IconBase = require('../lib.umd.cjs').IconBase; var ${name} = ${getIconComponent(name, tags, content, viewBox)}; ${name}.tags = "${tags}"; module.exports.${name} = ${name};`;
+var IconBase = require('../lib.cjs').IconBase; var ${name} = ${getIconComponent(name, tags, content, viewBox)}; ${name}.tags = "${tags}"; module.exports.${name} = ${name};`;

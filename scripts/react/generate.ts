@@ -77,7 +77,7 @@ fs.writeFileSync(
 
 // Write icons/index.umd.cjs file
 fs.writeFileSync(
-  resolve(processedIconsPath, 'index.umd.cjs'),
+  resolve(processedIconsPath, 'index.cjs'),
   cjsIconIndexTmpl(names),
   {
     encoding: 'utf8',
@@ -90,7 +90,7 @@ fs.writeFileSync(resolve(pkgPath, 'index.js'), esmIndexTmpl(), {
 });
 
 // Write index.cjs file
-fs.writeFileSync(resolve(pkgPath, 'index.umd.cjs'), cjsIndexTmpl(names), {
+fs.writeFileSync(resolve(pkgPath, 'index.cjs'), cjsIndexTmpl(names), {
   encoding: 'utf8',
 });
 
