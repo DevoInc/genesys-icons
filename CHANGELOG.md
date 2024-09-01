@@ -1,5 +1,14 @@
 # Changelog
 
+## [6.0.1](https://github.com/DevoInc/genesys-icons/compare/v6.0.0...v6.0.1) (2024-09-01)
+
+
+### Bug Fixes
+
+* build cjs bundle ([7f1f179](https://github.com/DevoInc/genesys-icons/commit/7f1f179deba3ace21d170dca6b92eccb52fe8587))
+* bundle the icons processed by the react script ([1b5c8f6](https://github.com/DevoInc/genesys-icons/commit/1b5c8f6f6d9fd4201dab4ac54908bdd0300b4abd))
+* cjs reference of each icon file in dist ([5d20c83](https://github.com/DevoInc/genesys-icons/commit/5d20c833378af9a23d0bad6e1ab25033e715e2b1))
+
 ## [6.0.0](https://github.com/DevoInc/genesys-icons/compare/v5.0.0...v6.0.0) (2024-08-31)
 
 
