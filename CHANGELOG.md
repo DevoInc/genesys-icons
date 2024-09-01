@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.2](https://github.com/DevoInc/genesys-icons/compare/v6.0.1...v6.0.2) (2024-09-01)
+
+
+### Bug Fixes
+
+* restore types ([7563f8a](https://github.com/DevoInc/genesys-icons/commit/7563f8a3a89ad526c65d835445008df765f1f1dd))
+
 ## [6.0.1](https://github.com/DevoInc/genesys-icons/compare/v6.0.0...v6.0.1) (2024-09-01)
 
 
