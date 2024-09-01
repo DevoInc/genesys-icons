@@ -2,7 +2,8 @@
   "include": [
     "scripts",
     "config.ts",
-    "src"
+    "src",
+    "stories",
   ],
   "compilerOptions": {
     "esModuleInterop": true,

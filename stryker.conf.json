@@ -7,5 +7,6 @@
   },
   "reporters": ["html", "clear-text", "progress"],
   "mutate": ["{scripts,src}/**/!(*.+(t|T)est).+(ts|tsx)"],
+  "ignorePatterns": ["src/icons/*"],
   "ignoreStatic": true
 }

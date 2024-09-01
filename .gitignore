@@ -8,3 +8,5 @@ stryker.log
 dist
 .DS_Store
 .vscode
+src/icons/*
+!src/icons/empty

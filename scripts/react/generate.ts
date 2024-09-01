@@ -7,22 +7,14 @@ import { fileURLToPath } from 'url';
 import { config } from '../../config';
 import { parse } from './parser';
 import { getTextByTag } from './traversal';
-import {
-  cjsIconIndexTmpl,
-  cjsIconTmpl,
-  cjsIndexTmpl,
-  definitionsTmpl,
-  esmIconIndexTmpl,
-  esmIconTmpl,
-  esmIndexTmpl,
-} from './templates';
+import { iconIndexTmpl, iconTmpl } from './templates';
 import { tree2ReactElement } from './transform';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const basePath = resolve(__dirname, '..', '..');
 const pkgPath = resolve(basePath, 'dist');
-const processedIconsPath = resolve(pkgPath, 'icons');
+const processedIconsPath = resolve(basePath, 'src', 'icons');
 const srcPath = resolve(basePath, 'icons');
 
 // create the pkgPath dir
@@ -47,57 +39,24 @@ files.forEach((file) => {
   const content = tree2ReactElement(parsedSVG.children);
   names.push(name);
 
-  // create icon file for esm
+  // create icon file
   fs.writeFileSync(
-    resolve(processedIconsPath, `${name}.jsx`),
-    esmIconTmpl(name, tags, content, parsedSVG.attrs.viewBox),
-    {
-      encoding: 'utf8',
-    },
-  );
-
-  // create icon file for cjs
-  fs.writeFileSync(
-    resolve(processedIconsPath, `${name}.cjsx`),
-    cjsIconTmpl(name, tags, content, parsedSVG.attrs.viewBox),
+    resolve(processedIconsPath, `${name}.tsx`),
+    iconTmpl(name, tags, content, parsedSVG.attrs.viewBox),
     {
       encoding: 'utf8',
     },
   );
 });
 
-// Write icons/index.js file
+// Create icon index file
 fs.writeFileSync(
-  resolve(processedIconsPath, 'index.js'),
-  esmIconIndexTmpl(names),
+  resolve(processedIconsPath, 'index.ts'),
+  iconIndexTmpl(names),
   {
     encoding: 'utf8',
   },
 );
-
-// Write icons/index.umd.cjs file
-fs.writeFileSync(
-  resolve(processedIconsPath, 'index.cjs'),
-  cjsIconIndexTmpl(names),
-  {
-    encoding: 'utf8',
-  },
-);
-
-// Write index.js file
-fs.writeFileSync(resolve(pkgPath, 'index.js'), esmIndexTmpl(), {
-  encoding: 'utf8',
-});
-
-// Write index.cjs file
-fs.writeFileSync(resolve(pkgPath, 'index.cjs'), cjsIndexTmpl(names), {
-  encoding: 'utf8',
-});
-
-// Write index.d.ts file
-fs.writeFileSync(resolve(pkgPath, 'index.d.ts'), definitionsTmpl(names), {
-  encoding: 'utf8',
-});
 
 // Show stats in terminal
 /* eslint-disable-next-line no-console */
