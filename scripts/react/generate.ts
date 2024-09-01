@@ -58,7 +58,7 @@ files.forEach((file) => {
 
   // create icon file for cjs
   fs.writeFileSync(
-    resolve(processedIconsPath, `${name}.umd.cjsx`),
+    resolve(processedIconsPath, `${name}.cjsx`),
     cjsIconTmpl(name, tags, content, parsedSVG.attrs.viewBox),
     {
       encoding: 'utf8',
