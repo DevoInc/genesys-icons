@@ -5,7 +5,7 @@ import { useContextProps } from '../../hooks';
 
 export interface IconBaseProps extends IIcon {}
 
-export const IconBase: React.FC<IIcon> = ({
+export const IconBase: React.FC<IconBaseProps> = ({
   'aria-hidden': ariaHidden = true,
   size: userSize,
   title: userTitle,
@@ -33,7 +33,7 @@ export const IconBase: React.FC<IIcon> = ({
       {...props}
       className={className}
       role={role}
-      style={{ color, ...style }}
+      style={{ color, pointerEvents: 'none', ...style }}
       width={Array.isArray(size) ? size[0] : size}
       height={Array.isArray(size) ? size[1] : size}
       xmlns={'http://www.w3.org/2000/svg'}
