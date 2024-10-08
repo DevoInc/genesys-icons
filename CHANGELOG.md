@@ -1,5 +1,19 @@
 # Changelog
 
+## [6.1.0](https://github.com/DevoInc/genesys-icons/compare/v6.0.2...v6.1.0) (2024-10-08)
+
+
+### Features
+
+* added style to the IconBase component to avoid by default get the title attribute on hover ([a2842ab](https://github.com/DevoInc/genesys-icons/commit/a2842abc85a1192bcc620990ead69a25da5fa0d9))
+
+
+### Vulnerabilities
+
+* **deps-dev:** bump vite from 5.4.2 to 5.4.6 ([5e45295](https://github.com/DevoInc/genesys-icons/commit/5e45295bf205c21ab694ca4dea859057e55b66d9))
+* **deps:** bump body-parser and express ([981615e](https://github.com/DevoInc/genesys-icons/commit/981615e996e28a0d1868fc7b2268420b48fa5c85))
+* **deps:** bump rollup from 4.21.0 to 4.22.4 ([b06fe5a](https://github.com/DevoInc/genesys-icons/commit/b06fe5a969a9db0862e2f8f48063fd59ddc22b6e))
+
 ## [6.0.2](https://github.com/DevoInc/genesys-icons/compare/v6.0.1...v6.0.2) (2024-09-01)
 
 
