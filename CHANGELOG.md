@@ -1,5 +1,13 @@
 # Changelog
 
+## [6.1.1](https://github.com/DevoInc/genesys-icons/compare/v6.1.0...v6.1.1) (2024-12-09)
+
+
+### Vulnerabilities
+
+* **deps-dev:** bump happy-dom from 15.7.2 to 15.10.2 ([3f5cfd5](https://github.com/DevoInc/genesys-icons/commit/3f5cfd5eee9188659c16e11d2115c6a568bc0d8a))
+* **deps:** bump cookie and express ([4910d0f](https://github.com/DevoInc/genesys-icons/commit/4910d0f81b7b6c6af5a3d0048f8bdd5b34c9099e))
+
 ## [6.1.0](https://github.com/DevoInc/genesys-icons/compare/v6.0.2...v6.1.0) (2024-10-08)
 
 
