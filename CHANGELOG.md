@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.0](https://github.com/DevoInc/genesys-icons/compare/v6.1.1...v6.2.0) (2024-12-11)
+
+
+### Features
+
+* added new 'automation', 'entity_destination' and 'entity_source' icons ([ee0f644](https://github.com/DevoInc/genesys-icons/commit/ee0f644d03acc710fd0ca13c5724335a0c8c66a3))
+
 ## [6.1.1](https://github.com/DevoInc/genesys-icons/compare/v6.1.0...v6.1.1) (2024-12-09)
 
 
