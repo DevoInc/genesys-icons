@@ -3,7 +3,7 @@
   "_comment": { "checkers": ["typescript"] },
   "testRunner": "vitest",
   "vitest": {
-    "configFile": "./vite.config.ts"
+    "configFile": "./vitest.config.ts"
   },
   "reporters": ["html", "clear-text", "progress"],
   "mutate": ["{scripts,src}/**/!(*.+(t|T)est).+(ts|tsx)"],
