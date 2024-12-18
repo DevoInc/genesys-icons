@@ -7,8 +7,8 @@ export interface IconContextProps
 
 export const IconContext = React.createContext<IconContextProps>({
   size: 32,
-  color: null,
-  title: null,
-  className: null,
+  color: undefined,
+  title: undefined,
+  className: undefined,
   style: {},
 });

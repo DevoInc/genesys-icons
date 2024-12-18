@@ -1,39 +1,38 @@
 import * as React from 'react';
 
 import type { IIcon } from '../../declarations';
-import { useContextProps } from '../../hooks';
+import { IconContext } from '../../context';
 
 export interface IconBaseProps extends IIcon {}
 
 export const IconBase: React.FC<IconBaseProps> = ({
   'aria-hidden': ariaHidden = true,
-  size: userSize,
-  title: userTitle,
-  className: userClassName,
-  color: userColor,
-  style: userStyle,
+  size: localSize,
+  title,
+  className,
+  color,
+  style,
   role = 'img',
   children,
   ...props
 }) => {
-  const { size, title, className, color, style } = useContextProps({
-    size: userSize,
-    title: userTitle,
-    className: userClassName,
-    color: userColor,
-    style: userStyle,
-  });
+  const ctxProps = React.useContext(IconContext);
+  const size = localSize ?? ctxProps?.size ?? undefined;
   return (
     <svg
       aria-hidden={ariaHidden}
-      aria-label={title}
+      aria-label={title ?? ctxProps?.title}
       stroke="currentColor"
       fill="currentColor"
       strokeWidth="0"
       {...props}
-      className={className}
+      className={className ?? ctxProps?.className}
       role={role}
-      style={{ color, pointerEvents: 'none', ...style }}
+      style={{
+        color,
+        pointerEvents: 'none',
+        ...(style ?? ctxProps?.style),
+      }}
       width={Array.isArray(size) ? size[0] : size}
       height={Array.isArray(size) ? size[1] : size}
       xmlns={'http://www.w3.org/2000/svg'}
