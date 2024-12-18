@@ -1,6 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 import { mergeConfig } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 const config: StorybookConfig = {
   framework: {
@@ -9,10 +8,7 @@ const config: StorybookConfig = {
   },
   stories: ['../stories/**/*.@(mdx|stories.tsx)'],
   async viteFinal(config) {
-    // Merge custom configuration into the default config
     return mergeConfig(config, {
-      plugins: [tsconfigPaths()],
-      // Add dependencies to pre-optimization
       optimizeDeps: {
         include: [
           '@storybook/blocks',
@@ -31,6 +27,9 @@ const config: StorybookConfig = {
   docs: {
     autodocs: false,
   },
+  typescript: {
+    check: false
+  }
 };
 
 export default config;
