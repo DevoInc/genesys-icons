@@ -1,5 +1,15 @@
 # Changelog
 
+## [6.3.0](https://github.com/DevoInc/genesys-icons/compare/v6.2.0...v6.3.0) (2024-12-18)
+
+### Features
+
+* added react 19 compatibility ([43f1ae7](https://github.com/DevoInc/genesys-icons/commit/43f1ae79ecb9ae05e5e387c6e0714a9129d1861f))
+
+### Bug Fixes
+
+* removed repeated icon ([76e22b9](https://github.com/DevoInc/genesys-icons/commit/76e22b999a0562ff210fc8d5aa8d6e8f79b9f0b8))
+
 ## [6.2.0](https://github.com/DevoInc/genesys-icons/compare/v6.1.1...v6.2.0) (2024-12-11)
 
 
