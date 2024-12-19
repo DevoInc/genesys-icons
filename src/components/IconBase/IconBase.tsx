@@ -8,20 +8,23 @@ export interface IconBaseProps extends IIcon {}
 export const IconBase: React.FC<IconBaseProps> = ({
   'aria-hidden': ariaHidden = true,
   size: localSize,
-  title,
+  title: localTitle,
   className,
   color,
   style,
   role = 'img',
   children,
+  'data-name': dataName,
   ...props
 }) => {
   const ctxProps = React.useContext(IconContext);
   const size = localSize ?? ctxProps?.size ?? undefined;
+  const title = localTitle ?? ctxProps?.title ?? dataName ?? undefined;
   return (
     <svg
+      data-name={dataName}
       aria-hidden={ariaHidden}
-      aria-label={title ?? ctxProps?.title}
+      aria-label={title}
       stroke="currentColor"
       fill="currentColor"
       strokeWidth="0"
@@ -29,7 +32,7 @@ export const IconBase: React.FC<IconBaseProps> = ({
       className={className ?? ctxProps?.className}
       role={role}
       style={{
-        color,
+        color: color ?? ctxProps.color,
         pointerEvents: 'none',
         ...(style ?? ctxProps?.style),
       }}

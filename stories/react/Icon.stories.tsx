@@ -5,6 +5,7 @@ import {
   GICheckOk,
   GIDevoSymbolLogo,
   IconContext,
+  type IconContextProps,
   type IIcon,
 } from '../../dist/index.js';
 
@@ -51,12 +52,15 @@ export const Asymmetric: Story = {
   render: (props: IIcon) => <GIDevoSymbolLogo {...props} />,
 };
 
-export const Context: Story = {
-  render: (props: IIcon) => (
-    <IconContext.Provider
-      value={{ title: 'Some title', color: 'red', size: 64 }}
-    >
-      <GICheckOk {...props} />
+export const Context: StoryObj<IconContextProps> = {
+  args: {
+    title: 'Some title',
+    color: 'red',
+    size: 64,
+  },
+  render: (props: IconContextProps) => (
+    <IconContext.Provider value={props}>
+      <GICheckOk />
     </IconContext.Provider>
   ),
 };

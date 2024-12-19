@@ -12,5 +12,5 @@ import * as React from 'react';
 import { IconBase } from '../components';
 import type { IIcon } from '../declarations';
 
-export const ${name}: React.FC<IIcon> & { tags: string } = (props) => <IconBase data-name="${name}" data-tags="${tags}" title="${name}" viewBox="${viewBox}" {...props}>${content}</IconBase>;
+export const ${name}: React.FC<IIcon> & { tags: string } = (props) => <IconBase data-name="${name}" data-tags="${tags}" viewBox="${viewBox}" {...props}>${content}</IconBase>;
 ${name}.tags = "${tags}";`;
