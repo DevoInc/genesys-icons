@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.3.1](https://github.com/DevoInc/genesys-icons/compare/v6.3.0...v6.3.1) (2024-12-19)
+
+### Bug Fixes
+
+* color & title props problems ([d76567b](https://github.com/DevoInc/genesys-icons/commit/d76567b6fd38f83496b19c4360f38a3076c2cf2b))
+
 ## [6.3.0](https://github.com/DevoInc/genesys-icons/compare/v6.2.0...v6.3.0) (2024-12-18)
 
 ### Features
