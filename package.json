@@ -44,7 +44,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@types/node": "^22.10.2",
-    "@types/react": "^19.0.1",
+    "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@vitest/coverage-v8": "^2.1.8",
     "ahooks": "^3.8.4",
@@ -55,6 +55,8 @@
     "oxlint": "^0.15.3",
     "pascal-case": "^3.1.2",
     "prettier": "^3.4.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-popper": "^2.3.0",
     "react-window": "^1.8.11",
     "release-it": "^17.10.0",
@@ -66,7 +68,18 @@
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
+    "vite": "^5.4.11",
     "vitest": "^2.1.8"
+  },
+  "overrides": {
+    "esbuild": "0.24.0",
+    "ahooks": {
+      "react": "$react"
+    },
+    "react-popper": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
   },
   "publishConfig": {
     "access": "public"
