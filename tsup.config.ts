@@ -5,7 +5,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   dts: true,
-  //minify: 'terser',
+  minify: 'terser',
   format: ['esm', 'cjs'],
   metafile: true,
   treeshake: true,
