@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.3.4](https://github.com/DevoInc/genesys-icons/compare/v6.3.3...v6.3.4) (2025-01-15)
+
+### Bug Fixes
+
+* removed fill attribute from paths in entity_destination and entity_source ([5ae6317](https://github.com/DevoInc/genesys-icons/commit/5ae63176354a4adc8881020d438db40f6dab54bd))
+
 ## [6.3.3](https://github.com/DevoInc/genesys-icons/compare/v6.3.2...v6.3.3) (2024-12-20)
 
 ## [6.3.2](https://github.com/DevoInc/genesys-icons/compare/v6.3.1...v6.3.2) (2024-12-20)
