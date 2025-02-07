@@ -1,5 +1,7 @@
 # Changelog
 
+## [6.3.6](https://github.com/DevoInc/genesys-icons/compare/v6.3.5...v6.3.6) (2025-02-07)
+
 ## [6.3.5](https://github.com/DevoInc/genesys-icons/compare/v6.3.4...v6.3.5) (2025-01-24)
 
 ## [6.3.4](https://github.com/DevoInc/genesys-icons/compare/v6.3.3...v6.3.4) (2025-01-15)
