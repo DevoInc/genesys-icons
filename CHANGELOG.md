@@ -1,5 +1,16 @@
 # Changelog
 
+## [6.4.0](https://github.com/DevoInc/genesys-icons/compare/v6.3.7...v6.4.0) (2025-05-08)
+
+### Features
+
+* New 'Funnel chart' icon. ([e87d625](https://github.com/DevoInc/genesys-icons/commit/e87d6252a131777562813beb642a9f8dd93fbd8c))
+
+### Bug Fixes
+
+* fixed funnel icon name ([4742539](https://github.com/DevoInc/genesys-icons/commit/4742539390073fb7c1ea0a53e690fbec3a423129))
+* funnel icon removed xml line ([515cdd3](https://github.com/DevoInc/genesys-icons/commit/515cdd365e577b250c35c17750fa730b47def9b5))
+
 ## [6.3.7](https://github.com/DevoInc/genesys-icons/compare/v6.3.6...v6.3.7) (2025-03-20)
 
 ## [6.3.6](https://github.com/DevoInc/genesys-icons/compare/v6.3.5...v6.3.6) (2025-02-07)
