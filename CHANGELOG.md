@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.5.0](https://github.com/DevoInc/genesys-icons/compare/v6.4.0...v6.5.0) (2025-05-09)
+
+### Features
+
+* New icon for 'heart rate'. ([3bd3ac6](https://github.com/DevoInc/genesys-icons/commit/3bd3ac6d1d8ad1d8ddf5338c2bbee27b16d334e6))
+
 ## [6.4.0](https://github.com/DevoInc/genesys-icons/compare/v6.3.7...v6.4.0) (2025-05-08)
 
 ### Features
