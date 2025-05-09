@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.7.0](https://github.com/DevoInc/genesys-icons/compare/v6.6.0...v6.7.0) (2025-05-09)
+
+### Features
+
+* New icon for Ingestion and adjustments for Heart rate and UEBA icons. ([c33c2ec](https://github.com/DevoInc/genesys-icons/commit/c33c2ecf8fbd8af1173072a72ace382ab64e8b17))
+
 ## [6.6.0](https://github.com/DevoInc/genesys-icons/compare/v6.5.0...v6.6.0) (2025-05-09)
 
 ### Features
