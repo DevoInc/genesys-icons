@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.6.0](https://github.com/DevoInc/genesys-icons/compare/v6.5.0...v6.6.0) (2025-05-09)
+
+### Features
+
+* Added description to Funnel and Heart rate icons, and fixed colored paths in Automations SVG. ([a4db316](https://github.com/DevoInc/genesys-icons/commit/a4db316cb0f3f2dc9dd2dd67e8f540f9b841087e))
+* New icon for UEBA. ([f9b0cd7](https://github.com/DevoInc/genesys-icons/commit/f9b0cd743fd55603f2f2418482781431dd88fce1))
+
 ## [6.5.0](https://github.com/DevoInc/genesys-icons/compare/v6.4.0...v6.5.0) (2025-05-09)
 
 ### Features
