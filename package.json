@@ -17,7 +17,7 @@
     "generate:react": "tsx ./scripts/react/generate.ts",
     "generate:js": "tsx ./scripts/js/generate.ts",
     "validations": "npm run validations:iconName",
-    "validations:iconName": "tsx ./scripts/validations/checkIconsName.ts",
+    "validations:iconName": "tsx ./scripts/validations/iconName/checkIconName.ts",
     "lint": "oxlint -c oxlintrc.json",
     "build": "tsup",
     "clean": "rm -rf dist src/icons/GI* src/icons/index.ts",
