@@ -57,10 +57,21 @@ svgtofont({
   const variablesFile = resolve(pkgPath, `${config.fontName}-variables.scss`);
   fs.writeFileSync(variablesFile, variables, { encoding: 'utf8' });
 
+  const fontFaceReplaced = fontFace.replace(
+    /font-family: "(.*)"/,
+    `font-family: "gi"`,
+  );
+  const classGenericReplaced = classGeneric.replace(
+    /font-family: '(.*)'/,
+    `font-family: 'gi'`,
+  );
+
   // Rewrite styles file with classes referencing to SCSS variables
   fs.writeFileSync(
     stylesFile,
-    `${fontFace}\n\n${classGeneric}\n\n${getEditedIconClasses(classes)}`,
+    `${fontFaceReplaced}\n\n${classGenericReplaced}\n\n${getEditedIconClasses(
+      classes,
+    )}`,
     { encoding: 'utf8' },
   );
 
