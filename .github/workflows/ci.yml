@@ -79,6 +79,9 @@ jobs:
             dist
           key: ${{ runner.os }}-prepare-${{ env.cache-name }}-${{ github.sha }}
 
+      - name: Run validations
+        run: npm run validations
+
       - name: Run Eslint
         run: npm run lint
 

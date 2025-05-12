@@ -81,6 +81,9 @@ jobs:
             dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
+      - name: Run validations
+        run: npm run validations
+
       - name: Run linter
         run: npm run lint
 

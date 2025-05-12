@@ -57,6 +57,8 @@ svgtofont({
   const variablesFile = resolve(pkgPath, `${config.fontName}-variables.scss`);
   fs.writeFileSync(variablesFile, variables, { encoding: 'utf8' });
 
+  // Replace the font-family since svgicons2svgfont.fontName (that is suppose to
+  // do this) is not working
   const fontFaceReplaced = fontFace.replace(
     /font-family: "(.*)"/,
     `font-family: "gi"`,
