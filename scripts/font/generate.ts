@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 
 import { config } from '../../config';
 import { getEditedIconClasses } from './classEdition';
+import packageJson from '../../package.json';
 
 // paths
 const __filename = fileURLToPath(import.meta.url);
@@ -32,7 +33,7 @@ const strProps = Object.entries(customCSSProps).reduce((prev, curr) => {
 svgtofont({
   src: srcPath,
   dist: pkgPath,
-  fontName: config.fontName,
+  fontName: `${config.fontName}-${packageJson.version}`,
   css: {
     fileName: `${config.fontName}-styles`,
     // BEWARE: Bad practice ahead.
@@ -43,6 +44,7 @@ svgtofont({
     fontHeight: 1000,
     normalize: true,
   },
+  classNamePrefix: 'gi',
 }).then(() => {
   /* eslint-disable-next-line no-console */
   console.log('Font: Generated icons fonts!');
