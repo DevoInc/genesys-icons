@@ -45,15 +45,12 @@ jobs:
             dist
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Set Node v20
+      - name: Set Node v22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
           registry-url: https://registry.npmjs.org/
-
-      - name: Set NPM version
-        run: npm i -g npm@8
 
       - name: Install dependencies
         run: npm ci
