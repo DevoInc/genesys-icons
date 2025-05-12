@@ -1,5 +1,15 @@
 # Changelog
 
+## [7.0.0](https://github.com/DevoInc/genesys-icons/compare/v6.7.2...v7.0.0) (2025-05-12)
+
+### ⚠ BREAKING CHANGES
+
+* fix name of 'literal_fieldType' & 'literal_fieldType_dropdown'
+
+### Bug Fixes
+
+* fix name of 'literal_fieldType' & 'literal_fieldType_dropdown' ([b312647](https://github.com/DevoInc/genesys-icons/commit/b3126473e34a6f1f4e4fb00e3085a13a1da1bfc8))
+
 ## [6.7.2](https://github.com/DevoInc/genesys-icons/compare/v6.7.1...v6.7.2) (2025-05-12)
 
 ## [6.7.1](https://github.com/DevoInc/genesys-icons/compare/v6.7.0...v6.7.1) (2025-05-12)
