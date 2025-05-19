@@ -1,5 +1,11 @@
 # Changelog
 
+## [7.1.0](https://github.com/DevoInc/genesys-icons/compare/v7.0.0...v7.1.0) (2025-05-19)
+
+### Features
+
+* New icon for Machine learning models. ([09df302](https://github.com/DevoInc/genesys-icons/commit/09df302955f060721e6dcf703fc059b0affdfd46))
+
 ## [7.0.0](https://github.com/DevoInc/genesys-icons/compare/v6.7.2...v7.0.0) (2025-05-12)
 
 ### ⚠ BREAKING CHANGES
