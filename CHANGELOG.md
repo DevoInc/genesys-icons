@@ -1,5 +1,11 @@
 # Changelog
 
+## [7.2.0](https://github.com/DevoInc/genesys-icons/compare/v7.1.0...v7.2.0) (2025-05-27)
+
+### Features
+
+* New icon for a walkthrough. ([e930c03](https://github.com/DevoInc/genesys-icons/commit/e930c03f07e455b0580d6b6544f2b4ce4147c56b))
+
 ## [7.1.0](https://github.com/DevoInc/genesys-icons/compare/v7.0.0...v7.1.0) (2025-05-19)
 
 ### Features
