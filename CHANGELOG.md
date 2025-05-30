@@ -1,5 +1,11 @@
 # Changelog
 
+## [7.3.0](https://github.com/DevoInc/genesys-icons/compare/v7.2.0...v7.3.0) (2025-05-30)
+
+### Features
+
+* **QUV-3418:** New icon opposite to gi-zoom_expand_maximize_window and size increased for GIArrowXxxxSquare icons ([#50](https://github.com/DevoInc/genesys-icons/issues/50)) ([e98dcb2](https://github.com/DevoInc/genesys-icons/commit/e98dcb29f621801adcddd54b9e9d37ea56c9f214))
+
 ## [7.2.0](https://github.com/DevoInc/genesys-icons/compare/v7.1.0...v7.2.0) (2025-05-27)
 
 ### Features
