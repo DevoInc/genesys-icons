@@ -1,5 +1,11 @@
 # Changelog
 
+## [7.4.0](https://github.com/DevoInc/genesys-icons/compare/v7.3.0...v7.4.0) (2025-06-03)
+
+### Features
+
+* New design for icon 'bookmark_tag_solid'. ([c99c96d](https://github.com/DevoInc/genesys-icons/commit/c99c96de81ba2ae0d37598f9675d84565be6f23d))
+
 ## [7.3.0](https://github.com/DevoInc/genesys-icons/compare/v7.2.0...v7.3.0) (2025-05-30)
 
 ### Features
