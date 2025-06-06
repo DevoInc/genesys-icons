@@ -1,5 +1,11 @@
 # Changelog
 
+## [7.4.1](https://github.com/DevoInc/genesys-icons/compare/v7.4.0...v7.4.1) (2025-06-06)
+
+### Bug Fixes
+
+* Fixed the title and the description for Bookmark icons. ([8d26330](https://github.com/DevoInc/genesys-icons/commit/8d26330136553ec1d684aae8b5d10140bbb013a0))
+
 ## [7.4.0](https://github.com/DevoInc/genesys-icons/compare/v7.3.0...v7.4.0) (2025-06-03)
 
 ### Features
