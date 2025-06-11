@@ -76,24 +76,14 @@ svgtofont({
     /* eslint-disable-next-line no-console */
     console.log('Font: Renaming font-family');
 
-    ['css', 'scss', 'less', 'module.less', 'styl'].forEach((ext) => {
+    ['scss', 'css', 'less', 'module.less', 'styl'].forEach((ext) => {
       const file = resolve(pkgPath, `${config.fontName}-styles.${ext}`);
-      const allStyles = fs.readFileSync(file).toString();
-      const [fontFace, classGeneric, classes] = allStyles.split('\n\n');
+      const content = fs.readFileSync(file).toString();
 
-      const fontFaceReplaced = fontFace.replace(
-        /font-family: "(.*)"/,
-        `font-family: "gi"`,
-      );
-      const classGenericReplaced = classGeneric.replace(
-        /font-family: '(.*)'/,
-        `font-family: 'gi'`,
-      );
+      const newContent = content
+        .replace(/font-family: "(.*)"/, `font-family: "gi"`)
+        .replace(/font-family: '(.*)'/, `font-family: 'gi'`);
 
-      fs.writeFileSync(
-        file,
-        `${fontFaceReplaced}\n\n${classGenericReplaced}\n\n${getEditedIconClasses(classes)}`,
-        { encoding: 'utf8' },
-      );
+      fs.writeFileSync(file, newContent, { encoding: 'utf8' });
     });
   });
