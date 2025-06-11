@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.4.2](https://github.com/DevoInc/genesys-icons/compare/v7.4.1...v7.4.2) (2025-06-11)
+
+### Bug Fixes
+
+* improve generation dist files ([ed12184](https://github.com/DevoInc/genesys-icons/commit/ed1218453f226ca9aa3b5b0bda4365e99ea85a88))
+* renaming font family for all style files ([3e33071](https://github.com/DevoInc/genesys-icons/commit/3e33071a7d34cc8e3cf7a36feb4acd615dffed4a))
+
 ## [7.4.1](https://github.com/DevoInc/genesys-icons/compare/v7.4.0...v7.4.1) (2025-06-06)
 
 ### Bug Fixes
