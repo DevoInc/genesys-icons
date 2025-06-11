@@ -73,6 +73,7 @@ svgtofont({
     fs.writeFileSync(baseFile, baseContent, { encoding: 'utf8' });
   })
   .then(() => {
+    /* eslint-disable-next-line no-console */
     console.log('Font: Renaming font-family');
 
     ['css', 'scss', 'less', 'module.less', 'styl'].forEach((ext) => {
