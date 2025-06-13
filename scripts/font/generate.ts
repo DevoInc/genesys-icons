@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import { config } from '../../config';
 import { getEditedIconClasses } from './classEdition';
 import packageJson from '../../package.json';
+import { getPreviousCharCodes } from './utils';
 
 // paths
 const __filename = fileURLToPath(import.meta.url);
@@ -14,6 +15,44 @@ const __dirname = dirname(__filename);
 const basePath = resolve(__dirname, '..', '..');
 const pkgPath = resolve(basePath, 'dist');
 const srcPath = resolve(basePath, 'icons');
+const infoCodesPath = resolve(basePath, 'scripts', 'font', 'info.json');
+const updateInfoData = process.argv.includes('--ci');
+
+let counter = 0;
+const newIcons = {};
+const previousCharCodes = getPreviousCharCodes(infoCodesPath);
+
+const getNextFreeNumber = () => {
+  counter += 1;
+  return Math.max(...Object.values(previousCharCodes)) + counter;
+};
+
+const getIconUnicode = (
+  name: string,
+  unicode: string,
+  startUnicode: number,
+): [string, number] => {
+  if (previousCharCodes[name]) {
+    const number = previousCharCodes[name];
+    const cssHexadecimal = String.fromCharCode(number);
+    return [cssHexadecimal, number];
+  }
+  // eslint-disable-next-line no-console
+  console.log('New icon', name);
+  const nextNumber = getNextFreeNumber();
+  const cssHexadecimal = String.fromCharCode(nextNumber);
+  newIcons[name] = nextNumber;
+  return [cssHexadecimal, nextNumber];
+};
+
+const writeInfoData = () => {
+  if (updateInfoData) {
+    fs.writeFileSync(
+      infoCodesPath,
+      JSON.stringify({ ...previousCharCodes, ...newIcons }, null, 2),
+    );
+  }
+};
 
 // create the pkgPath if not exists
 fs.mkdirSync(pkgPath, { recursive: true });
@@ -42,6 +81,10 @@ svgtofont({
   },
   svgicons2svgfont: { fontHeight: 1000, normalize: true },
   classNamePrefix: 'gi',
+  // Custom function to get the unicode of the icon
+  getIconUnicode: getIconUnicode,
+  // we use info data to know previous unicode versions
+  generateInfoData: true,
 })
   .then(() => {
     /* eslint-disable-next-line no-console */
@@ -73,6 +116,7 @@ svgtofont({
     fs.writeFileSync(baseFile, baseContent, { encoding: 'utf8' });
   })
   .then(() => {
+    writeInfoData();
     /* eslint-disable-next-line no-console */
     console.log('Font: Renaming font-family');
 
