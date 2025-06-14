@@ -1,5 +1,16 @@
 # Changelog
 
+## [8.0.0](https://github.com/DevoInc/genesys-icons/compare/v7.4.2...v8.0.0) (2025-06-14)
+
+### ⚠ BREAKING CHANGES
+
+* fixed icons encoding
+
+### Features
+
+* fixed icons encoding ([9216fcc](https://github.com/DevoInc/genesys-icons/commit/9216fccd8fad3b156924dea2f03f9a640c509998))
+* include prev icons historial ([417076d](https://github.com/DevoInc/genesys-icons/commit/417076db58a16418e4638558962725efec9ed22e))
+
 ## [7.4.2](https://github.com/DevoInc/genesys-icons/compare/v7.4.1...v7.4.2) (2025-06-11)
 
 ### Bug Fixes
