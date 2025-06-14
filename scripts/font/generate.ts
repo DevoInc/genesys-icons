@@ -27,11 +27,7 @@ const getNextFreeNumber = () => {
   return Math.max(...Object.values(previousCharCodes)) + counter;
 };
 
-const getIconUnicode = (
-  name: string,
-  unicode: string,
-  startUnicode: number,
-): [string, number] => {
+const getIconUnicode = (name: string): [string, number] => {
   if (previousCharCodes[name]) {
     const number = previousCharCodes[name];
     const cssHexadecimal = String.fromCharCode(number);
@@ -110,6 +106,7 @@ svgtofont({
     }
 
     if (updateInfoData) {
+      // eslint-disable-next-line no-console
       console.log(`Updating ${iconsLockFileName} file`);
       fs.writeFileSync(
         infoCodesPath,
