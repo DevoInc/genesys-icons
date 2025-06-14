@@ -14,6 +14,7 @@
     "build-storybook": "storybook build",
     "generate": "npm run generate:font && npm run generate:js",
     "generate:font": "tsx ./scripts/font/generate.ts",
+    "generate:font:ci": "tsx ./scripts/font/generate.ts --ci",
     "generate:react": "tsx ./scripts/react/generate.ts",
     "generate:js": "tsx ./scripts/js/generate.ts",
     "validations": "npm run validations:iconName",

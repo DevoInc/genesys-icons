@@ -6,16 +6,16 @@ import { fileURLToPath } from 'url';
 
 import { config } from '../../config';
 import { getEditedIconClasses } from './classEdition';
-import packageJson from '../../package.json';
 import { getPreviousCharCodes } from './utils';
 
 // paths
+const iconsLockFileName = 'icons-lock.json';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const basePath = resolve(__dirname, '..', '..');
 const pkgPath = resolve(basePath, 'dist');
 const srcPath = resolve(basePath, 'icons');
-const infoCodesPath = resolve(basePath, 'scripts', 'font', 'info.json');
+const infoCodesPath = resolve(basePath, 'scripts', 'font', iconsLockFileName);
 const updateInfoData = process.argv.includes('--ci');
 
 let counter = 0;
@@ -45,15 +45,6 @@ const getIconUnicode = (
   return [cssHexadecimal, nextNumber];
 };
 
-const writeInfoData = () => {
-  if (updateInfoData) {
-    fs.writeFileSync(
-      infoCodesPath,
-      JSON.stringify({ ...previousCharCodes, ...newIcons }, null, 2),
-    );
-  }
-};
-
 // create the pkgPath if not exists
 fs.mkdirSync(pkgPath, { recursive: true });
 
@@ -72,7 +63,7 @@ const strProps = Object.entries(customCSSProps).reduce((prev, curr) => {
 svgtofont({
   src: srcPath,
   dist: pkgPath,
-  fontName: `${config.fontName}-${packageJson.version}`,
+  fontName: `${config.fontName}`,
   css: {
     fileName: `${config.fontName}-styles`,
     // BEWARE: Bad practice ahead.
@@ -80,11 +71,7 @@ svgtofont({
     fontSize: `inherit;  ${strProps}`,
   },
   svgicons2svgfont: { fontHeight: 1000, normalize: true },
-  classNamePrefix: 'gi',
-  // Custom function to get the unicode of the icon
-  getIconUnicode: getIconUnicode,
-  // we use info data to know previous unicode versions
-  generateInfoData: true,
+  getIconUnicode: getIconUnicode, // Custom function to get the unicode of the icon
 })
   .then(() => {
     /* eslint-disable-next-line no-console */
@@ -116,18 +103,17 @@ svgtofont({
     fs.writeFileSync(baseFile, baseContent, { encoding: 'utf8' });
   })
   .then(() => {
-    writeInfoData();
-    /* eslint-disable-next-line no-console */
-    console.log('Font: Renaming font-family');
+    if (Object.keys(newIcons).length > 0 && !updateInfoData) {
+      throw new Error(
+        `There are new icons not included in ${iconsLockFileName} file. Run the generate:font:ci script to update the file and commit the changes.`,
+      );
+    }
 
-    ['scss', 'css', 'less', 'module.less', 'styl'].forEach((ext) => {
-      const file = resolve(pkgPath, `${config.fontName}-styles.${ext}`);
-      const content = fs.readFileSync(file).toString();
-
-      const newContent = content
-        .replace(/font-family: "(.*)"/, `font-family: "gi"`)
-        .replace(/font-family: '(.*)'/, `font-family: 'gi'`);
-
-      fs.writeFileSync(file, newContent, { encoding: 'utf8' });
-    });
+    if (updateInfoData) {
+      console.log(`Updating ${iconsLockFileName} file`);
+      fs.writeFileSync(
+        infoCodesPath,
+        JSON.stringify({ ...previousCharCodes, ...newIcons }, null, 2),
+      );
+    }
   });
